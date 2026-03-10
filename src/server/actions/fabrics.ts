@@ -1,10 +1,14 @@
 "use server"
 
 import { db } from "~/server/db"
-import { designs } from "../db/schema"
 import { eq } from "drizzle-orm"
 import { revalidatePath } from "next/cache"
 import { redirect } from "next/navigation"
+
+import { designs, variants } from "~/server/db/schema"
+import { UTApi } from "uploadthing/server"
+
+const utapi = new UTApi()
 
 export async function getDesignsWithVariants() {
   try {
@@ -60,5 +64,40 @@ export async function updateFabricDetails(designId: number, category: string, de
     .where(eq(designs.id, designId))
 
   revalidatePath(`/admin/products/${designId}`)
+  revalidatePath("/admin/products")
+}
+
+export async function deleteFabricComplete(designId: number) {
+  const design = await db.query.designs.findFirst({
+    where: eq(designs.id, designId),
+    with: { variants: true }
+  })
+
+  if (!design) {
+    throw new Error("Fabric not found")
+  }
+
+  const fileKeys: string[] = []
+
+  if (design.displayImageUrl) {
+    const key = design.displayImageUrl.split("/f/")[1]
+    if (key) fileKeys.push(key)
+  }
+
+  design.variants.forEach((variant) => {
+    if (variant.imageUrl) {
+      const key = variant.imageUrl.split("/f/")[1]
+      if (key) fileKeys.push(key)
+    }
+  })
+
+  if (fileKeys.length > 0) {
+    await utapi.deleteFiles(fileKeys)
+  }
+
+  await db.delete(variants).where(eq(variants.designId, designId))
+  
+  await db.delete(designs).where(eq(designs.id, designId))
+
   revalidatePath("/admin/products")
 }

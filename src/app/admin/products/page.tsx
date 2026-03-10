@@ -9,6 +9,7 @@ import {
   TableRow,
 } from "~/components/ui/table";
 import { Button } from "~/components/ui/button";
+import DeleteFabricButton from "./DeleteFabricButton";
 
 export default async function AdminProductsPage() {
   const designs = await getDesignsWithVariants();
@@ -38,10 +39,11 @@ export default async function AdminProductsPage() {
                 <TableCell className="font-medium">{design.name}</TableCell>
                 <TableCell>{design.category ?? "None"}</TableCell>
                 <TableCell>{design.variants.length} colors</TableCell>
-                <TableCell className="text-right">
+                <TableCell className="space-x-2 text-right">
                   <Button variant="outline" size="sm" asChild>
                     <Link href={`/admin/products/${design.id}`}>Edit</Link>
                   </Button>
+                  <DeleteFabricButton id={design.id} />
                 </TableCell>
               </TableRow>
             ))}
