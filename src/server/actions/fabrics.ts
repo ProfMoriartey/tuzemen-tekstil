@@ -8,9 +8,18 @@ import { redirect } from "next/navigation"
 import { designs, variants } from "~/server/db/schema"
 import { UTApi } from "uploadthing/server"
 
+import { currentUser } from "@clerk/nextjs/server"
+
 const utapi = new UTApi()
 
 export async function getDesignsWithVariants() {
+
+  const user = await currentUser()
+  
+  if (user?.publicMetadata?.role !== "admin") {
+    throw new Error("Unauthorized: Admin access required")
+  }
+
   try {
     const data = await db.query.designs.findMany({
       with: {
@@ -25,6 +34,12 @@ export async function getDesignsWithVariants() {
 }
 
 export async function getDesignById(id: number) {
+
+  const user = await currentUser()
+  
+  if (user?.publicMetadata?.role !== "admin") {
+    throw new Error("Unauthorized: Admin access required")
+  }
   try {
     const data = await db.query.designs.findFirst({
       where: eq(designs.id, id),
@@ -40,6 +55,12 @@ export async function getDesignById(id: number) {
 }
 
 export async function createFabric(formData: FormData) {
+
+  const user = await currentUser()
+  
+  if (user?.publicMetadata?.role !== "admin") {
+    throw new Error("Unauthorized: Admin access required")
+  }
   const name = formData.get("name") as string
   const category = formData.get("category") as string
   const description = formData.get("description") as string
@@ -59,6 +80,12 @@ if (!newFabric) {
 }
 
 export async function updateFabricDetails(designId: number, category: string, description: string) {
+
+  const user = await currentUser()
+  
+  if (user?.publicMetadata?.role !== "admin") {
+    throw new Error("Unauthorized: Admin access required")
+  }
   await db.update(designs)
     .set({ category, description })
     .where(eq(designs.id, designId))
@@ -68,6 +95,13 @@ export async function updateFabricDetails(designId: number, category: string, de
 }
 
 export async function deleteFabricComplete(designId: number) {
+
+  const user = await currentUser()
+  
+  if (user?.publicMetadata?.role !== "admin") {
+    throw new Error("Unauthorized: Admin access required")
+  }
+  
   const design = await db.query.designs.findFirst({
     where: eq(designs.id, designId),
     with: { variants: true }

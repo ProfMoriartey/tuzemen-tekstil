@@ -1,8 +1,15 @@
+import { currentUser } from "@clerk/nextjs/server"
 import { ilike, or, exists, and, eq } from "drizzle-orm"
 import { db } from "~/server/db"
 import { designs, variants } from "~/server/db/schema"
 
 export async function getFilteredDesigns(query: string, sortBy: string, sortOrder: "asc" | "desc") {
+
+  const user = await currentUser()
+  
+  if (user?.publicMetadata?.role !== "admin") {
+    throw new Error("Unauthorized: Admin access required")
+  }
   const searchPattern = `%${query}%`
 
   const data = await db.query.designs.findMany({

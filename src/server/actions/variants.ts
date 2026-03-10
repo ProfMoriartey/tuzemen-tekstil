@@ -5,10 +5,18 @@ import { eq } from "drizzle-orm"
 import { db } from "~/server/db"
 import { variants, designs } from "~/server/db/schema"
 import { UTApi } from "uploadthing/server"
+import { currentUser } from "@clerk/nextjs/server"
 
 const utapi = new UTApi()
 
 export async function updateDisplayImage(designId: number, imageUrl: string) {
+
+  const user = await currentUser()
+  
+  if (user?.publicMetadata?.role !== "admin") {
+    throw new Error("Unauthorized: Admin access required")
+  }
+
   await db.update(designs)
     .set({ displayImageUrl: imageUrl })
     .where(eq(designs.id, designId))
@@ -17,6 +25,13 @@ export async function updateDisplayImage(designId: number, imageUrl: string) {
 }
 
 export async function createVariant(designId: number, color: string, imageUrl?: string) {
+
+  const user = await currentUser()
+  
+  if (user?.publicMetadata?.role !== "admin") {
+    throw new Error("Unauthorized: Admin access required")
+  }
+
   await db.insert(variants).values({
     designId,
     color,
@@ -27,6 +42,13 @@ export async function createVariant(designId: number, color: string, imageUrl?: 
 }
 
 export async function deleteVariant(variantId: number, designId: number, imageUrl: string | null) {
+
+  const user = await currentUser()
+  
+  if (user?.publicMetadata?.role !== "admin") {
+    throw new Error("Unauthorized: Admin access required")
+  }
+
   if (imageUrl) {
     const fileKey = imageUrl.split("/f/")[1]
     
@@ -40,6 +62,13 @@ export async function deleteVariant(variantId: number, designId: number, imageUr
 }
 
 export async function updateVariantImage(variantId: number, designId: number, imageUrl: string, oldImageUrl: string | null) {
+
+  const user = await currentUser()
+  
+  if (user?.publicMetadata?.role !== "admin") {
+    throw new Error("Unauthorized: Admin access required")
+  }
+
   if (oldImageUrl) {
     const fileKey = oldImageUrl.split("/f/")[1]
     
@@ -56,6 +85,13 @@ export async function updateVariantImage(variantId: number, designId: number, im
 }
 
 export async function deleteDisplayImage(designId: number, imageUrl: string) {
+
+  const user = await currentUser()
+  
+  if (user?.publicMetadata?.role !== "admin") {
+    throw new Error("Unauthorized: Admin access required")
+  }
+  
   const fileKey = imageUrl.split("/f/")[1]
   
   if (fileKey) {
