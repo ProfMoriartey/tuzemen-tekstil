@@ -5,9 +5,9 @@ import EditFabricClient from "./EditFabricClient";
 export default async function EditProductPage({
   params,
 }: {
-  params: { id: string };
+  params: Promise<{ id: string }>;
 }) {
-  const designId = parseInt(params.id);
+  const designId = parseInt((await params).id);
   const design = await getDesignById(designId);
 
   if (!design) {

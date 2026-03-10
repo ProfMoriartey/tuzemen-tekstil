@@ -20,7 +20,7 @@ export async function createVariant(designId: number, color: string, imageUrl?: 
   await db.insert(variants).values({
     designId,
     color,
-    imageUrl: imageUrl || null,
+    imageUrl: imageUrl ?? null,
   })
   
   revalidatePath(`/admin/products/${designId}`)

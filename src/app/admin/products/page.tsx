@@ -36,7 +36,7 @@ export default async function AdminProductsPage() {
             {designs.map((design) => (
               <TableRow key={design.id}>
                 <TableCell className="font-medium">{design.name}</TableCell>
-                <TableCell>{design.category || "None"}</TableCell>
+                <TableCell>{design.category ?? "None"}</TableCell>
                 <TableCell>{design.variants.length} colors</TableCell>
                 <TableCell className="text-right">
                   <Button variant="outline" size="sm" asChild>

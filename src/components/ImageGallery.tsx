@@ -10,14 +10,30 @@ import {
   CarouselPrevious,
 } from "~/components/ui/carousel";
 
-export default function ImageGallery({
-  design,
-  variants,
-}: {
-  design: any;
-  variants: any[];
-}) {
-  const defaultImage = design.displayImageUrl || "/placeholder.jpg";
+interface Variant {
+  id: number;
+  designId: number;
+  color: string;
+  sku: string | null;
+  imageUrl: string | null;
+}
+
+interface Design {
+  id: number;
+  name: string;
+  description: string | null;
+  category: string | null;
+  displayImageUrl: string | null;
+  createdAt: Date;
+}
+
+interface ImageGalleryProps {
+  design: Design;
+  variants: Variant[];
+}
+
+export default function ImageGallery({ design, variants }: ImageGalleryProps) {
+  const defaultImage = design.displayImageUrl ?? "/placeholder.jpg";
   const [activeImage, setActiveImage] = useState(defaultImage);
 
   return (
@@ -35,7 +51,7 @@ export default function ImageGallery({
       <Carousel className="mx-auto w-full max-w-sm">
         <CarouselContent className="-ml-1">
           {variants.map((variant) => {
-            const thumbImage = variant.imageUrl || "/placeholder.jpg";
+            const thumbImage = variant.imageUrl ?? "/placeholder.jpg";
             return (
               <CarouselItem key={variant.id} className="basis-1/4 pl-1">
                 <button

@@ -10,19 +10,44 @@ import {
   updateVariantImage,
   deleteDisplayImage,
 } from "~/server/actions/variants";
+import { updateFabricDetails } from "~/server/actions/fabrics";
 import { Button } from "~/components/ui/button";
 import { Input } from "~/components/ui/input";
 import { Label } from "~/components/ui/label";
-import { updateFabricDetails } from "~/server/actions/fabrics";
 import { Textarea } from "~/components/ui/textarea";
 
-export default function EditFabricClient({ design }: { design: any }) {
-  const [color, setColor] = useState("");
-  const [category, setCategory] = useState(design.category || "");
-  const [description, setDescription] = useState(design.description || "");
+interface Variant {
+  id: number;
+  designId: number;
+  color: string;
+  sku: string | null;
+  imageUrl: string | null;
+}
 
-  async function handleDelete(variantId: number, imageUrl: string | null) {
-    await deleteVariant(variantId, design.id, imageUrl);
+interface Design {
+  id: number;
+  name: string;
+  description: string | null;
+  category: string | null;
+  displayImageUrl: string | null;
+  createdAt: Date;
+  variants: Variant[];
+}
+
+export default function EditFabricClient({ design }: { design: Design }) {
+  const [color, setColor] = useState("");
+  const [category, setCategory] = useState(design.category ?? "");
+  const [description, setDescription] = useState(design.description ?? "");
+
+  async function handleSaveDetails() {
+    await updateFabricDetails(design.id, category, description);
+    alert("Fabric details saved");
+  }
+
+  async function handleDeleteDisplayImage() {
+    if (design.displayImageUrl) {
+      await deleteDisplayImage(design.id, design.displayImageUrl);
+    }
   }
 
   async function handleAddVariantWithoutImage() {
@@ -34,84 +59,80 @@ export default function EditFabricClient({ design }: { design: any }) {
     setColor("");
   }
 
-  async function handleDeleteDisplayImage() {
-    if (design.displayImageUrl) {
-      await deleteDisplayImage(design.id, design.displayImageUrl);
-    }
-  }
-
-  async function handleSaveDetails() {
-    await updateFabricDetails(design.id, category, description);
-    alert("Fabric details saved");
+  async function handleDelete(variantId: number, imageUrl: string | null) {
+    await deleteVariant(variantId, design.id, imageUrl);
   }
 
   return (
     <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
-      <div className="mb-8 space-y-6 rounded-lg border bg-white p-6 shadow-sm">
-        <h2 className="text-xl font-bold">Fabric Details</h2>
+      <div>
+        <div className="mb-8 space-y-6 rounded-lg border bg-white p-6 shadow-sm">
+          <h2 className="text-xl font-bold">Fabric Details</h2>
 
-        <div className="space-y-2">
-          <Label htmlFor="category">Category</Label>
-          <Input
-            id="category"
-            value={category}
-            onChange={(e) => setCategory(e.target.value)}
-            placeholder="e.g. Velvet, Cotton, Silk"
-          />
-        </div>
-
-        <div className="space-y-2">
-          <Label htmlFor="description">Description</Label>
-          <Textarea
-            id="description"
-            value={description}
-            onChange={(e) => setDescription(e.target.value)}
-            placeholder="Describe the fabric pattern and texture"
-            className="min-h-30"
-          />
-        </div>
-
-        <Button onClick={handleSaveDetails} className="w-full">
-          Save Details
-        </Button>
-      </div>
-      <div className="space-y-6 rounded-lg border bg-white p-6 shadow-sm">
-        <h2 className="text-xl font-bold">Main Display Image</h2>
-
-        {design.displayImageUrl ? (
-          <div className="space-y-4">
-            <div className="relative aspect-square w-full overflow-hidden rounded-lg border bg-slate-100 shadow-sm">
-              <Image
-                src={design.displayImageUrl}
-                alt={design.name}
-                fill
-                className="object-cover"
-              />
-            </div>
-            <Button
-              variant="destructive"
-              onClick={handleDeleteDisplayImage}
-              className="w-full"
-            >
-              Delete Main Image
-            </Button>
-          </div>
-        ) : (
-          <div className="flex aspect-square w-full flex-col items-center justify-center gap-4 rounded-lg border-2 border-dashed bg-slate-100 text-slate-500">
-            <span>No main image uploaded</span>
-            <UploadButton
-              endpoint="imageUploader"
-              onClientUploadComplete={async (res) => {
-                if (res?.[0]) {
-                  await updateDisplayImage(design.id, res[0].url);
-                }
-              }}
-              onUploadError={(error: Error) => {
-                alert(`Error: ${error.message}`);
-              }}
+          <div className="space-y-2">
+            <Label htmlFor="category">Category</Label>
+            <Input
+              id="category"
+              value={category}
+              onChange={(e) => setCategory(e.target.value)}
+              placeholder="e.g. Velvet, Cotton, Silk"
             />
           </div>
-        )}
+
+          <div className="space-y-2">
+            <Label htmlFor="description">Description</Label>
+            <Textarea
+              id="description"
+              value={description}
+              onChange={(e) => setDescription(e.target.value)}
+              placeholder="Describe the fabric pattern and texture"
+              className="min-h-30"
+            />
+          </div>
+
+          <Button onClick={handleSaveDetails} className="w-full">
+            Save Details
+          </Button>
+        </div>
+
+        <div className="space-y-6 rounded-lg border bg-white p-6 shadow-sm">
+          <h2 className="text-xl font-bold">Main Display Image</h2>
+
+          {design.displayImageUrl ? (
+            <div className="space-y-4">
+              <div className="relative aspect-square w-full overflow-hidden rounded-lg border bg-slate-100 shadow-sm">
+                <Image
+                  src={design.displayImageUrl}
+                  alt={design.name}
+                  fill
+                  className="object-cover"
+                />
+              </div>
+              <Button
+                variant="destructive"
+                onClick={handleDeleteDisplayImage}
+                className="w-full"
+              >
+                Delete Main Image
+              </Button>
+            </div>
+          ) : (
+            <div className="flex aspect-square w-full flex-col items-center justify-center gap-4 rounded-lg border-2 border-dashed bg-slate-100 p-4 text-slate-500">
+              <span>No main image uploaded</span>
+              <UploadButton
+                endpoint="imageUploader"
+                onClientUploadComplete={async (res) => {
+                  if (res?.[0]) {
+                    await updateDisplayImage(design.id, res[0].url);
+                  }
+                }}
+                onUploadError={(error: Error) => {
+                  alert(`Error: ${error.message}`);
+                }}
+              />
+            </div>
+          )}
+        </div>
       </div>
 
       <div className="space-y-6">
@@ -161,8 +182,9 @@ export default function EditFabricClient({ design }: { design: any }) {
 
         <div className="space-y-4 rounded-lg border bg-white p-6 shadow-sm">
           <h2 className="text-xl font-bold">Existing Variants</h2>
+
           <div className="space-y-4">
-            {design.variants.map((variant: any) => (
+            {design.variants.map((variant: Variant) => (
               <div
                 key={variant.id}
                 className="flex flex-col items-start justify-between gap-4 rounded-md border p-4 sm:flex-row sm:items-center"
@@ -178,7 +200,7 @@ export default function EditFabricClient({ design }: { design: any }) {
                       />
                     </div>
                   ) : (
-                    <div className="flex h-16 w-16 items-center justify-center rounded border bg-slate-50 text-xs text-slate-500">
+                    <div className="flex h-16 w-16 items-center justify-center rounded border bg-slate-50 p-1 text-center text-xs text-slate-500">
                       No image
                     </div>
                   )}

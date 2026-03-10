@@ -3,6 +3,11 @@ import ImageGallery from "~/components/ImageGallery";
 import { Badge } from "~/components/ui/badge";
 import { notFound } from "next/navigation";
 
+interface Variant {
+  id: number;
+  color: string;
+}
+
 export default async function ProductDetailsPage({
   params,
 }: {
@@ -28,20 +33,20 @@ export default async function ProductDetailsPage({
               {design.name}
             </h1>
             <p className="text-muted-foreground mt-2 text-lg">
-              {design.category || "Uncategorized"}
+              {design.category ?? "Uncategorized"}
             </p>
           </div>
 
           <div className="prose max-w-none">
             <p className="text-foreground leading-relaxed">
-              {design.description || "Detailed description coming soon."}
+              {design.description ?? "Detailed description coming soon."}
             </p>
           </div>
 
           <div className="border-t pt-6">
             <h2 className="mb-4 text-xl font-semibold">Available Colors</h2>
             <div className="flex flex-wrap gap-3">
-              {design.variants.map((variant: any) => (
+              {design.variants.map((variant: Variant) => (
                 <Badge
                   key={variant.id}
                   variant="secondary"
