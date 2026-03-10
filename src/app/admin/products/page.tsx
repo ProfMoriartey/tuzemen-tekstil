@@ -1,18 +1,18 @@
-import { getDesignsWithVariants } from "~/server/actions/fabrics";
+import { getFilteredDesigns } from "~/server/actions/filter";
 import Link from "next/link";
-import {
-  Table,
-  TableBody,
-  TableCell,
-  TableHead,
-  TableHeader,
-  TableRow,
-} from "~/components/ui/table";
 import { Button } from "~/components/ui/button";
-import DeleteFabricButton from "./DeleteFabricButton";
+import DataTable from "./DataTable";
 
-export default async function AdminProductsPage() {
-  const designs = await getDesignsWithVariants();
+export default async function AdminProductsPage({
+  searchParams,
+}: {
+  searchParams: Promise<{ q?: string; sort?: string; order?: string }>;
+}) {
+  const query = (await searchParams).q ?? "";
+  const sort = (await searchParams).sort ?? "createdAt";
+  const order = ((await searchParams).order as "asc" | "desc") ?? "desc";
+
+  const designs = await getFilteredDesigns(query, sort, order);
 
   return (
     <div className="space-y-6">
@@ -23,33 +23,7 @@ export default async function AdminProductsPage() {
         </Button>
       </div>
 
-      <div className="overflow-x-auto rounded-md border">
-        <Table className="min-w-150">
-          <TableHeader>
-            <TableRow>
-              <TableHead>Name</TableHead>
-              <TableHead>Category</TableHead>
-              <TableHead>Variants</TableHead>
-              <TableHead className="text-right">Actions</TableHead>
-            </TableRow>
-          </TableHeader>
-          <TableBody>
-            {designs.map((design) => (
-              <TableRow key={design.id}>
-                <TableCell className="font-medium">{design.name}</TableCell>
-                <TableCell>{design.category ?? "None"}</TableCell>
-                <TableCell>{design.variants.length} colors</TableCell>
-                <TableCell className="space-x-2 text-right">
-                  <Button variant="outline" size="sm" asChild>
-                    <Link href={`/admin/products/${design.id}`}>Edit</Link>
-                  </Button>
-                  <DeleteFabricButton id={design.id} />
-                </TableCell>
-              </TableRow>
-            ))}
-          </TableBody>
-        </Table>
-      </div>
+      <DataTable initialData={designs} />
     </div>
   );
 }
