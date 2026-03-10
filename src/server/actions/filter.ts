@@ -1,6 +1,6 @@
 import { ilike, or, exists, and, eq } from "drizzle-orm"
-import { designs, variants } from "../db/schema"
-import { db } from "../db"
+import { db } from "~/server/db"
+import { designs, variants } from "~/server/db/schema"
 
 export async function getFilteredDesigns(query: string, sortBy: string, sortOrder: "asc" | "desc") {
   const searchPattern = `%${query}%`
@@ -25,16 +25,19 @@ export async function getFilteredDesigns(query: string, sortBy: string, sortOrde
   })
 
   return data.sort((a, b) => {
-    let valueA: any = a[sortBy as keyof typeof a]
-    let valueB: any = b[sortBy as keyof typeof b]
+    let valueA: string | number | Date = ""
+    let valueB: string | number | Date = ""
 
     if (sortBy === "variants") {
       valueA = a.variants.length
       valueB = b.variants.length
-    }
+    } else {
+      const propA = (a as Record<string, unknown>)[sortBy]
+      const propB = (b as Record<string, unknown>)[sortBy]
 
-    if (valueA === null) valueA = ""
-    if (valueB === null) valueB = ""
+      valueA = typeof propA === "string" || typeof propA === "number" || propA instanceof Date ? propA : ""
+      valueB = typeof propB === "string" || typeof propB === "number" || propB instanceof Date ? propB : ""
+    }
 
     if (valueA < valueB) return sortOrder === "asc" ? -1 : 1
     if (valueA > valueB) return sortOrder === "asc" ? 1 : -1

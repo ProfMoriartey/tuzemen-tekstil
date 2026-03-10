@@ -15,7 +15,18 @@ import {
 } from "~/components/ui/table";
 import DeleteFabricButton from "./DeleteFabricButton";
 
-export default function DataTable({ initialData }: { initialData: any[] }) {
+interface Variant {
+  id: number;
+}
+
+interface Design {
+  id: number;
+  name: string;
+  category: string | null;
+  variants: Variant[];
+}
+
+export default function DataTable({ initialData }: { initialData: Design[] }) {
   const router = useRouter();
   const pathname = usePathname();
   const searchParams = useSearchParams();
@@ -49,7 +60,7 @@ export default function DataTable({ initialData }: { initialData: any[] }) {
     const isAscending = currentSort === column && currentOrder === "asc";
     const newOrder = isAscending ? "desc" : "asc";
 
-    let url = `${pathname}?${createQueryString("sort", column)}`;
+    const url = `${pathname}?${createQueryString("sort", column)}`;
 
     const params = new URLSearchParams(url.split("?")[1]);
     params.set("order", newOrder);
