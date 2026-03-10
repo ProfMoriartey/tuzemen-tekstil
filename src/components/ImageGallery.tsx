@@ -2,6 +2,13 @@
 
 import { useState } from "react";
 import Image from "next/image";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "~/components/ui/carousel";
 
 export default function ImageGallery({
   design,
@@ -15,7 +22,7 @@ export default function ImageGallery({
 
   return (
     <div className="flex w-full flex-col gap-4">
-      <div className="relative aspect-square w-full overflow-hidden rounded-lg bg-gray-100">
+      <div className="bg-muted relative aspect-square w-full overflow-hidden rounded-lg">
         <Image
           src={activeImage}
           alt={design.name}
@@ -25,27 +32,30 @@ export default function ImageGallery({
         />
       </div>
 
-      <div className="scrollbar-hide flex gap-2 overflow-x-auto pb-2">
-        {variants.map((variant) => {
-          const thumbImage = variant.imageUrl || "/placeholder.jpg";
-
-          return (
-            <button
-              key={variant.id}
-              onClick={() => setActiveImage(thumbImage)}
-              className="relative h-20 w-20 shrink-0 overflow-hidden rounded-md border-2 focus:outline-none"
-            >
-              <Image
-                src={thumbImage}
-                alt={variant.color}
-                fill
-                className="object-cover"
-                sizes="80px"
-              />
-            </button>
-          );
-        })}
-      </div>
+      <Carousel className="mx-auto w-full max-w-sm">
+        <CarouselContent className="-ml-1">
+          {variants.map((variant) => {
+            const thumbImage = variant.imageUrl || "/placeholder.jpg";
+            return (
+              <CarouselItem key={variant.id} className="basis-1/4 pl-1">
+                <button
+                  onClick={() => setActiveImage(thumbImage)}
+                  className="focus:ring-ring relative aspect-square w-full overflow-hidden rounded-md border-2 focus:ring-2"
+                >
+                  <Image
+                    src={thumbImage}
+                    alt={variant.color}
+                    fill
+                    className="object-cover"
+                  />
+                </button>
+              </CarouselItem>
+            );
+          })}
+        </CarouselContent>
+        <CarouselPrevious />
+        <CarouselNext />
+      </Carousel>
     </div>
   );
 }

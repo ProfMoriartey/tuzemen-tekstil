@@ -1,5 +1,6 @@
 import { getDesignById } from "~/server/actions/fabrics";
 import ImageGallery from "~/components/ImageGallery";
+import { Badge } from "~/components/ui/badge";
 import { notFound } from "next/navigation";
 
 export default async function ProductDetailsPage({
@@ -26,13 +27,13 @@ export default async function ProductDetailsPage({
             <h1 className="text-3xl font-bold tracking-wide uppercase">
               {design.name}
             </h1>
-            <p className="mt-2 text-lg text-gray-500">
+            <p className="text-muted-foreground mt-2 text-lg">
               {design.category || "Uncategorized"}
             </p>
           </div>
 
           <div className="prose max-w-none">
-            <p className="leading-relaxed text-gray-700">
+            <p className="text-foreground leading-relaxed">
               {design.description || "Detailed description coming soon."}
             </p>
           </div>
@@ -41,12 +42,13 @@ export default async function ProductDetailsPage({
             <h2 className="mb-4 text-xl font-semibold">Available Colors</h2>
             <div className="flex flex-wrap gap-3">
               {design.variants.map((variant: any) => (
-                <span
+                <Badge
                   key={variant.id}
-                  className="rounded-full border bg-gray-100 px-4 py-2 text-sm font-medium"
+                  variant="secondary"
+                  className="px-4 py-2 text-sm"
                 >
                   {variant.color}
-                </span>
+                </Badge>
               ))}
             </div>
           </div>
