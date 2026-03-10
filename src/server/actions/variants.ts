@@ -16,11 +16,11 @@ export async function updateDisplayImage(designId: number, imageUrl: string) {
   revalidatePath(`/admin/products/${designId}`)
 }
 
-export async function createVariant(designId: number, color: string, imageUrl: string) {
+export async function createVariant(designId: number, color: string, imageUrl?: string) {
   await db.insert(variants).values({
     designId,
     color,
-    imageUrl,
+    imageUrl: imageUrl || null,
   })
   
   revalidatePath(`/admin/products/${designId}`)
@@ -36,5 +36,35 @@ export async function deleteVariant(variantId: number, designId: number, imageUr
   }
 
   await db.delete(variants).where(eq(variants.id, variantId))
+  revalidatePath(`/admin/products/${designId}`)
+}
+
+export async function updateVariantImage(variantId: number, designId: number, imageUrl: string, oldImageUrl: string | null) {
+  if (oldImageUrl) {
+    const fileKey = oldImageUrl.split("/f/")[1]
+    
+    if (fileKey) {
+      await utapi.deleteFiles(fileKey)
+    }
+  }
+
+  await db.update(variants)
+    .set({ imageUrl })
+    .where(eq(variants.id, variantId))
+  
+  revalidatePath(`/admin/products/${designId}`)
+}
+
+export async function deleteDisplayImage(designId: number, imageUrl: string) {
+  const fileKey = imageUrl.split("/f/")[1]
+  
+  if (fileKey) {
+    await utapi.deleteFiles(fileKey)
+  }
+
+  await db.update(designs)
+    .set({ displayImageUrl: null })
+    .where(eq(designs.id, designId))
+  
   revalidatePath(`/admin/products/${designId}`)
 }

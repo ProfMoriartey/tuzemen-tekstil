@@ -53,3 +53,12 @@ if (!newFabric) {
   revalidatePath("/admin/products")
   redirect(`/admin/products/${newFabric.id}`)
 }
+
+export async function updateFabricDetails(designId: number, category: string, description: string) {
+  await db.update(designs)
+    .set({ category, description })
+    .where(eq(designs.id, designId))
+
+  revalidatePath(`/admin/products/${designId}`)
+  revalidatePath("/admin/products")
+}
