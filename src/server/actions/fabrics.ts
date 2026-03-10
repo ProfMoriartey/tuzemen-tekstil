@@ -14,12 +14,6 @@ const utapi = new UTApi()
 
 export async function getDesignsWithVariants() {
 
-  const user = await currentUser()
-  
-  if (user?.publicMetadata?.role !== "admin") {
-    throw new Error("Unauthorized: Admin access required")
-  }
-
   try {
     const data = await db.query.designs.findMany({
       with: {
@@ -35,11 +29,6 @@ export async function getDesignsWithVariants() {
 
 export async function getDesignById(id: number) {
 
-  const user = await currentUser()
-  
-  if (user?.publicMetadata?.role !== "admin") {
-    throw new Error("Unauthorized: Admin access required")
-  }
   try {
     const data = await db.query.designs.findFirst({
       where: eq(designs.id, id),
