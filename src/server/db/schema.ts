@@ -1,26 +1,29 @@
-// Example model schema from the Drizzle docs
-// https://orm.drizzle.team/docs/sql-schema-declaration
+import { pgTable, serial, text, varchar, timestamp, integer } from "drizzle-orm/pg-core";
+import { relations } from "drizzle-orm";
 
-import { index, pgTableCreator } from "drizzle-orm/pg-core";
+export const designs = pgTable("designs", {
+  id: serial("id").primaryKey(),
+  name: varchar("name", { length: 255 }).notNull(),
+  description: text("description"),
+  category: varchar("category", { length: 255 }),
+  createdAt: timestamp("created_at").defaultNow().notNull(),
+});
 
-/**
- * This is an example of how to use the multi-project schema feature of Drizzle ORM. Use the same
- * database instance for multiple projects.
- *
- * @see https://orm.drizzle.team/docs/goodies#multi-project-schema
- */
-export const createTable = pgTableCreator((name) => `tuzemen-tekstil_${name}`);
+export const variants = pgTable("variants", {
+  id: serial("id").primaryKey(),
+  designId: integer("design_id").references(() => designs.id).notNull(),
+  color: varchar("color", { length: 255 }).notNull(),
+  sku: varchar("sku", { length: 255 }).notNull(),
+  imageUrl: text("image_url").notNull(),
+});
 
-export const posts = createTable(
-  "post",
-  (d) => ({
-    id: d.integer().primaryKey().generatedByDefaultAsIdentity(),
-    name: d.varchar({ length: 256 }),
-    createdAt: d
-      .timestamp({ withTimezone: true })
-      .$defaultFn(() => /* @__PURE__ */ new Date())
-      .notNull(),
-    updatedAt: d.timestamp({ withTimezone: true }).$onUpdate(() => new Date()),
+export const designsRelations = relations(designs, ({ many }) => ({
+  variants: many(variants),
+}));
+
+export const variantsRelations = relations(variants, ({ one }) => ({
+  design: one(designs, {
+    fields: [variants.designId],
+    references: [designs.id],
   }),
-  (t) => [index("name_idx").on(t.name)],
-);
+}));
