@@ -10,11 +10,15 @@ import {
   updateVariantImage,
   deleteDisplayImage,
 } from "~/server/actions/variants";
-import { updateFabricDetails } from "~/server/actions/fabrics";
+
 import { Button } from "~/components/ui/button";
 import { Input } from "~/components/ui/input";
 import { Label } from "~/components/ui/label";
 import { Textarea } from "~/components/ui/textarea";
+import {
+  updateFabricDetails,
+  deleteFabricComplete,
+} from "~/server/actions/fabrics";
 
 interface Variant {
   id: number;
@@ -61,6 +65,16 @@ export default function EditFabricClient({ design }: { design: Design }) {
 
   async function handleDelete(variantId: number, imageUrl: string | null) {
     await deleteVariant(variantId, design.id, imageUrl);
+  }
+
+  async function handleDeleteEntireFabric() {
+    if (
+      window.confirm(
+        "Are you sure you want to delete this fabric and all its images completely? This action cannot be undone.",
+      )
+    ) {
+      await deleteFabricComplete(design.id);
+    }
   }
 
   return (
@@ -132,6 +146,20 @@ export default function EditFabricClient({ design }: { design: Design }) {
               />
             </div>
           )}
+        </div>
+        <div className="mt-8 space-y-4 rounded-lg border border-red-200 bg-red-50 p-6 shadow-sm">
+          <h2 className="text-xl font-bold text-red-700">Danger Zone</h2>
+          <p className="text-sm text-red-600">
+            Permanently remove this fabric, all its color variants, and all
+            associated images from your database and file storage.
+          </p>
+          <Button
+            variant="destructive"
+            onClick={handleDeleteEntireFabric}
+            className="w-full"
+          >
+            Delete Entire Fabric
+          </Button>
         </div>
       </div>
 

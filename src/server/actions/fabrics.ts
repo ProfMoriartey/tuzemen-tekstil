@@ -100,4 +100,5 @@ export async function deleteFabricComplete(designId: number) {
   await db.delete(designs).where(eq(designs.id, designId))
 
   revalidatePath("/admin/products")
+  redirect("/admin/products")
 }
