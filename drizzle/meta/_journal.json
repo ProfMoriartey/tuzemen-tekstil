@@ -8,6 +8,20 @@
       "when": 1773121746110,
       "tag": "0000_bent_killraven",
       "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "7",
+      "when": 1773122378810,
+      "tag": "0001_curious_caretaker",
+      "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "7",
+      "when": 1773122981104,
+      "tag": "0002_early_giant_girl",
+      "breakpoints": true
     }
   ]
 }

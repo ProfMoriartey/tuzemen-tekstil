@@ -1,0 +1,1 @@
+ALTER TABLE "designs" ADD COLUMN "display_image_url" text NOT NULL;
