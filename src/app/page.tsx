@@ -8,19 +8,22 @@ export default async function LandingPage() {
 
   return (
     <div className="flex min-h-screen flex-col">
-      {/* Hero Section */}
-      <section className="bg-slate-900 px-4 py-20 text-white md:py-32">
-        <div className="container mx-auto max-w-5xl text-center">
+      {/* Hero Section - Using theme-secondary (Dark) and theme-accent (Green) */}
+      <section className="bg-theme-secondary text-theme-bg relative overflow-hidden px-4 py-20 md:py-32">
+        {/* Subtle decorative circle using theme-primary */}
+        <div className="bg-theme-primary/10 absolute top-0 right-0 -mt-32 -mr-32 h-96 w-96 rounded-full blur-3xl"></div>
+
+        <div className="relative z-10 container mx-auto max-w-5xl text-center">
           <h1 className="mb-6 text-4xl font-bold tracking-tight uppercase md:text-6xl">
             Premium Fabrics for Every Space
           </h1>
-          <p className="mx-auto mb-10 max-w-2xl text-lg leading-relaxed text-slate-300 md:text-xl">
+          <p className="text-theme-primary mx-auto mb-10 max-w-2xl text-lg leading-relaxed md:text-xl">
             Discover our curated collection of high-quality sheers and drapery.
             Built to exact specifications with industry-leading materials.
           </p>
           <Link
             href="/products"
-            className="inline-flex items-center justify-center rounded-md bg-white px-8 py-4 font-bold tracking-wide text-slate-900 uppercase transition-colors hover:bg-slate-100"
+            className="bg-theme-accent text-theme-secondary inline-flex items-center justify-center rounded-md px-8 py-4 font-bold tracking-wide uppercase transition-opacity hover:opacity-90"
           >
             Explore Collection
             <ArrowRight className="ml-2 h-5 w-5" />
@@ -28,42 +31,42 @@ export default async function LandingPage() {
         </div>
       </section>
 
-      {/* Value Propositions */}
-      <section className="border-b bg-white px-4 py-16 md:py-24">
+      {/* Value Propositions - Using theme-bg and theme-accent */}
+      <section className="bg-theme-bg border-theme-primary/30 border-b px-4 py-16 md:py-24">
         <div className="container mx-auto max-w-6xl">
           <div className="grid grid-cols-1 gap-10 text-center md:grid-cols-3">
             <div className="flex flex-col items-center">
-              <div className="mb-4 rounded-full bg-slate-50 p-4">
-                <Palette className="h-8 w-8 text-slate-700" />
+              <div className="border-theme-primary/20 mb-4 rounded-full border bg-white p-4 shadow-sm">
+                <Palette className="text-theme-accent h-8 w-8" />
               </div>
-              <h3 className="mb-2 text-xl font-bold uppercase">
+              <h3 className="text-theme-text mb-2 text-xl font-bold uppercase">
                 Vibrant Variants
               </h3>
-              <p className="text-slate-500">
+              <p className="text-theme-text/70">
                 Extensive color options to match any design requirement.
               </p>
             </div>
 
             <div className="flex flex-col items-center">
-              <div className="mb-4 rounded-full bg-slate-50 p-4">
-                <Ruler className="h-8 w-8 text-slate-700" />
+              <div className="border-theme-primary/20 mb-4 rounded-full border bg-white p-4 shadow-sm">
+                <Ruler className="text-theme-accent h-8 w-8" />
               </div>
-              <h3 className="mb-2 text-xl font-bold uppercase">
+              <h3 className="text-theme-text mb-2 text-xl font-bold uppercase">
                 Exact Dimensions
               </h3>
-              <p className="text-slate-500">
+              <p className="text-theme-text/70">
                 Precise width and weight specifications listed for every fabric.
               </p>
             </div>
 
             <div className="flex flex-col items-center">
-              <div className="mb-4 rounded-full bg-slate-50 p-4">
-                <ShieldCheck className="h-8 w-8 text-slate-700" />
+              <div className="border-theme-primary/20 mb-4 rounded-full border bg-white p-4 shadow-sm">
+                <ShieldCheck className="text-theme-accent h-8 w-8" />
               </div>
-              <h3 className="mb-2 text-xl font-bold uppercase">
+              <h3 className="text-theme-text mb-2 text-xl font-bold uppercase">
                 Premium Quality
               </h3>
-              <p className="text-slate-500">
+              <p className="text-theme-text/70">
                 Durable compositions with optional leadbands for perfect
                 draping.
               </p>
@@ -73,20 +76,20 @@ export default async function LandingPage() {
       </section>
 
       {/* Featured Products */}
-      <section className="bg-slate-50 px-4 py-16 md:py-24">
+      <section className="bg-white px-4 py-16 md:py-24">
         <div className="container mx-auto max-w-6xl">
           <div className="mb-10 flex items-end justify-between">
             <div>
-              <h2 className="mb-2 text-3xl font-bold tracking-wide uppercase">
+              <h2 className="text-theme-text mb-2 text-3xl font-bold tracking-wide uppercase">
                 New Arrivals
               </h2>
-              <p className="text-slate-500">
+              <p className="text-theme-text/70">
                 Our latest additions to the catalog.
               </p>
             </div>
             <Link
               href="/products"
-              className="hidden items-center text-sm font-bold text-slate-900 uppercase transition-colors hover:text-slate-600 md:inline-flex"
+              className="text-theme-accent hover:text-theme-secondary hidden items-center text-sm font-bold uppercase transition-colors md:inline-flex"
             >
               View All
               <ArrowRight className="ml-1 h-4 w-4" />
@@ -102,7 +105,7 @@ export default async function LandingPage() {
           <div className="mt-8 text-center md:hidden">
             <Link
               href="/products"
-              className="inline-flex items-center border-b border-slate-900 pb-1 text-sm font-bold text-slate-900 uppercase"
+              className="text-theme-accent border-theme-accent inline-flex items-center border-b pb-1 text-sm font-bold uppercase"
             >
               View All Products
             </Link>
