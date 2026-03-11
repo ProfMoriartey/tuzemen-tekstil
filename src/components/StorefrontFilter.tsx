@@ -12,7 +12,6 @@ import {
   DialogContent,
   DialogHeader,
   DialogTitle,
-  DialogTrigger,
 } from "~/components/ui/dialog";
 
 export default function StorefrontFilter({
@@ -135,12 +134,16 @@ export default function StorefrontFilter({
           onChange={(e) => setSearchTerm(e.target.value)}
           className="flex-1"
         />
+        <Button
+          variant="outline"
+          size="icon"
+          className="shrink-0"
+          onClick={() => setIsOpen(true)}
+        >
+          <Filter className="h-4 w-4" />
+        </Button>
+
         <Dialog open={isOpen} onOpenChange={setIsOpen}>
-          <DialogTrigger asChild>
-            <Button variant="outline" size="icon" className="shrink-0">
-              <Filter className="h-4 w-4" />
-            </Button>
-          </DialogTrigger>
           <DialogContent className="w-[90vw] max-w-106.25 rounded-lg p-6">
             <DialogHeader className="mb-4">
               <DialogTitle className="text-xl">Filter Products</DialogTitle>
@@ -149,15 +152,15 @@ export default function StorefrontFilter({
             <div className="space-y-8 py-2">
               <div>
                 <h3 className="mb-4 text-lg font-semibold">Categories</h3>
-                {/* Independent scroll area for Categories */}
                 <div className="scrollbar-thin max-h-[25vh] space-y-3 overflow-y-auto pr-2">
                   {sortedCategories.map((category) => (
                     <div key={category} className="flex items-center space-x-2">
                       <Checkbox
+                        className="cursor-pointer"
                         id={`mobile-cat-${category}`}
                         checked={localCategories.includes(category)}
                         onCheckedChange={(checked) =>
-                          handleCategoryToggle(category, checked as boolean)
+                          handleCategoryToggle(category, checked === true)
                         }
                       />
                       <Label
@@ -176,20 +179,19 @@ export default function StorefrontFilter({
                 </div>
               </div>
 
-              {/* Separator */}
               <div className="border-t border-slate-100" />
 
               <div>
                 <h3 className="mb-4 text-lg font-semibold">Colors</h3>
-                {/* Independent scroll area for Colors */}
-                <div className="scrollbar-thin max-h-75 space-y-3 overflow-y-auto pr-2">
+                <div className="scrollbar-thin max-h-[25vh] space-y-3 overflow-y-auto pr-2">
                   {sortedColors.map((color) => (
                     <div key={color} className="flex items-center space-x-2">
                       <Checkbox
+                        className="cursor-pointer"
                         id={`mobile-color-${color}`}
                         checked={localColors.includes(color)}
                         onCheckedChange={(checked) =>
-                          handleColorToggle(color, checked as boolean)
+                          handleColorToggle(color, checked === true)
                         }
                       />
                       <Label
@@ -225,7 +227,6 @@ export default function StorefrontFilter({
         </Dialog>
       </div>
 
-      {/* Desktop view (hidden md:block) remains unchanged */}
       <div className="hidden space-y-8 md:block">
         <div>
           <h3 className="mb-4 text-lg font-semibold">Search</h3>
@@ -244,10 +245,11 @@ export default function StorefrontFilter({
               {sortedCategories.map((category) => (
                 <div key={category} className="flex items-center space-x-2">
                   <Checkbox
+                    className="cursor-pointer"
                     id={`desktop-cat-${category}`}
                     checked={localCategories.includes(category)}
                     onCheckedChange={(checked) =>
-                      handleCategoryToggle(category, checked as boolean)
+                      handleCategoryToggle(category, checked === true)
                     }
                   />
                   <Label
@@ -270,10 +272,11 @@ export default function StorefrontFilter({
               {sortedColors.map((color) => (
                 <div key={color} className="flex items-center space-x-2">
                   <Checkbox
+                    className="cursor-pointer"
                     id={`desktop-color-${color}`}
                     checked={localColors.includes(color)}
                     onCheckedChange={(checked) =>
-                      handleColorToggle(color, checked as boolean)
+                      handleColorToggle(color, checked === true)
                     }
                   />
                   <Label

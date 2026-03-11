@@ -25,12 +25,14 @@ export default async function StorefrontPage({
 }: {
   searchParams: Promise<{ q?: string; colors?: string; categories?: string }>;
 }) {
-  const query = (await searchParams).q ?? "";
-  const colorsArray = (await searchParams).colors
-    ? (await searchParams).colors.split(",").filter(Boolean)
+  const params = await searchParams;
+
+  const query = params.q ?? "";
+  const colorsArray = params.colors
+    ? params.colors.split(",").filter(Boolean)
     : [];
-  const categoriesArray = (await searchParams).categories
-    ? (await searchParams).categories.split(",").filter(Boolean)
+  const categoriesArray = params.categories
+    ? params.categories.split(",").filter(Boolean)
     : [];
 
   const [designs, availableColors, availableCategories] = await Promise.all([
@@ -38,7 +40,6 @@ export default async function StorefrontPage({
     getAvailableColors(),
     getAvailableCategories(),
   ]);
-
   return (
     <div className="container mx-auto p-4 md:p-8">
       <header className="mb-8 border-b pb-4">
@@ -59,7 +60,7 @@ export default async function StorefrontPage({
         </aside>
 
         <main className="flex-1">
-          <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="grid grid-cols-2 gap-6 sm:grid-cols-3 lg:grid-cols-4">
             {designs.length === 0 ? (
               <div className="col-span-full py-12 text-center text-slate-500">
                 No fabrics found matching your filters.

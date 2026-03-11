@@ -10,7 +10,11 @@ export async function getAvailableColors() {
 
 export async function getAvailableCategories() {
   const allDesigns = await db.select({ category: designs.category }).from(designs)
-  const uniqueCategories = Array.from(new Set(allDesigns.map(d => d.category).filter(Boolean)))
+  
+  const uniqueCategories = Array.from(
+    new Set(allDesigns.map(d => d.category).filter(Boolean) as string[])
+  )
+  
   return uniqueCategories.sort()
 }
 
