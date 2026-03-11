@@ -23,6 +23,10 @@ interface Design {
   id: number;
   name: string;
   category: string | null;
+  fabricType: string | null;
+  composition: string | null;
+  width: number | null;
+  hasLeadband: boolean | null;
   variants: Variant[];
 }
 
@@ -93,16 +97,28 @@ export default function DataTable({ initialData }: { initialData: Design[] }) {
                 Name <SortIndicator column="name" />
               </TableHead>
               <TableHead
-                className="cursor-pointer hover:bg-slate-50"
-                onClick={() => handleSort("category")}
+                className="hidden cursor-pointer hover:bg-slate-50 sm:table-cell"
+                onClick={() => handleSort("fabricType")}
               >
-                Category <SortIndicator column="category" />
+                Type <SortIndicator column="fabricType" />
+              </TableHead>
+              <TableHead
+                className="hidden cursor-pointer hover:bg-slate-50 lg:table-cell"
+                onClick={() => handleSort("composition")}
+              >
+                Composition <SortIndicator column="composition" />
+              </TableHead>
+              <TableHead
+                className="hidden cursor-pointer hover:bg-slate-50 xl:table-cell"
+                onClick={() => handleSort("width")}
+              >
+                Width <SortIndicator column="width" />
               </TableHead>
               <TableHead
                 className="hidden cursor-pointer hover:bg-slate-50 md:table-cell"
-                onClick={() => handleSort("variants")}
+                onClick={() => handleSort("hasLeadband")}
               >
-                Variants <SortIndicator column="variants" />
+                Leadband <SortIndicator column="hasLeadband" />
               </TableHead>
               <TableHead className="text-right">Actions</TableHead>
             </TableRow>
@@ -111,7 +127,7 @@ export default function DataTable({ initialData }: { initialData: Design[] }) {
             {initialData.length === 0 ? (
               <TableRow>
                 <TableCell
-                  colSpan={4}
+                  colSpan={6}
                   className="py-8 text-center text-slate-500"
                 >
                   No fabrics found.
@@ -121,9 +137,21 @@ export default function DataTable({ initialData }: { initialData: Design[] }) {
               initialData.map((design) => (
                 <TableRow key={design.id}>
                   <TableCell className="font-medium">{design.name}</TableCell>
-                  <TableCell>{design.category ?? "None"}</TableCell>
+                  <TableCell className="hidden sm:table-cell">
+                    {design.fabricType ?? "-"}
+                  </TableCell>
+                  <TableCell className="hidden lg:table-cell">
+                    {design.composition ?? "-"}
+                  </TableCell>
+                  <TableCell className="hidden xl:table-cell">
+                    {design.width ? `${design.width} cm` : "-"}
+                  </TableCell>
                   <TableCell className="hidden md:table-cell">
-                    {design.variants.length} colors
+                    {design.hasLeadband === true
+                      ? "Yes"
+                      : design.hasLeadband === false
+                        ? "No"
+                        : "-"}
                   </TableCell>
                   <TableCell className="text-right">
                     <div className="flex justify-end gap-2">

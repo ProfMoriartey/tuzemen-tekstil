@@ -1,0 +1,1290 @@
+[
+  {
+    "MaIn DesIgn": "ACCENT",
+    "COMPOSITION": "%100 PES",
+    "WIDTH": 320,
+    "GR/M2": 100,
+    "LEADBAND": "YES",
+    "TYPE": "SHEER"
+  },
+  {
+    "MaIn DesIgn": "ACCORD",
+    "COMPOSITION": "%72 PES+%18 FL+%10 SPY",
+    "WIDTH": 320,
+    "GR/M2": 100,
+    "LEADBAND": "YES",
+    "TYPE": "SHEER"
+  },
+  {
+    "MaIn DesIgn": "ACOUSTIC",
+    "COMPOSITION": "%40 PES+%40 CAD +%20\nSPY",
+    "WIDTH": 310,
+    "GR/M2": 113,
+    "LEADBAND": "YES",
+    "TYPE": "SHEER"
+  },
+  {
+    "MaIn DesIgn": "ALTO",
+    "COMPOSITION": "%78 PES+%16 WOOL+%6\nACR",
+    "WIDTH": 310,
+    "GR/M2": 111,
+    "LEADBAND": "YES",
+    "TYPE": "SHEER"
+  },
+  {
+    "MaIn DesIgn": "ANCONA",
+    "COMPOSITION": "%100 PES",
+    "WIDTH": 320,
+    "GR/M2": 155,
+    "LEADBAND": "NO",
+    "TYPE": "SHEER"
+  },
+  {
+    "MaIn DesIgn": "ARYA",
+    "COMPOSITION": "%56 PES+%34 WOOL+%10\nACR",
+    "WIDTH": 310,
+    "GR/M2": 134,
+    "LEADBAND": "YES",
+    "TYPE": "SHEER"
+  },
+  {
+    "MaIn DesIgn": "ASOS",
+    "COMPOSITION": "%100 PES",
+    "WIDTH": 300,
+    "GR/M2": 100,
+    "LEADBAND": "YES",
+    "TYPE": "SHEER"
+  },
+  {
+    "MaIn DesIgn": "ASPEN",
+    "COMPOSITION": "%90 PES+%10 COT",
+    "WIDTH": 305,
+    "GR/M2": 289,
+    "LEADBAND": "NO",
+    "TYPE": "DRAPERY"
+  },
+  {
+    "MaIn DesIgn": "AVANGARD",
+    "COMPOSITION": "%100 PES",
+    "WIDTH": 295,
+    "GR/M2": 82,
+    "LEADBAND": "NO",
+    "TYPE": "SHEER"
+  },
+  {
+    "MaIn DesIgn": "BAHAMA",
+    "COMPOSITION": "%100 PES",
+    "WIDTH": 300,
+    "GR/M2": 200,
+    "LEADBAND": "NO",
+    "TYPE": "DRAPERY"
+  },
+  {
+    "MaIn DesIgn": "BAMBOO",
+    "COMPOSITION": "%21 BAMBOO+%79 PES",
+    "WIDTH": 310,
+    "GR/M2": 182,
+    "LEADBAND": "YES",
+    "TYPE": "SHEER"
+  },
+  {
+    "MaIn DesIgn": "BANGKOK",
+    "COMPOSITION": "%100 PES",
+    "WIDTH": 290,
+    "GR/M2": 271,
+    "LEADBAND": "NO",
+    "TYPE": "DRAPERY"
+  },
+  {
+    "MaIn DesIgn": "BARITONE",
+    "COMPOSITION": "%40 PES+%40 CAD +%20\nSPY",
+    "WIDTH": 295,
+    "GR/M2": 278,
+    "LEADBAND": "NO",
+    "TYPE": "DRAPERY"
+  },
+  {
+    "MaIn DesIgn": "BINGO",
+    "COMPOSITION": "%100 PES",
+    "WIDTH": 330,
+    "GR/M2": 82,
+    "LEADBAND": "YES",
+    "TYPE": "SHEER"
+  },
+  {
+    "MaIn DesIgn": "BOLERO",
+    "COMPOSITION": "%63 PES+%24 WOOL+%13\nPAN",
+    "WIDTH": 310,
+    "GR/M2": 110,
+    "LEADBAND": "YES",
+    "TYPE": "SHEER"
+  },
+  {
+    "MaIn DesIgn": "BRESCIA ",
+    "COMPOSITION": "%73 PES +%17 SPY+%10\nSPN",
+    "WIDTH": 315,
+    "GR/M2": 192,
+    "LEADBAND": "NO",
+    "TYPE": "DRAPERY"
+  },
+  {
+    "MaIn DesIgn": "CAHANSON",
+    "COMPOSITION": "%83 PES + %17 VIS.",
+    "WIDTH": 300,
+    "GR/M2": 79,
+    "LEADBAND": "YES",
+    "TYPE": "SHEER"
+  },
+  {
+    "MaIn DesIgn": "CANON",
+    "COMPOSITION": "%75 PES + %25 SPN",
+    "WIDTH": 330,
+    "GR/M2": 120,
+    "LEADBAND": "YES",
+    "TYPE": "SHEER"
+  },
+  {
+    "MaIn DesIgn": "CANTO",
+    "COMPOSITION": "%46 PES+%32 LINEN+%22\nACR",
+    "WIDTH": 310,
+    "GR/M2": 110,
+    "LEADBAND": "YES",
+    "TYPE": "SHEER"
+  },
+  {
+    "MaIn DesIgn": "CAPPELA",
+    "COMPOSITION": "%100 PES",
+    "WIDTH": 300,
+    "GR/M2": 200,
+    "LEADBAND": "NO",
+    "TYPE": "DRAPERY"
+  },
+  {
+    "MaIn DesIgn": "CASENA",
+    "COMPOSITION": "%100 PES",
+    "WIDTH": 320,
+    "GR/M2": 147,
+    "LEADBAND": "NO",
+    "TYPE": "DRAPERY"
+  },
+  {
+    "MaIn DesIgn": "CENOVA",
+    "COMPOSITION": "%100 PES",
+    "WIDTH": 305,
+    "GR/M2": 120,
+    "LEADBAND": "YES",
+    "TYPE": "SHEER"
+  },
+  {
+    "MaIn DesIgn": "CHICAGO",
+    "COMPOSITION": "% 100 PES",
+    "WIDTH": 305,
+    "GR/M2": 366,
+    "LEADBAND": "NO",
+    "TYPE": "DRAPERY"
+  },
+  {
+    "MaIn DesIgn": "CHORD",
+    "COMPOSITION": "%73 PES +%17 SPY+%10\nSPN",
+    "WIDTH": 320,
+    "GR/M2": 134,
+    "LEADBAND": "YES",
+    "TYPE": "SHEER"
+  },
+  {
+    "MaIn DesIgn": "CONCERTO",
+    "COMPOSITION": "%100 PES",
+    "WIDTH": 320,
+    "GR/M2": 45,
+    "LEADBAND": "YES",
+    "TYPE": "SHEER"
+  },
+  {
+    "MaIn DesIgn": "CORFU",
+    "COMPOSITION": "%100 PES",
+    "WIDTH": 320,
+    "GR/M2": 72,
+    "LEADBAND": "YES",
+    "TYPE": "SHEER"
+  },
+  {
+    "MaIn DesIgn": "DIMI BLACKOUT",
+    "COMPOSITION": "%100 PES",
+    "WIDTH": 300,
+    "GR/M2": 251,
+    "LEADBAND": "NO",
+    "TYPE": "DIMI OUT"
+  },
+  {
+    "MaIn DesIgn": "DOLCE",
+    "COMPOSITION": "%100 PES",
+    "WIDTH": 315,
+    "GR/M2": 181,
+    "LEADBAND": "YES",
+    "TYPE": "SHEER"
+  },
+  {
+    "MaIn DesIgn": "DUBAI",
+    "COMPOSITION": "% 100 PES",
+    "WIDTH": 300,
+    "GR/M2": 200,
+    "LEADBAND": "NO",
+    "TYPE": "DRAPERY"
+  },
+  {
+    "MaIn DesIgn": "DUET",
+    "COMPOSITION": "%23 PES+%70 SKL+%7 SPY",
+    "WIDTH": 320,
+    "GR/M2": 132,
+    "LEADBAND": "YES",
+    "TYPE": "SHEER"
+  },
+  {
+    "MaIn DesIgn": "EFE",
+    "COMPOSITION": "%100 PES",
+    "WIDTH": 300,
+    "GR/M2": 203,
+    "LEADBAND": "NO",
+    "TYPE": "DRAPERY"
+  },
+  {
+    "MaIn DesIgn": "FILE",
+    "COMPOSITION": "%100 PES",
+    "WIDTH": 305,
+    "GR/M2": 151,
+    "LEADBAND": "YES",
+    "TYPE": "SHEER"
+  },
+  {
+    "MaIn DesIgn": "FINE",
+    "COMPOSITION": "%40 PES+%40 CAD +%20\nSPY",
+    "WIDTH": 290,
+    "GR/M2": 271,
+    "LEADBAND": "YES",
+    "TYPE": "SHEER"
+  },
+  {
+    "MaIn DesIgn": "FLAT",
+    "COMPOSITION": "%60 PES+%10 SPY+%15\nSPN+%15 COT",
+    "WIDTH": 285,
+    "GR/M2": 225,
+    "LEADBAND": "NO",
+    "TYPE": "DRAPERY"
+  },
+  {
+    "MaIn DesIgn": "FLORANSA",
+    "COMPOSITION": "%100 PES",
+    "WIDTH": 305,
+    "GR/M2": 120,
+    "LEADBAND": "YES",
+    "TYPE": "SHEER"
+  },
+  {
+    "MaIn DesIgn": "FLORIDA",
+    "COMPOSITION": "%100 PES",
+    "WIDTH": 305,
+    "GR/M2": 82,
+    "LEADBAND": "YES",
+    "TYPE": "SHEER"
+  },
+  {
+    "MaIn DesIgn": "FLUENCE",
+    "COMPOSITION": "%100 PES",
+    "WIDTH": 320,
+    "GR/M2": 46,
+    "LEADBAND": "YES",
+    "TYPE": "SHEER"
+  },
+  {
+    "MaIn DesIgn": "FLUX",
+    "COMPOSITION": "%70 PES+%30 SPN",
+    "WIDTH": 305,
+    "GR/M2": 103,
+    "LEADBAND": "YES",
+    "TYPE": "SHEER"
+  },
+  {
+    "MaIn DesIgn": "FORTE",
+    "COMPOSITION": "%100 PES",
+    "WIDTH": 310,
+    "GR/M2": 118,
+    "LEADBAND": "YES",
+    "TYPE": "SHEER"
+  },
+  {
+    "MaIn DesIgn": "HALLEY",
+    "COMPOSITION": "%100 PES",
+    "WIDTH": 305,
+    "GR/M2": 377,
+    "LEADBAND": "NO",
+    "TYPE": "DIMI OUT"
+  },
+  {
+    "MaIn DesIgn": "HAVANA",
+    "COMPOSITION": "%100 PES",
+    "WIDTH": 290,
+    "GR/M2": 284,
+    "LEADBAND": "NO",
+    "TYPE": "DRAPERY"
+  },
+  {
+    "MaIn DesIgn": "HELENA",
+    "COMPOSITION": "%100 PES",
+    "WIDTH": 310,
+    "GR/M2": 327,
+    "LEADBAND": "NO",
+    "TYPE": "DRAPERY"
+  },
+  {
+    "MaIn DesIgn": "HERA",
+    "COMPOSITION": "%100 PES",
+    "WIDTH": 320,
+    "GR/M2": 101,
+    "LEADBAND": "YES",
+    "TYPE": "SHEER"
+  },
+  {
+    "MaIn DesIgn": "HERRINGBONE",
+    "COMPOSITION": "%100 PES",
+    "WIDTH": 300,
+    "GR/M2": 320,
+    "LEADBAND": "NO",
+    "TYPE": "DRAPERY"
+  },
+  {
+    "MaIn DesIgn": "INTRO",
+    "COMPOSITION": "%37 PES+%16 SPN+%47\nCAD",
+    "WIDTH": 285,
+    "GR/M2": 199,
+    "LEADBAND": "NO",
+    "TYPE": "DRAPERY"
+  },
+  {
+    "MaIn DesIgn": "KALKAN",
+    "COMPOSITION": "%100 PES",
+    "WIDTH": 300,
+    "GR/M2": 66,
+    "LEADBAND": "YES",
+    "TYPE": "SHEER"
+  },
+  {
+    "MaIn DesIgn": "KANSAS",
+    "COMPOSITION": "%100 PES",
+    "WIDTH": 280,
+    "GR/M2": 132,
+    "LEADBAND": "YES",
+    "TYPE": "SHEER"
+  },
+  {
+    "MaIn DesIgn": "KOS",
+    "COMPOSITION": "%100 PES",
+    "WIDTH": 320,
+    "GR/M2": 77,
+    "LEADBAND": "YES",
+    "TYPE": "SHEER"
+  },
+  {
+    "MaIn DesIgn": "KREP",
+    "COMPOSITION": "%100 PES",
+    "WIDTH": 320,
+    "GR/M2": 73,
+    "LEADBAND": "YES",
+    "TYPE": "SHEER"
+  },
+  {
+    "MaIn DesIgn": "LAGUNA",
+    "COMPOSITION": "%100 PES",
+    "WIDTH": 320,
+    "GR/M2": 118,
+    "LEADBAND": "YES",
+    "TYPE": "SHEER"
+  },
+  {
+    "MaIn DesIgn": "LECCE",
+    "COMPOSITION": "%100 PES",
+    "WIDTH": 280,
+    "GR/M2": 253,
+    "LEADBAND": "NO",
+    "TYPE": "DRAPERY"
+  },
+  {
+    "MaIn DesIgn": "LEGATO",
+    "COMPOSITION": "%40 PES+%40 CAD +%20\nSPY",
+    "WIDTH": 310,
+    "GR/M2": 327,
+    "LEADBAND": "NO",
+    "TYPE": "DRAPERY"
+  },
+  {
+    "MaIn DesIgn": "LIMA",
+    "COMPOSITION": "%100 PES",
+    "WIDTH": 300,
+    "GR/M2": 125,
+    "LEADBAND": "YES",
+    "TYPE": "SHEER"
+  },
+  {
+    "MaIn DesIgn": "LIMNI",
+    "COMPOSITION": "%100 PES",
+    "WIDTH": 320,
+    "GR/M2": 138,
+    "LEADBAND": "YES",
+    "TYPE": "SHEER"
+  },
+  {
+    "MaIn DesIgn": "LIVERPOOL",
+    "COMPOSITION": "%100 PES",
+    "WIDTH": 320,
+    "GR/M2": 56,
+    "LEADBAND": "YES",
+    "TYPE": "SHEER"
+  },
+  {
+    "MaIn DesIgn": "LIZBON",
+    "COMPOSITION": "%100 PES",
+    "WIDTH": 280,
+    "GR/M2": 241,
+    "LEADBAND": "NO",
+    "TYPE": "DRAPERY"
+  },
+  {
+    "MaIn DesIgn": "MAJESTIK",
+    "COMPOSITION": "%100 PES",
+    "WIDTH": 320,
+    "GR/M2": 66,
+    "LEADBAND": "YES",
+    "TYPE": "SHEER"
+  },
+  {
+    "MaIn DesIgn": "MALIBU",
+    "COMPOSITION": "%100 PES",
+    "WIDTH": 305,
+    "GR/M2": 76,
+    "LEADBAND": "YES",
+    "TYPE": "SHEER"
+  },
+  {
+    "MaIn DesIgn": "MALTA",
+    "COMPOSITION": "%100 PES",
+    "WIDTH": 320,
+    "GR/M2": 54,
+    "LEADBAND": "YES",
+    "TYPE": "SHEER"
+  },
+  {
+    "MaIn DesIgn": "MANILA",
+    "COMPOSITION": "%100 PES",
+    "WIDTH": 290,
+    "GR/M2": 257,
+    "LEADBAND": "NO",
+    "TYPE": "DRAPERY"
+  },
+  {
+    "MaIn DesIgn": "MARS",
+    "COMPOSITION": "%100 PES",
+    "WIDTH": 305,
+    "GR/M2": 255,
+    "LEADBAND": "NO",
+    "TYPE": "DRAPERY"
+  },
+  {
+    "MaIn DesIgn": "MASAL",
+    "COMPOSITION": "%100 PES",
+    "WIDTH": 290,
+    "GR/M2": 74,
+    "LEADBAND": "NO",
+    "TYPE": "SHEER"
+  },
+  {
+    "MaIn DesIgn": "MASSA",
+    "COMPOSITION": "%31 COTTON+%30\nSPY+%39 PES",
+    "WIDTH": 300,
+    "GR/M2": 236,
+    "LEADBAND": "NO",
+    "TYPE": "DRAPERY"
+  },
+  {
+    "MaIn DesIgn": "MESSINA",
+    "COMPOSITION": "%83 PES + %17 VIS.",
+    "WIDTH": 300,
+    "GR/M2": 91,
+    "LEADBAND": "YES",
+    "TYPE": "SHEER"
+  },
+  {
+    "MaIn DesIgn": "MEZZO",
+    "COMPOSITION": "%40 PES+%40 CAD +%20\nSPY",
+    "WIDTH": 290,
+    "GR/M2": 380,
+    "LEADBAND": "NO",
+    "TYPE": "DRAPERY"
+  },
+  {
+    "MaIn DesIgn": "MIDILLI",
+    "COMPOSITION": "%100 PES",
+    "WIDTH": 320,
+    "GR/M2": 31,
+    "LEADBAND": "YES",
+    "TYPE": "SHEER"
+  },
+  {
+    "MaIn DesIgn": "MILOS",
+    "COMPOSITION": "%100 PES",
+    "WIDTH": 320,
+    "GR/M2": 61,
+    "LEADBAND": "YES",
+    "TYPE": "SHEER"
+  },
+  {
+    "MaIn DesIgn": "MODENA",
+    "COMPOSITION": "%100 PES",
+    "WIDTH": 290,
+    "GR/M2": 380,
+    "LEADBAND": "NO",
+    "TYPE": "DRAPERY"
+  },
+  {
+    "MaIn DesIgn": "MONZA",
+    "COMPOSITION": "%100 PES",
+    "WIDTH": 305,
+    "GR/M2": 98,
+    "LEADBAND": "YES",
+    "TYPE": "SHEER"
+  },
+  {
+    "MaIn DesIgn": "MOON",
+    "COMPOSITION": "%100 PES",
+    "WIDTH": 305,
+    "GR/M2": 245,
+    "LEADBAND": "NO",
+    "TYPE": "DRAPERY"
+  },
+  {
+    "MaIn DesIgn": "MUDANYA",
+    "COMPOSITION": "%100 PES",
+    "WIDTH": 300,
+    "GR/M2": 80,
+    "LEADBAND": "NO",
+    "TYPE": "SHEER"
+  },
+  {
+    "MaIn DesIgn": "NEON",
+    "COMPOSITION": "%100 PES",
+    "WIDTH": 320,
+    "GR/M2": 85,
+    "LEADBAND": "YES",
+    "TYPE": "SHEER"
+  },
+  {
+    "MaIn DesIgn": "NEPTUN",
+    "COMPOSITION": "%100 PES",
+    "WIDTH": 305,
+    "GR/M2": 239,
+    "LEADBAND": "NO",
+    "TYPE": "DRAPERY"
+  },
+  {
+    "MaIn DesIgn": "NEWYORK",
+    "COMPOSITION": "%100 PES",
+    "WIDTH": 320,
+    "GR/M2": 127,
+    "LEADBAND": "YES",
+    "TYPE": "SHEER"
+  },
+  {
+    "MaIn DesIgn": "NICE CREP",
+    "COMPOSITION": "%100 PES",
+    "WIDTH": 320,
+    "GR/M2": 71,
+    "LEADBAND": "YES",
+    "TYPE": "SHEER"
+  },
+  {
+    "MaIn DesIgn": "NO HOLE",
+    "COMPOSITION": "%100 PES",
+    "WIDTH": 305,
+    "GR/M2": 108,
+    "LEADBAND": "YES",
+    "TYPE": "SHEER"
+  },
+  {
+    "MaIn DesIgn": "OCTAVE",
+    "COMPOSITION": "%47 PES+%13 CAD+%20\nSPY+%20 SPN",
+    "WIDTH": 320,
+    "GR/M2": 170,
+    "LEADBAND": "NO",
+    "TYPE": "SHEER"
+  },
+  {
+    "MaIn DesIgn": "OSLO",
+    "COMPOSITION": "%100 PES",
+    "WIDTH": 310,
+    "GR/M2": 210,
+    "LEADBAND": "NO",
+    "TYPE": "DRAPERY"
+  },
+  {
+    "MaIn DesIgn": "OYKU",
+    "COMPOSITION": "%100 PES",
+    "WIDTH": 280,
+    "GR/M2": 68,
+    "LEADBAND": "NO",
+    "TYPE": "SHEER"
+  },
+  {
+    "MaIn DesIgn": "PARIS",
+    "COMPOSITION": "%100 PES",
+    "WIDTH": 320,
+    "GR/M2": 40,
+    "LEADBAND": "YES",
+    "TYPE": "SHEER"
+  },
+  {
+    "MaIn DesIgn": "PARLAK KREP",
+    "COMPOSITION": "%100 PES",
+    "WIDTH": 330,
+    "GR/M2": 68,
+    "LEADBAND": "YES",
+    "TYPE": "SHEER"
+  },
+  {
+    "MaIn DesIgn": "PARMA",
+    "COMPOSITION": "%100 PES",
+    "WIDTH": 280,
+    "GR/M2": 241,
+    "LEADBAND": "NO",
+    "TYPE": "DRAPERY"
+  },
+  {
+    "MaIn DesIgn": "PEKIN",
+    "COMPOSITION": "%100 PES",
+    "WIDTH": 315,
+    "GR/M2": 120,
+    "LEADBAND": "YES",
+    "TYPE": "SHEER"
+  },
+  {
+    "MaIn DesIgn": "PERA",
+    "COMPOSITION": "%100 PES",
+    "WIDTH": 330,
+    "GR/M2": 98,
+    "LEADBAND": "YES",
+    "TYPE": "SHEER"
+  },
+  {
+    "MaIn DesIgn": "PESCARA",
+    "COMPOSITION": "%100 PES",
+    "WIDTH": 310,
+    "GR/M2": 71,
+    "LEADBAND": "YES",
+    "TYPE": "SHEER"
+  },
+  {
+    "MaIn DesIgn": "PLANET",
+    "COMPOSITION": "%100 PES",
+    "WIDTH": 300,
+    "GR/M2": 116,
+    "LEADBAND": "YES",
+    "TYPE": "SHEER"
+  },
+  {
+    "MaIn DesIgn": "PLOVDIV",
+    "COMPOSITION": "%100 PES",
+    "WIDTH": 295,
+    "GR/M2": 111,
+    "LEADBAND": "NO",
+    "TYPE": "SHEER"
+  },
+  {
+    "MaIn DesIgn": "PLUTON",
+    "COMPOSITION": "%100 PES",
+    "WIDTH": 305,
+    "GR/M2": 278,
+    "LEADBAND": "NO",
+    "TYPE": "DRAPERY"
+  },
+  {
+    "MaIn DesIgn": "POLARIS",
+    "COMPOSITION": "%100 PES",
+    "WIDTH": 300,
+    "GR/M2": 200,
+    "LEADBAND": "NO",
+    "TYPE": "DRAPERY"
+  },
+  {
+    "MaIn DesIgn": "PORTOFINO",
+    "COMPOSITION": "%100 PES",
+    "WIDTH": 280,
+    "GR/M2": 223,
+    "LEADBAND": "NO",
+    "TYPE": "DRAPERY"
+  },
+  {
+    "MaIn DesIgn": "PRELUDE",
+    "COMPOSITION": "%42 PES+%16 SPY+%30\nSPN+%12 FDY",
+    "WIDTH": 320,
+    "GR/M2": 92,
+    "LEADBAND": "YES",
+    "TYPE": "SHEER"
+  },
+  {
+    "MaIn DesIgn": "QUBA",
+    "COMPOSITION": "%100 PES",
+    "WIDTH": 310,
+    "GR/M2": 87,
+    "LEADBAND": "YES",
+    "TYPE": "SHEER"
+  },
+  {
+    "MaIn DesIgn": "QUBIK ZIRH",
+    "COMPOSITION": "%100 PES",
+    "WIDTH": 315,
+    "GR/M2": 80,
+    "LEADBAND": "NO",
+    "TYPE": "SHEER"
+  },
+  {
+    "MaIn DesIgn": "REGULUS",
+    "COMPOSITION": "%100 PES",
+    "WIDTH": 305,
+    "GR/M2": 255,
+    "LEADBAND": "NO",
+    "TYPE": "DRAPERY"
+  },
+  {
+    "MaIn DesIgn": "RHYTHM",
+    "COMPOSITION": "%100 PES",
+    "WIDTH": 320,
+    "GR/M2": 110,
+    "LEADBAND": "YES",
+    "TYPE": "SHEER"
+  },
+  {
+    "MaIn DesIgn": "RIGA",
+    "COMPOSITION": "%100 PES",
+    "WIDTH": 300,
+    "GR/M2": 371,
+    "LEADBAND": "NO",
+    "TYPE": "DRAPERY"
+  },
+  {
+    "MaIn DesIgn": "RIGA BLACKOUT",
+    "COMPOSITION": "%100 PES",
+    "WIDTH": 300,
+    "GR/M2": 302,
+    "LEADBAND": "NO",
+    "TYPE": "DIMI OUT"
+  },
+  {
+    "MaIn DesIgn": "ROMEO",
+    "COMPOSITION": "%100 PES",
+    "WIDTH": 290,
+    "GR/M2": 380,
+    "LEADBAND": "NO",
+    "TYPE": "DRAPERY"
+  },
+  {
+    "MaIn DesIgn": "SALSA",
+    "COMPOSITION": "%100 PES",
+    "WIDTH": 320,
+    "GR/M2": 79,
+    "LEADBAND": "YES",
+    "TYPE": "SHEER"
+  },
+  {
+    "MaIn DesIgn": "SAMOS",
+    "COMPOSITION": "%100 PES",
+    "WIDTH": 320,
+    "GR/M2": 180,
+    "LEADBAND": "YES",
+    "TYPE": "SHEER"
+  },
+  {
+    "MaIn DesIgn": "SANTORINI",
+    "COMPOSITION": "%87 PES +%13 LINEN",
+    "WIDTH": 310,
+    "GR/M2": 75,
+    "LEADBAND": "YES",
+    "TYPE": "SHEER"
+  },
+  {
+    "MaIn DesIgn": "SASSARI",
+    "COMPOSITION": "%100 PES",
+    "WIDTH": 310,
+    "GR/M2": 126,
+    "LEADBAND": "YES",
+    "TYPE": "SHEER"
+  },
+  {
+    "MaIn DesIgn": "SCALE",
+    "COMPOSITION": "%40 PES+%40 CAD +%20\nSPY",
+    "WIDTH": 290,
+    "GR/M2": 284,
+    "LEADBAND": "NO",
+    "TYPE": "DRAPERY"
+  },
+  {
+    "MaIn DesIgn": "SEATLE",
+    "COMPOSITION": "%100 PES",
+    "WIDTH": 285,
+    "GR/M2": 115,
+    "LEADBAND": "YES",
+    "TYPE": "SHEER"
+  },
+  {
+    "MaIn DesIgn": "SEOUL",
+    "COMPOSITION": "%100 PES",
+    "WIDTH": 300,
+    "GR/M2": 110,
+    "LEADBAND": "YES",
+    "TYPE": "SHEER"
+  },
+  {
+    "MaIn DesIgn": "SERIK",
+    "COMPOSITION": "%100 PES",
+    "WIDTH": 300,
+    "GR/M2": 63,
+    "LEADBAND": "YES",
+    "TYPE": "SHEER"
+  },
+  {
+    "MaIn DesIgn": "SHINE",
+    "COMPOSITION": "%100 PES",
+    "WIDTH": 305,
+    "GR/M2": 49,
+    "LEADBAND": "YES",
+    "TYPE": "SHEER"
+  },
+  {
+    "MaIn DesIgn": "SHINY STEEL",
+    "COMPOSITION": "%90 PES+%10 LUREX",
+    "WIDTH": 305,
+    "GR/M2": 111,
+    "LEADBAND": "YES",
+    "TYPE": "SHEER"
+  },
+  {
+    "MaIn DesIgn": "SILK KREP",
+    "COMPOSITION": "%100 PES",
+    "WIDTH": 325,
+    "GR/M2": 87,
+    "LEADBAND": "YES",
+    "TYPE": "SHEER"
+  },
+  {
+    "MaIn DesIgn": "SIMBA",
+    "COMPOSITION": "%100 PES",
+    "WIDTH": 325,
+    "GR/M2": 119,
+    "LEADBAND": "YES",
+    "TYPE": "SHEER"
+  },
+  {
+    "MaIn DesIgn": "SIRIUS",
+    "COMPOSITION": "%100 PES",
+    "WIDTH": 300,
+    "GR/M2": 200,
+    "LEADBAND": "NO",
+    "TYPE": "DRAPERY"
+  },
+  {
+    "MaIn DesIgn": "SOFTY",
+    "COMPOSITION": "%100 PES",
+    "WIDTH": 320,
+    "GR/M2": 63,
+    "LEADBAND": "YES",
+    "TYPE": "SHEER"
+  },
+  {
+    "MaIn DesIgn": "SOLO",
+    "COMPOSITION": "%83 LINEN+%3,5\nWOOL+%13,5 MODAL",
+    "WIDTH": 315,
+    "GR/M2": 86,
+    "LEADBAND": "YES",
+    "TYPE": "SHEER"
+  },
+  {
+    "MaIn DesIgn": "SPLIT",
+    "COMPOSITION": "%100 PES",
+    "WIDTH": 300,
+    "GR/M2": 186,
+    "LEADBAND": "YES",
+    "TYPE": "SHEER"
+  },
+  {
+    "MaIn DesIgn": "STAR",
+    "COMPOSITION": "%100 PES",
+    "WIDTH": 320,
+    "GR/M2": 130,
+    "LEADBAND": "YES",
+    "TYPE": "SHEER"
+  },
+  {
+    "MaIn DesIgn": "STEEL",
+    "COMPOSITION": "%100 PES",
+    "WIDTH": 305,
+    "GR/M2": 111,
+    "LEADBAND": "YES",
+    "TYPE": "SHEER"
+  },
+  {
+    "MaIn DesIgn": "STOCKHOLM",
+    "COMPOSITION": "%100 PES",
+    "WIDTH": 290,
+    "GR/M2": 205,
+    "LEADBAND": "NO",
+    "TYPE": "DRAPERY"
+  },
+  {
+    "MaIn DesIgn": "SUN",
+    "COMPOSITION": "%100 PES",
+    "WIDTH": 300,
+    "GR/M2": 200,
+    "LEADBAND": "NO",
+    "TYPE": "DRAPERY"
+  },
+  {
+    "MaIn DesIgn": "TARSUS",
+    "COMPOSITION": "%100 PES",
+    "WIDTH": 330,
+    "GR/M2": 62,
+    "LEADBAND": "YES",
+    "TYPE": "SHEER"
+  },
+  {
+    "MaIn DesIgn": "TETRA",
+    "COMPOSITION": "%100 PES",
+    "WIDTH": 320,
+    "GR/M2": 122,
+    "LEADBAND": "YES",
+    "TYPE": "SHEER"
+  },
+  {
+    "MaIn DesIgn": "TEX BLACKOUT",
+    "COMPOSITION": "%100 PES",
+    "WIDTH": 300,
+    "GR/M2": 328,
+    "LEADBAND": "NO",
+    "TYPE": "DIMI OUT"
+  },
+  {
+    "MaIn DesIgn": "THASOS",
+    "COMPOSITION": "%100 PES",
+    "WIDTH": 320,
+    "GR/M2": 92,
+    "LEADBAND": "YES",
+    "TYPE": "SHEER"
+  },
+  {
+    "MaIn DesIgn": "TOLEDO",
+    "COMPOSITION": "%100 PES",
+    "WIDTH": 320,
+    "GR/M2": 143,
+    "LEADBAND": "YES",
+    "TYPE": "SHEER"
+  },
+  {
+    "MaIn DesIgn": "TOSCANA",
+    "COMPOSITION": "%100 PES",
+    "WIDTH": 100,
+    "GR/M2": 221,
+    "LEADBAND": "NO",
+    "TYPE": "DRAPERY"
+  },
+  {
+    "MaIn DesIgn": "TUTTI",
+    "COMPOSITION": "%25 PES+%63 SPY%12\nPAYET",
+    "WIDTH": 315,
+    "GR/M2": 219,
+    "LEADBAND": "YES",
+    "TYPE": "SHEER"
+  },
+  {
+    "MaIn DesIgn": "UDINESE",
+    "COMPOSITION": "%100 PES",
+    "WIDTH": 300,
+    "GR/M2": 231,
+    "LEADBAND": "NO",
+    "TYPE": "DRAPERY"
+  },
+  {
+    "MaIn DesIgn": "ULUDA\u011e",
+    "COMPOSITION": "%100 PES",
+    "WIDTH": 310,
+    "GR/M2": 263,
+    "LEADBAND": "NO",
+    "TYPE": "DRAPERY"
+  },
+  {
+    "MaIn DesIgn": "URANUS",
+    "COMPOSITION": "%100 PES",
+    "WIDTH": 295,
+    "GR/M2": 201,
+    "LEADBAND": "NO",
+    "TYPE": "DRAPERY"
+  },
+  {
+    "MaIn DesIgn": "UTAH",
+    "COMPOSITION": "%60 PES+ %40 SCH",
+    "WIDTH": 300,
+    "GR/M2": 260,
+    "LEADBAND": "NO",
+    "TYPE": "DRAPERY"
+  },
+  {
+    "MaIn DesIgn": "VALENCIA",
+    "COMPOSITION": "%100 PES",
+    "WIDTH": 320,
+    "GR/M2": 60,
+    "LEADBAND": "YES",
+    "TYPE": "SHEER"
+  },
+  {
+    "MaIn DesIgn": "VALETTA",
+    "COMPOSITION": "%100 PES",
+    "WIDTH": 310,
+    "GR/M2": 149,
+    "LEADBAND": "NO",
+    "TYPE": "DRAPERY"
+  },
+  {
+    "MaIn DesIgn": "VARESE",
+    "COMPOSITION": "%80 PES+%10 SPN+%10\nSPY",
+    "WIDTH": 300,
+    "GR/M2": 255,
+    "LEADBAND": "NO",
+    "TYPE": "DRAPERY"
+  },
+  {
+    "MaIn DesIgn": "VEGA",
+    "COMPOSITION": "%100 PES",
+    "WIDTH": 300,
+    "GR/M2": 200,
+    "LEADBAND": "NO",
+    "TYPE": "DRAPERY"
+  },
+  {
+    "MaIn DesIgn": "VEGAS",
+    "COMPOSITION": "%100 PES",
+    "WIDTH": 300,
+    "GR/M2": 124,
+    "LEADBAND": "YES",
+    "TYPE": "SHEER"
+  },
+  {
+    "MaIn DesIgn": "VENUS",
+    "COMPOSITION": "%100 PES",
+    "WIDTH": 300,
+    "GR/M2": 350,
+    "LEADBAND": "NO",
+    "TYPE": "DRAPERY"
+  },
+  {
+    "MaIn DesIgn": "VERA",
+    "COMPOSITION": "%100 PES",
+    "WIDTH": 325,
+    "GR/M2": 48,
+    "LEADBAND": "YES",
+    "TYPE": "SHEER"
+  },
+  {
+    "MaIn DesIgn": "VERONA",
+    "COMPOSITION": "%100 PES",
+    "WIDTH": 305,
+    "GR/M2": 120,
+    "LEADBAND": "YES",
+    "TYPE": "SHEER"
+  },
+  {
+    "MaIn DesIgn": "VICENZA",
+    "COMPOSITION": "%100 PES",
+    "WIDTH": 300,
+    "GR/M2": 278,
+    "LEADBAND": "NO",
+    "TYPE": "DRAPERY"
+  },
+  {
+    "MaIn DesIgn": "VIGO",
+    "COMPOSITION": "%100 PES",
+    "WIDTH": 290,
+    "GR/M2": 293,
+    "LEADBAND": "NO",
+    "TYPE": "DRAPERY"
+  },
+  {
+    "MaIn DesIgn": "VISUAL",
+    "COMPOSITION": "%100 PES",
+    "WIDTH": 310,
+    "GR/M2": 76,
+    "LEADBAND": "YES",
+    "TYPE": "SHEER"
+  },
+  {
+    "MaIn DesIgn": "VOILETTE",
+    "COMPOSITION": "%100 PES",
+    "WIDTH": 330,
+    "GR/M2": 74,
+    "LEADBAND": "YES",
+    "TYPE": "SHEER"
+  },
+  {
+    "MaIn DesIgn": "WIN-01",
+    "COMPOSITION": "%100 PES",
+    "WIDTH": 320,
+    "GR/M2": 60,
+    "LEADBAND": "YES",
+    "TYPE": "SHEER"
+  },
+  {
+    "MaIn DesIgn": "WIN-04",
+    "COMPOSITION": "%100 PES",
+    "WIDTH": 320,
+    "GR/M2": 73,
+    "LEADBAND": "YES",
+    "TYPE": "SHEER"
+  },
+  {
+    "MaIn DesIgn": "WIN-05",
+    "COMPOSITION": "%100 PES",
+    "WIDTH": 320,
+    "GR/M2": 89,
+    "LEADBAND": "YES",
+    "TYPE": "SHEER"
+  },
+  {
+    "MaIn DesIgn": "WIN-11",
+    "COMPOSITION": "%100 PES",
+    "WIDTH": 300,
+    "GR/M2": 90,
+    "LEADBAND": "YES",
+    "TYPE": "SHEER"
+  },
+  {
+    "MaIn DesIgn": "WIN-13",
+    "COMPOSITION": "%100 PES",
+    "WIDTH": 300,
+    "GR/M2": 74,
+    "LEADBAND": "YES",
+    "TYPE": "SHEER"
+  },
+  {
+    "MaIn DesIgn": "WIN-25",
+    "COMPOSITION": "%100 PES",
+    "WIDTH": 320,
+    "GR/M2": 127,
+    "LEADBAND": "YES",
+    "TYPE": "SHEER"
+  },
+  {
+    "MaIn DesIgn": "WIN-27",
+    "COMPOSITION": "%100 PES",
+    "WIDTH": 300,
+    "GR/M2": 220,
+    "LEADBAND": "NO",
+    "TYPE": "DRAPERY"
+  },
+  {
+    "MaIn DesIgn": "WIN-30",
+    "COMPOSITION": "%100 PES",
+    "WIDTH": 320,
+    "GR/M2": 60,
+    "LEADBAND": "YES",
+    "TYPE": "SHEER"
+  },
+  {
+    "MaIn DesIgn": "WIN-37",
+    "COMPOSITION": "%100 PES",
+    "WIDTH": 320,
+    "GR/M2": 74,
+    "LEADBAND": "YES",
+    "TYPE": "SHEER"
+  },
+  {
+    "MaIn DesIgn": "WIN-38",
+    "COMPOSITION": "%100 PES",
+    "WIDTH": 320,
+    "GR/M2": 79,
+    "LEADBAND": "YES",
+    "TYPE": "SHEER"
+  },
+  {
+    "MaIn DesIgn": "WIN-43",
+    "COMPOSITION": "%100 PES",
+    "WIDTH": 320,
+    "GR/M2": 58,
+    "LEADBAND": "YES",
+    "TYPE": "SHEER"
+  },
+  {
+    "MaIn DesIgn": "WIN-44",
+    "COMPOSITION": "%100 PES",
+    "WIDTH": 320,
+    "GR/M2": 45,
+    "LEADBAND": "YES",
+    "TYPE": "SHEER"
+  },
+  {
+    "MaIn DesIgn": "WIN-45",
+    "COMPOSITION": "%100 PES",
+    "WIDTH": 310,
+    "GR/M2": 72,
+    "LEADBAND": "NO",
+    "TYPE": "SHEER"
+  },
+  {
+    "MaIn DesIgn": "WIN-46",
+    "COMPOSITION": "%100 PES",
+    "WIDTH": 330,
+    "GR/M2": 91,
+    "LEADBAND": "YES",
+    "TYPE": "SHEER"
+  },
+  {
+    "MaIn DesIgn": "WIN-47",
+    "COMPOSITION": "%100 PES",
+    "WIDTH": 300,
+    "GR/M2": 237,
+    "LEADBAND": "NO",
+    "TYPE": "DRAPERY"
+  },
+  {
+    "MaIn DesIgn": "WIN-58",
+    "COMPOSITION": "%100 PES",
+    "WIDTH": 320,
+    "GR/M2": 64,
+    "LEADBAND": "YES",
+    "TYPE": "SHEER"
+  },
+  {
+    "MaIn DesIgn": "WIN-73",
+    "COMPOSITION": "%100 PES",
+    "WIDTH": 310,
+    "GR/M2": 91,
+    "LEADBAND": "YES",
+    "TYPE": "SHEER"
+  },
+  {
+    "MaIn DesIgn": "WIN-74",
+    "COMPOSITION": "%100 PES",
+    "WIDTH": 320,
+    "GR/M2": 95,
+    "LEADBAND": "YES",
+    "TYPE": "SHEER"
+  },
+  {
+    "MaIn DesIgn": "WIN-77",
+    "COMPOSITION": "%100 PES",
+    "WIDTH": 315,
+    "GR/M2": 89,
+    "LEADBAND": "YES",
+    "TYPE": "SHEER"
+  },
+  {
+    "MaIn DesIgn": "ZIFIR BLACKOUT",
+    "COMPOSITION": "%100 PES",
+    "WIDTH": 300,
+    "GR/M2": 257,
+    "LEADBAND": "NO",
+    "TYPE": "DIMI OUT"
+  }
+]

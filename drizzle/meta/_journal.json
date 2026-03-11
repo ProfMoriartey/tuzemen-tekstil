@@ -22,6 +22,13 @@
       "when": 1773122981104,
       "tag": "0002_early_giant_girl",
       "breakpoints": true
+    },
+    {
+      "idx": 3,
+      "version": "7",
+      "when": 1773216721634,
+      "tag": "0003_furry_radioactive_man",
+      "breakpoints": true
     }
   ]
 }
