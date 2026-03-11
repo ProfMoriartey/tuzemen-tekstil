@@ -74,7 +74,7 @@ export default async function StorefrontPage({
         </aside>
 
         <main className="flex-1">
-          <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="grid grid-cols-2 gap-6 sm:grid-cols-3 lg:grid-cols-4">
             {designs.length === 0 ? (
               <div className="col-span-full py-12 text-center text-slate-500">
                 No fabrics found matching your filters.
