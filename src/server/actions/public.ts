@@ -1,4 +1,4 @@
-import { ilike, or, exists, and, eq, inArray } from "drizzle-orm"
+import { ilike, or, exists, and, eq, inArray, desc, asc } from "drizzle-orm"
 import { db } from "~/server/db"
 import { designs, variants } from "~/server/db/schema"
 
@@ -19,9 +19,16 @@ export async function getAvailableCategories() {
 }
 
 export async function getStorefrontDesigns(
-query: string, colors: string[], categories: string[], sort: string, order: string, // sortBy: string = "name",
-sortOrder: "asc" | "desc" = "asc") {
+  query: string, 
+  colors: string[], 
+  categories: string[],
+  sortBy: string = "name",
+  sortOrder: "asc" | "desc" = "asc"
+) {
   const searchPattern = `%${query}%`
+
+  // Define the sort direction for the database
+  const orderDirection = sortOrder === "desc" ? desc(designs.name) : asc(designs.name)
 
   const data = await db.query.designs.findMany({
     where: and(
@@ -43,14 +50,8 @@ sortOrder: "asc" | "desc" = "asc") {
     with: {
       variants: true,
     },
+    orderBy: [orderDirection]
   })
 
-  return data.sort((a, b) => {
-    const valueA = a.name.toLowerCase()
-    const valueB = b.name.toLowerCase()
-
-    if (valueA < valueB) return sortOrder === "asc" ? -1 : 1
-    if (valueA > valueB) return sortOrder === "asc" ? 1 : -1
-    return 0
-  })
+  return data
 }
