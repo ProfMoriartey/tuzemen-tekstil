@@ -4,6 +4,7 @@ import { type Metadata } from "next";
 import { Geist, Inter } from "next/font/google";
 import { cn } from "~/lib/utils";
 import { ClerkProvider } from "@clerk/nextjs";
+import Navbar from "~/components/Navbar";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-sans" });
 
@@ -24,7 +25,10 @@ export default function RootLayout({
   return (
     <html lang="en" className={cn(geist.variable, "font-sans", inter.variable)}>
       <body>
-        <ClerkProvider>{children}</ClerkProvider>
+        <ClerkProvider>
+          <Navbar />
+          {children}
+        </ClerkProvider>
       </body>
     </html>
   );

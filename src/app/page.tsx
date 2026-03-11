@@ -1,37 +1,114 @@
 import Link from "next/link";
+import { ArrowRight, Ruler, Palette, ShieldCheck } from "lucide-react";
+import { getFeaturedDesigns } from "~/server/actions/public";
+import FabricCard, { type Design } from "~/components/FabricCard";
 
-export default function HomePage() {
+export default async function LandingPage() {
+  const featuredDesigns = await getFeaturedDesigns(4);
+
   return (
-    <main className="flex min-h-screen flex-col items-center justify-center bg-linear-to-b from-[#2e026d] to-[#15162c] text-white">
-      <div className="container flex flex-col items-center justify-center gap-12 px-4 py-16">
-        <h1 className="text-5xl font-extrabold tracking-tight text-white sm:text-[5rem]">
-          Create <span className="text-[hsl(280,100%,70%)]">T3</span> App
-        </h1>
-        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:gap-8">
+    <div className="flex min-h-screen flex-col">
+      {/* Hero Section */}
+      <section className="bg-slate-900 px-4 py-20 text-white md:py-32">
+        <div className="container mx-auto max-w-5xl text-center">
+          <h1 className="mb-6 text-4xl font-bold tracking-tight uppercase md:text-6xl">
+            Premium Fabrics for Every Space
+          </h1>
+          <p className="mx-auto mb-10 max-w-2xl text-lg leading-relaxed text-slate-300 md:text-xl">
+            Discover our curated collection of high-quality sheers and drapery.
+            Built to exact specifications with industry-leading materials.
+          </p>
           <Link
-            className="flex max-w-xs flex-col gap-4 rounded-xl bg-white/10 p-4 text-white hover:bg-white/20"
-            href="https://create.t3.gg/en/usage/first-steps"
-            target="_blank"
+            href="/products"
+            className="inline-flex items-center justify-center rounded-md bg-white px-8 py-4 font-bold tracking-wide text-slate-900 uppercase transition-colors hover:bg-slate-100"
           >
-            <h3 className="text-2xl font-bold">First Steps →</h3>
-            <div className="text-lg">
-              Just the basics - Everything you need to know to set up your
-              database and authentication.
-            </div>
-          </Link>
-          <Link
-            className="flex max-w-xs flex-col gap-4 rounded-xl bg-white/10 p-4 text-white hover:bg-white/20"
-            href="https://create.t3.gg/en/introduction"
-            target="_blank"
-          >
-            <h3 className="text-2xl font-bold">Documentation →</h3>
-            <div className="text-lg">
-              Learn more about Create T3 App, the libraries it uses, and how to
-              deploy it.
-            </div>
+            Explore Collection
+            <ArrowRight className="ml-2 h-5 w-5" />
           </Link>
         </div>
-      </div>
-    </main>
+      </section>
+
+      {/* Value Propositions */}
+      <section className="border-b bg-white px-4 py-16 md:py-24">
+        <div className="container mx-auto max-w-6xl">
+          <div className="grid grid-cols-1 gap-10 text-center md:grid-cols-3">
+            <div className="flex flex-col items-center">
+              <div className="mb-4 rounded-full bg-slate-50 p-4">
+                <Palette className="h-8 w-8 text-slate-700" />
+              </div>
+              <h3 className="mb-2 text-xl font-bold uppercase">
+                Vibrant Variants
+              </h3>
+              <p className="text-slate-500">
+                Extensive color options to match any design requirement.
+              </p>
+            </div>
+
+            <div className="flex flex-col items-center">
+              <div className="mb-4 rounded-full bg-slate-50 p-4">
+                <Ruler className="h-8 w-8 text-slate-700" />
+              </div>
+              <h3 className="mb-2 text-xl font-bold uppercase">
+                Exact Dimensions
+              </h3>
+              <p className="text-slate-500">
+                Precise width and weight specifications listed for every fabric.
+              </p>
+            </div>
+
+            <div className="flex flex-col items-center">
+              <div className="mb-4 rounded-full bg-slate-50 p-4">
+                <ShieldCheck className="h-8 w-8 text-slate-700" />
+              </div>
+              <h3 className="mb-2 text-xl font-bold uppercase">
+                Premium Quality
+              </h3>
+              <p className="text-slate-500">
+                Durable compositions with optional leadbands for perfect
+                draping.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Featured Products */}
+      <section className="bg-slate-50 px-4 py-16 md:py-24">
+        <div className="container mx-auto max-w-6xl">
+          <div className="mb-10 flex items-end justify-between">
+            <div>
+              <h2 className="mb-2 text-3xl font-bold tracking-wide uppercase">
+                New Arrivals
+              </h2>
+              <p className="text-slate-500">
+                Our latest additions to the catalog.
+              </p>
+            </div>
+            <Link
+              href="/products"
+              className="hidden items-center text-sm font-bold text-slate-900 uppercase transition-colors hover:text-slate-600 md:inline-flex"
+            >
+              View All
+              <ArrowRight className="ml-1 h-4 w-4" />
+            </Link>
+          </div>
+
+          <div className="grid grid-cols-2 gap-4 md:grid-cols-4 md:gap-6">
+            {featuredDesigns.map((design: Design) => (
+              <FabricCard key={design.id} design={design} />
+            ))}
+          </div>
+
+          <div className="mt-8 text-center md:hidden">
+            <Link
+              href="/products"
+              className="inline-flex items-center border-b border-slate-900 pb-1 text-sm font-bold text-slate-900 uppercase"
+            >
+              View All Products
+            </Link>
+          </div>
+        </div>
+      </section>
+    </div>
   );
 }

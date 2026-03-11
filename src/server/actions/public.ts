@@ -78,3 +78,15 @@ export async function getFabricById(id: number) {
   
   return data
 }
+
+export async function getFeaturedDesigns(limitCount = 4) {
+  const data = await db.query.designs.findMany({
+    with: {
+      variants: true,
+    },
+    orderBy: [desc(designs.createdAt)],
+    limit: limitCount
+  })
+
+  return data
+}
