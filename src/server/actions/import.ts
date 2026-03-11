@@ -83,7 +83,7 @@ export async function processFabricJson(jsonString: string) {
           await db.insert(variants).values({
             designId: existingDesign.id,
             color: v.color.toUpperCase(),
-            imageUrl: v.imageUrl || null
+            imageUrl: v.imageUrl ?? null
           })
         }
       }
