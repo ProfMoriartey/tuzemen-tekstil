@@ -68,19 +68,39 @@ if (!newFabric) {
   redirect(`/admin/products/${newFabric.id}`)
 }
 
-export async function updateFabricDetails(designId: number, category: string, description: string) {
-
+export async function updateFabricDetails(formData: FormData) {
   const user = await currentUser()
   
   if (user?.publicMetadata?.role !== "admin") {
     throw new Error("Unauthorized: Admin access required")
   }
-  await db.update(designs)
-    .set({ category, description })
-    .where(eq(designs.id, designId))
 
-  revalidatePath(`/admin/products/${designId}`)
-  revalidatePath("/admin/products")
+  const id = Number(formData.get("id"))
+  const name = formData.get("name") as string
+  const category = formData.get("category") as string
+  const description = formData.get("description") as string
+  
+  // Extract new fields
+  const fabricType = formData.get("fabricType") as string
+  const composition = formData.get("composition") as string
+  const width = formData.get("width")
+  const weight = formData.get("weight")
+  const hasLeadband = formData.get("hasLeadband") === "on"
+
+  await db.update(designs)
+    .set({
+      name,
+      category: category || null,
+      description: description || null,
+      fabricType: fabricType || null,
+      composition: composition || null,
+      width: width ? Number(width) : null,
+      weight: weight ? Number(weight) : null,
+      hasLeadband,
+    })
+    .where(eq(designs.id, id))
+
+  redirect(`/admin/products`)
 }
 
 export async function deleteFabricComplete(designId: number) {
