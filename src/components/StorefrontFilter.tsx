@@ -3,8 +3,6 @@
 import { useRouter, usePathname, useSearchParams } from "next/navigation";
 import { useState, useMemo, useEffect, useCallback } from "react";
 import { Input } from "~/components/ui/input";
-import { Checkbox } from "~/components/ui/checkbox";
-import { Label } from "~/components/ui/label";
 import { Button } from "~/components/ui/button";
 import { Filter, ArrowUpDown } from "lucide-react";
 import {
@@ -20,12 +18,17 @@ import {
   SelectTrigger,
 } from "~/components/ui/select";
 
+import FilterChecklist from "./filter-logic/FilterChecklist";
+import FilterLeadband from "./filter-logic/FilterLeadband";
+
 export default function StorefrontFilter({
   availableColors,
   availableCategories,
+  availableWidths,
 }: {
   availableColors: string[];
   availableCategories: string[];
+  availableWidths: number[];
 }) {
   const router = useRouter();
   const pathname = usePathname();
@@ -36,6 +39,10 @@ export default function StorefrontFilter({
     searchParams.get("colors")?.split(",").filter(Boolean) ?? [];
   const currentCategories =
     searchParams.get("categories")?.split(",").filter(Boolean) ?? [];
+  const currentWidths =
+    searchParams.get("widths")?.split(",").filter(Boolean) ?? [];
+  const currentLeadband = searchParams.get("leadband") ?? "all";
+
   const currentSort = searchParams.get("sort") ?? "name";
   const currentOrder = searchParams.get("order") ?? "asc";
 
@@ -43,16 +50,15 @@ export default function StorefrontFilter({
   const [localColors, setLocalColors] = useState<string[]>(currentColors);
   const [localCategories, setLocalCategories] =
     useState<string[]>(currentCategories);
+  const [localWidths, setLocalWidths] = useState<string[]>(currentWidths);
+  const [localLeadband, setLocalLeadband] = useState<string>(currentLeadband);
   const [isOpen, setIsOpen] = useState(false);
 
   const createQueryString = useCallback(
     (name: string, value: string) => {
       const params = new URLSearchParams(searchParams.toString());
-      if (value) {
-        params.set(name, value);
-      } else {
-        params.delete(name);
-      }
+      if (value) params.set(name, value);
+      else params.delete(name);
       return params.toString();
     },
     [searchParams],
@@ -89,35 +95,35 @@ export default function StorefrontFilter({
   }, [availableCategories, localCategories]);
 
   function handleColorToggle(color: string, checked: boolean) {
-    if (checked) {
-      setLocalColors([...localColors, color]);
-    } else {
-      setLocalColors(localColors.filter((c) => c !== color));
-    }
+    if (checked) setLocalColors([...localColors, color]);
+    else setLocalColors(localColors.filter((c) => c !== color));
   }
 
   function handleCategoryToggle(category: string, checked: boolean) {
-    if (checked) {
-      setLocalCategories([...localCategories, category]);
-    } else {
-      setLocalCategories(localCategories.filter((c) => c !== category));
-    }
+    if (checked) setLocalCategories([...localCategories, category]);
+    else setLocalCategories(localCategories.filter((c) => c !== category));
+  }
+
+  function handleWidthToggle(widthStr: string, checked: boolean) {
+    if (checked) setLocalWidths([...localWidths, widthStr]);
+    else setLocalWidths(localWidths.filter((w) => w !== widthStr));
   }
 
   function applyFilters() {
     const params = new URLSearchParams(searchParams.toString());
 
-    if (localColors.length > 0) {
-      params.set("colors", localColors.join(","));
-    } else {
-      params.delete("colors");
-    }
+    if (localColors.length > 0) params.set("colors", localColors.join(","));
+    else params.delete("colors");
 
-    if (localCategories.length > 0) {
+    if (localCategories.length > 0)
       params.set("categories", localCategories.join(","));
-    } else {
-      params.delete("categories");
-    }
+    else params.delete("categories");
+
+    if (localWidths.length > 0) params.set("widths", localWidths.join(","));
+    else params.delete("widths");
+
+    if (localLeadband !== "all") params.set("leadband", localLeadband);
+    else params.delete("leadband");
 
     router.push(pathname + "?" + params.toString());
     setIsOpen(false);
@@ -126,22 +132,23 @@ export default function StorefrontFilter({
   function clearFilters() {
     setLocalColors([]);
     setLocalCategories([]);
+    setLocalWidths([]);
+    setLocalLeadband("all");
+
     const params = new URLSearchParams(searchParams.toString());
     params.delete("colors");
     params.delete("categories");
+    params.delete("widths");
+    params.delete("leadband");
+
     router.push(pathname + "?" + params.toString());
     setIsOpen(false);
   }
 
-  // Updated to handle string | null to satisfy TypeScript
-
   function handleSortChange(value: string | null) {
     if (!value) return;
-
     const [sort, order] = value.split("-");
-
     if (!sort || !order) return;
-
     const params = new URLSearchParams(searchParams.toString());
     params.set("sort", sort);
     params.set("order", order);
@@ -150,7 +157,7 @@ export default function StorefrontFilter({
 
   return (
     <div className="w-full">
-      {/* Mobile Header (Input, Sort, Filter) */}
+      {/* Mobile Header & Dialog */}
       <div className="mb-6 flex gap-2 md:hidden">
         <Input
           placeholder="Search by name..."
@@ -185,72 +192,51 @@ export default function StorefrontFilter({
         </Button>
 
         <Dialog open={isOpen} onOpenChange={setIsOpen}>
-          <DialogContent className="w-[90vw] max-w-106.25 rounded-lg p-6">
+          <DialogContent className="max-h-[90vh] w-[90vw] max-w-106.25 overflow-y-auto rounded-lg p-6">
             <DialogHeader className="mb-4">
               <DialogTitle className="text-xl">Filter Products</DialogTitle>
             </DialogHeader>
 
-            <div className="space-y-8 py-2">
-              <div>
-                <h3 className="mb-4 text-lg font-semibold">Categories</h3>
-                <div className="scrollbar-thin max-h-[25vh] space-y-3 overflow-y-auto pr-2">
-                  {sortedCategories.map((category) => (
-                    <div key={category} className="flex items-center space-x-2">
-                      <Checkbox
-                        id={`mobile-cat-${category}`}
-                        checked={localCategories.includes(category)}
-                        onCheckedChange={(checked) =>
-                          handleCategoryToggle(category, checked === true)
-                        }
-                      />
-                      <Label
-                        htmlFor={`mobile-cat-${category}`}
-                        className="flex-1 cursor-pointer py-1 text-sm font-medium"
-                      >
-                        {category}
-                      </Label>
-                    </div>
-                  ))}
-                  {sortedCategories.length === 0 && (
-                    <p className="py-2 text-sm text-slate-500">
-                      No categories found.
-                    </p>
-                  )}
-                </div>
-              </div>
-
+            <div className="space-y-6 py-2">
+              <FilterLeadband
+                value={localLeadband}
+                onChange={setLocalLeadband}
+                variant="mobile"
+              />
               <div className="border-t border-slate-100" />
-
-              <div>
-                <h3 className="mb-4 text-lg font-semibold">Colors</h3>
-                <div className="scrollbar-thin max-h-[25vh] space-y-3 overflow-y-auto pr-2">
-                  {sortedColors.map((color) => (
-                    <div key={color} className="flex items-center space-x-2">
-                      <Checkbox
-                        id={`mobile-color-${color}`}
-                        checked={localColors.includes(color)}
-                        onCheckedChange={(checked) =>
-                          handleColorToggle(color, checked === true)
-                        }
-                      />
-                      <Label
-                        htmlFor={`mobile-color-${color}`}
-                        className="flex-1 cursor-pointer py-1 text-sm font-medium"
-                      >
-                        {color}
-                      </Label>
-                    </div>
-                  ))}
-                  {sortedColors.length === 0 && (
-                    <p className="py-2 text-sm text-slate-500">
-                      No colors found.
-                    </p>
-                  )}
-                </div>
-              </div>
+              <FilterChecklist
+                title="Widths"
+                items={availableWidths}
+                selectedItems={localWidths}
+                onToggle={handleWidthToggle}
+                idPrefix="mobile-width"
+                variant="mobile"
+                emptyMessage="No widths found."
+                suffix=" cm"
+              />
+              <div className="border-t border-slate-100" />
+              <FilterChecklist
+                title="Categories"
+                items={sortedCategories}
+                selectedItems={localCategories}
+                onToggle={handleCategoryToggle}
+                idPrefix="mobile-cat"
+                variant="mobile"
+                emptyMessage="No categories found."
+              />
+              <div className="border-t border-slate-100" />
+              <FilterChecklist
+                title="Colors"
+                items={sortedColors}
+                selectedItems={localColors}
+                onToggle={handleColorToggle}
+                idPrefix="mobile-color"
+                variant="mobile"
+                emptyMessage="No colors found."
+              />
             </div>
 
-            <div className="mt-4 flex flex-col gap-3 border-t border-slate-100 pt-6">
+            <div className="sticky bottom-0 flex flex-col gap-3 border-t border-slate-100 bg-white pt-4">
               <Button onClick={applyFilters} className="w-full">
                 Apply Filters
               </Button>
@@ -266,7 +252,7 @@ export default function StorefrontFilter({
         </Dialog>
       </div>
 
-      {/* Desktop Sidebar (Search + Sort, Filter Dialog) */}
+      {/* Desktop Sidebar */}
       <div className="hidden space-y-8 md:block">
         <div>
           <h3 className="mb-4 text-lg font-semibold">Search & Sort</h3>
@@ -278,7 +264,6 @@ export default function StorefrontFilter({
               className="flex-1"
             />
 
-            {/* Desktop Sort Button (Now matching mobile) */}
             <Select
               value={`${currentSort}-${currentOrder}`}
               onValueChange={handleSortChange}
@@ -298,57 +283,39 @@ export default function StorefrontFilter({
         </div>
 
         <div className="rounded-lg border bg-white p-4 shadow-sm">
-          <div className="mb-6">
-            <h3 className="mb-4 text-lg font-semibold">Categories</h3>
-            <div className="scrollbar-thin max-h-50 space-y-3 overflow-y-auto pr-2">
-              {sortedCategories.map((category) => (
-                <div key={category} className="flex items-center space-x-2">
-                  <Checkbox
-                    id={`desktop-cat-${category}`}
-                    checked={localCategories.includes(category)}
-                    onCheckedChange={(checked) =>
-                      handleCategoryToggle(category, checked === true)
-                    }
-                  />
-                  <Label
-                    htmlFor={`desktop-cat-${category}`}
-                    className="cursor-pointer text-sm font-medium"
-                  >
-                    {category}
-                  </Label>
-                </div>
-              ))}
-              {sortedCategories.length === 0 && (
-                <p className="text-sm text-slate-500">No categories.</p>
-              )}
-            </div>
-          </div>
-
-          <div className="mb-6">
-            <h3 className="mb-4 text-lg font-semibold">Colors</h3>
-            <div className="scrollbar-thin max-h-50 space-y-3 overflow-y-auto pr-2">
-              {sortedColors.map((color) => (
-                <div key={color} className="flex items-center space-x-2">
-                  <Checkbox
-                    id={`desktop-color-${color}`}
-                    checked={localColors.includes(color)}
-                    onCheckedChange={(checked) =>
-                      handleColorToggle(color, checked === true)
-                    }
-                  />
-                  <Label
-                    htmlFor={`desktop-color-${color}`}
-                    className="cursor-pointer text-sm font-medium"
-                  >
-                    {color}
-                  </Label>
-                </div>
-              ))}
-              {sortedColors.length === 0 && (
-                <p className="text-sm text-slate-500">No colors.</p>
-              )}
-            </div>
-          </div>
+          <FilterLeadband
+            value={localLeadband}
+            onChange={setLocalLeadband}
+            variant="desktop"
+          />
+          <FilterChecklist
+            title="Widths"
+            items={availableWidths}
+            selectedItems={localWidths}
+            onToggle={handleWidthToggle}
+            idPrefix="desktop-width"
+            variant="desktop"
+            emptyMessage="No widths."
+            suffix=" cm"
+          />
+          <FilterChecklist
+            title="Categories"
+            items={sortedCategories}
+            selectedItems={localCategories}
+            onToggle={handleCategoryToggle}
+            idPrefix="desktop-cat"
+            variant="desktop"
+            emptyMessage="No categories."
+          />
+          <FilterChecklist
+            title="Colors"
+            items={sortedColors}
+            selectedItems={localColors}
+            onToggle={handleColorToggle}
+            idPrefix="desktop-color"
+            variant="desktop"
+            emptyMessage="No colors."
+          />
 
           <div className="flex flex-col gap-3 border-t pt-4">
             <Button onClick={applyFilters} className="w-full">

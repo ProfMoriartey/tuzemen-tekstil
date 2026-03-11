@@ -2,28 +2,10 @@ import {
   getStorefrontDesigns,
   getAvailableColors,
   getAvailableCategories,
+  getAvailableWidths,
 } from "~/server/actions/public";
 import StorefrontFilter from "~/components/StorefrontFilter";
-import Image from "next/image";
-import Link from "next/link";
-
-interface Variant {
-  id: number;
-  color: string;
-}
-
-interface Design {
-  id: number;
-  name: string;
-  category: string | null;
-  displayImageUrl: string | null;
-  fabricType: string | null;
-  composition: string | null;
-  width: number | null;
-  weight: number | null;
-  hasLeadband: boolean | null;
-  variants: Variant[];
-}
+import FabricCard, { type Design } from "~/components/FabricCard";
 
 export default async function StorefrontPage({
   searchParams,
@@ -34,6 +16,8 @@ export default async function StorefrontPage({
     categories?: string;
     sort?: string;
     order?: string;
+    widths?: string;
+    leadband?: string;
   }>;
 }) {
   const params = await searchParams;
@@ -45,14 +29,36 @@ export default async function StorefrontPage({
   const categoriesArray = params.categories
     ? params.categories.split(",").filter(Boolean)
     : [];
+
+  const widthsArray = params.widths
+    ? params.widths
+        .split(",")
+        .map(Number)
+        .filter((n) => !isNaN(n))
+    : [];
+
+  let leadbandFilter: boolean | undefined = undefined;
+  if (params.leadband === "yes") leadbandFilter = true;
+  if (params.leadband === "no") leadbandFilter = false;
+
   const sort = params.sort ?? "name";
   const order = (params.order as "asc" | "desc") ?? "asc";
 
-  const [designs, availableColors, availableCategories] = await Promise.all([
-    getStorefrontDesigns(query, colorsArray, categoriesArray, sort, order),
-    getAvailableColors(),
-    getAvailableCategories(),
-  ]);
+  const [designs, availableColors, availableCategories, availableWidths] =
+    await Promise.all([
+      getStorefrontDesigns(
+        query,
+        colorsArray,
+        categoriesArray,
+        widthsArray,
+        leadbandFilter,
+        sort,
+        order,
+      ),
+      getAvailableColors(),
+      getAvailableCategories(),
+      getAvailableWidths(),
+    ]);
 
   return (
     <div className="container mx-auto p-4 md:p-8">
@@ -70,94 +76,19 @@ export default async function StorefrontPage({
           <StorefrontFilter
             availableColors={availableColors}
             availableCategories={availableCategories}
+            availableWidths={availableWidths}
           />
         </aside>
 
         <main className="flex-1">
-          <div className="grid grid-cols-2 gap-6 sm:grid-cols-3 lg:grid-cols-4">
+          <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {designs.length === 0 ? (
               <div className="col-span-full py-12 text-center text-slate-500">
                 No fabrics found matching your filters.
               </div>
             ) : (
               designs.map((design: Design) => (
-                <Link
-                  key={design.id}
-                  href={`/products/${design.id}`}
-                  className="group block h-full"
-                >
-                  <div className="flex h-full flex-col overflow-hidden rounded-lg border bg-white transition-shadow hover:shadow-md">
-                    <div className="relative aspect-square w-full shrink-0 bg-slate-100">
-                      <Image
-                        src={design.displayImageUrl ?? "/placeholder.jpg"}
-                        alt={design.name}
-                        fill
-                        className="object-cover transition-transform duration-300 group-hover:scale-105"
-                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                      />
-                    </div>
-
-                    <div className="flex flex-1 flex-col p-4">
-                      <div className="mb-1 flex items-start justify-between gap-2">
-                        <h2 className="text-lg font-semibold uppercase">
-                          {design.name}
-                        </h2>
-                        {design.fabricType && (
-                          <span className="shrink-0 rounded bg-slate-800 px-2 py-0.5 text-xs font-medium text-white">
-                            {design.fabricType}
-                          </span>
-                        )}
-                      </div>
-
-                      <p className="mb-3 text-sm text-slate-500">
-                        {design.category ?? "Uncategorized"}
-                      </p>
-
-                      <div className="mb-4 grid grid-cols-2 gap-x-2 gap-y-1 rounded bg-slate-50 p-2 text-xs text-slate-600">
-                        {design.composition && (
-                          <div className="col-span-2">
-                            <span className="font-semibold">Comp:</span>{" "}
-                            {design.composition}
-                          </div>
-                        )}
-                        {design.width && (
-                          <div>
-                            <span className="font-semibold">Width:</span>{" "}
-                            {design.width} cm
-                          </div>
-                        )}
-                        {design.weight && (
-                          <div>
-                            <span className="font-semibold">Weight:</span>{" "}
-                            {design.weight} g/m²
-                          </div>
-                        )}
-                        {design.hasLeadband !== null && (
-                          <div>
-                            <span className="font-semibold">Leadband:</span>{" "}
-                            {design.hasLeadband ? "Yes" : "No"}
-                          </div>
-                        )}
-                      </div>
-
-                      <div className="mt-auto flex flex-wrap gap-1">
-                        {design.variants.slice(0, 5).map((variant) => (
-                          <span
-                            key={variant.id}
-                            className="rounded border bg-white px-2 py-1 text-xs"
-                          >
-                            {variant.color}
-                          </span>
-                        ))}
-                        {design.variants.length > 5 && (
-                          <span className="rounded border bg-white px-2 py-1 text-xs">
-                            +{design.variants.length - 5}
-                          </span>
-                        )}
-                      </div>
-                    </div>
-                  </div>
-                </Link>
+                <FabricCard key={design.id} design={design} />
               ))
             )}
           </div>
