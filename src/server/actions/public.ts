@@ -67,3 +67,14 @@ export async function getStorefrontDesigns(
 
   return data
 }
+
+export async function getFabricById(id: number) {
+  const data = await db.query.designs.findFirst({
+    where: eq(designs.id, id),
+    with: {
+      variants: true,
+    }
+  })
+  
+  return data
+}
