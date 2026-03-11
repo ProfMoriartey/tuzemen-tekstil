@@ -18,7 +18,9 @@ export async function getAvailableCategories() {
   return uniqueCategories.sort()
 }
 
-export async function getStorefrontDesigns(query: string, colors: string[], categories: string[]) {
+export async function getStorefrontDesigns(
+query: string, colors: string[], categories: string[], sort: string, order: string, // sortBy: string = "name",
+sortOrder: "asc" | "desc" = "asc") {
   const searchPattern = `%${query}%`
 
   const data = await db.query.designs.findMany({
@@ -43,5 +45,12 @@ export async function getStorefrontDesigns(query: string, colors: string[], cate
     },
   })
 
-  return data
+  return data.sort((a, b) => {
+    const valueA = a.name.toLowerCase()
+    const valueB = b.name.toLowerCase()
+
+    if (valueA < valueB) return sortOrder === "asc" ? -1 : 1
+    if (valueA > valueB) return sortOrder === "asc" ? 1 : -1
+    return 0
+  })
 }

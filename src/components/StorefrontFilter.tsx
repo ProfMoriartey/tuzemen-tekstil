@@ -6,13 +6,19 @@ import { Input } from "~/components/ui/input";
 import { Checkbox } from "~/components/ui/checkbox";
 import { Label } from "~/components/ui/label";
 import { Button } from "~/components/ui/button";
-import { Filter } from "lucide-react";
+import { Filter, ArrowUpDown } from "lucide-react";
 import {
   Dialog,
   DialogContent,
   DialogHeader,
   DialogTitle,
 } from "~/components/ui/dialog";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+} from "~/components/ui/select";
 
 export default function StorefrontFilter({
   availableColors,
@@ -30,6 +36,8 @@ export default function StorefrontFilter({
     searchParams.get("colors")?.split(",").filter(Boolean) ?? [];
   const currentCategories =
     searchParams.get("categories")?.split(",").filter(Boolean) ?? [];
+  const currentSort = searchParams.get("sort") ?? "name";
+  const currentOrder = searchParams.get("order") ?? "asc";
 
   const [searchTerm, setSearchTerm] = useState(currentSearch);
   const [localColors, setLocalColors] = useState<string[]>(currentColors);
@@ -125,15 +133,48 @@ export default function StorefrontFilter({
     setIsOpen(false);
   }
 
+  // Updated to handle string | null to satisfy TypeScript
+
+  function handleSortChange(value: string | null) {
+    if (!value) return;
+
+    const [sort, order] = value.split("-");
+
+    if (!sort || !order) return;
+
+    const params = new URLSearchParams(searchParams.toString());
+    params.set("sort", sort);
+    params.set("order", order);
+    router.push(pathname + "?" + params.toString());
+  }
+
   return (
     <div className="w-full">
+      {/* Mobile Header (Input, Sort, Filter) */}
       <div className="mb-6 flex gap-2 md:hidden">
         <Input
-          placeholder="Search fabrics by name..."
+          placeholder="Search by name..."
           value={searchTerm}
           onChange={(e) => setSearchTerm(e.target.value)}
           className="flex-1"
         />
+
+        <Select
+          value={`${currentSort}-${currentOrder}`}
+          onValueChange={handleSortChange}
+        >
+          <SelectTrigger
+            className="flex w-10 shrink-0 justify-center border-slate-200 px-0"
+            aria-label="Sort"
+          >
+            <ArrowUpDown className="h-4 w-4 text-slate-700" />
+          </SelectTrigger>
+          <SelectContent>
+            <SelectItem value="name-asc">A to Z</SelectItem>
+            <SelectItem value="name-desc">Z to A</SelectItem>
+          </SelectContent>
+        </Select>
+
         <Button
           variant="outline"
           size="icon"
@@ -156,7 +197,6 @@ export default function StorefrontFilter({
                   {sortedCategories.map((category) => (
                     <div key={category} className="flex items-center space-x-2">
                       <Checkbox
-                        className="cursor-pointer"
                         id={`mobile-cat-${category}`}
                         checked={localCategories.includes(category)}
                         onCheckedChange={(checked) =>
@@ -187,7 +227,6 @@ export default function StorefrontFilter({
                   {sortedColors.map((color) => (
                     <div key={color} className="flex items-center space-x-2">
                       <Checkbox
-                        className="cursor-pointer"
                         id={`mobile-color-${color}`}
                         checked={localColors.includes(color)}
                         onCheckedChange={(checked) =>
@@ -227,15 +266,35 @@ export default function StorefrontFilter({
         </Dialog>
       </div>
 
+      {/* Desktop Sidebar (Search + Sort, Filter Dialog) */}
       <div className="hidden space-y-8 md:block">
         <div>
-          <h3 className="mb-4 text-lg font-semibold">Search</h3>
-          <Input
-            placeholder="Search fabrics by name..."
-            value={searchTerm}
-            onChange={(e) => setSearchTerm(e.target.value)}
-            className="w-full"
-          />
+          <h3 className="mb-4 text-lg font-semibold">Search & Sort</h3>
+          <div className="mb-4 flex gap-2">
+            <Input
+              placeholder="Search by name..."
+              value={searchTerm}
+              onChange={(e) => setSearchTerm(e.target.value)}
+              className="flex-1"
+            />
+
+            {/* Desktop Sort Button (Now matching mobile) */}
+            <Select
+              value={`${currentSort}-${currentOrder}`}
+              onValueChange={handleSortChange}
+            >
+              <SelectTrigger
+                className="flex w-10 shrink-0 justify-center border-slate-200 px-0"
+                aria-label="Sort"
+              >
+                <ArrowUpDown className="h-4 w-4 text-slate-700" />
+              </SelectTrigger>
+              <SelectContent>
+                <SelectItem value="name-asc">A to Z</SelectItem>
+                <SelectItem value="name-desc">Z to A</SelectItem>
+              </SelectContent>
+            </Select>
+          </div>
         </div>
 
         <div className="rounded-lg border bg-white p-4 shadow-sm">
@@ -245,7 +304,6 @@ export default function StorefrontFilter({
               {sortedCategories.map((category) => (
                 <div key={category} className="flex items-center space-x-2">
                   <Checkbox
-                    className="cursor-pointer"
                     id={`desktop-cat-${category}`}
                     checked={localCategories.includes(category)}
                     onCheckedChange={(checked) =>
@@ -272,7 +330,6 @@ export default function StorefrontFilter({
               {sortedColors.map((color) => (
                 <div key={color} className="flex items-center space-x-2">
                   <Checkbox
-                    className="cursor-pointer"
                     id={`desktop-color-${color}`}
                     checked={localColors.includes(color)}
                     onCheckedChange={(checked) =>

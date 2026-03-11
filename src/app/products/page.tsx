@@ -23,7 +23,13 @@ interface Design {
 export default async function StorefrontPage({
   searchParams,
 }: {
-  searchParams: Promise<{ q?: string; colors?: string; categories?: string }>;
+  searchParams: Promise<{
+    q?: string;
+    colors?: string;
+    categories?: string;
+    sort?: string;
+    order?: string;
+  }>;
 }) {
   const params = await searchParams;
 
@@ -34,12 +40,15 @@ export default async function StorefrontPage({
   const categoriesArray = params.categories
     ? params.categories.split(",").filter(Boolean)
     : [];
+  const sort = params.sort ?? "name";
+  const order = (params.order as "asc" | "desc") ?? "asc";
 
   const [designs, availableColors, availableCategories] = await Promise.all([
-    getStorefrontDesigns(query, colorsArray, categoriesArray),
+    getStorefrontDesigns(query, colorsArray, categoriesArray, sort, order),
     getAvailableColors(),
     getAvailableCategories(),
   ]);
+
   return (
     <div className="container mx-auto p-4 md:p-8">
       <header className="mb-8 border-b pb-4">
