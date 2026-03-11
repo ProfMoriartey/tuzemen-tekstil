@@ -22,7 +22,7 @@ export async function getStorefrontDesigns(
   query: string, 
   colors: string[], 
   categories: string[],
-  sortBy: string = "name",
+  sortBy = "name",
   sortOrder: "asc" | "desc" = "asc"
 ) {
   const searchPattern = `%${query}%`
