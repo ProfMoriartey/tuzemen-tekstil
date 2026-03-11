@@ -44,7 +44,7 @@ export default function Footer() {
               {/* Admin Link Separator */}
               <li className="mt-4 border-t border-slate-800 pt-4">
                 <Link
-                  href="/admin"
+                  href="/tuzemen"
                   className="group flex items-center text-sm text-slate-500 transition-colors hover:text-white"
                 >
                   <ChevronRight className="mr-2 h-4 w-4 text-slate-700 transition-colors group-hover:text-white" />
@@ -85,7 +85,7 @@ export default function Footer() {
           <div className="relative h-48 min-h-50 overflow-hidden rounded-lg bg-slate-800 md:h-full">
             {/* Replace this src with your actual Google Maps embed link */}
             <iframe
-              src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d640.2938940108288!2d29.118274737026056!3d40.23646383420761!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2str!4v1773228583148!5m2!1sen!2str"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3045.7522123081053!2d29.114439476047426!3d40.2368112714691!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14ca4024c47b7f8f%3A0x5c9fb57a97de00a4!2sT%C3%BCzemen%20Tekstil%20Makina%20G%C4%B1da%20Turizm%20Sa%C4%9Fl%C4%B1k%20Otomotiv%20%C4%B0n%C5%9Faat%20San.%20Tic.%20Ltd.%20%C5%9Eti.!5e0!3m2!1sen!2str!4v1773228921380!5m2!1sen!2str"
               width="100%"
               height="100%"
               style={{ border: 0 }}
