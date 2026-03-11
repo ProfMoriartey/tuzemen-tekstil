@@ -19,8 +19,10 @@ export default function ImportFabricsPage() {
       const count = await processFabricJson(jsonInput);
       setStatus(`Success! Updated details for ${count} fabrics.`);
       setJsonInput("");
-    } catch (error: any) {
-      setStatus(`Error: ${error.message}`);
+    } catch (error) {
+      const errorMessage =
+        error instanceof Error ? error.message : "An unknown error occurred";
+      setStatus(`Error: ${errorMessage}`);
     } finally {
       setIsPending(false);
     }
@@ -31,8 +33,9 @@ export default function ImportFabricsPage() {
       <div>
         <h1 className="text-2xl font-bold">Import Fabric Details</h1>
         <p className="mt-2 text-slate-500">
-          Paste your JSON array below. The system will match the "MaIn DesIgn"
-          key to your existing fabric names and update their properties.
+          Paste your JSON array below. The system will match the &quot;MaIn
+          DesIgn&quot; key to your existing fabric names and update their
+          properties.
         </p>
       </div>
 

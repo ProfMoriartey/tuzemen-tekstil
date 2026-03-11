@@ -7,11 +7,11 @@ import { currentUser } from "@clerk/nextjs/server"
 
 interface FabricData {
   "MaIn DesIgn": string
-  "COMPOSITION": string
-  "WIDTH": number
+  COMPOSITION: string
+  WIDTH: number
   "GR/M2": number
-  "LEADBAND": string
-  "TYPE": string
+  LEADBAND: string
+  TYPE: string
 }
 
 export async function processFabricJson(jsonString: string) {
@@ -22,8 +22,8 @@ export async function processFabricJson(jsonString: string) {
 
   let parsedData: FabricData[]
   try {
-    parsedData = JSON.parse(jsonString)
-  } catch (error) {
+    parsedData = JSON.parse(jsonString) as FabricData[]
+  } catch {
     throw new Error("Invalid JSON format. Please ensure it is a valid array.")
   }
 
@@ -33,15 +33,15 @@ export async function processFabricJson(jsonString: string) {
     const designName = item["MaIn DesIgn"]
     if (!designName) continue
 
-    const hasLeadband = item["LEADBAND"] === "YES"
+    const hasLeadband = item.LEADBAND === "YES"
 
     await db.update(designs)
       .set({
-        composition: item["COMPOSITION"] || null,
-        width: item["WIDTH"] || null,
+        composition: item.COMPOSITION || null,
+        width: item.WIDTH || null,
         weight: item["GR/M2"] || null,
         hasLeadband: hasLeadband,
-        fabricType: item["TYPE"] || null
+        fabricType: item.TYPE || null
       })
       .where(ilike(designs.name, designName))
 
