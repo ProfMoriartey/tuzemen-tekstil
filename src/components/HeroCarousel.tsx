@@ -62,7 +62,7 @@ export default function HeroCarousel() {
         <CarouselContent>
           {slides.map((slide) => (
             <CarouselItem key={slide.id}>
-              <div className="relative flex min-h-[600px] items-center md:min-h-[700px]">
+              <div className="relative flex min-h-150 items-center md:min-h-175">
                 {/* Background Image Container */}
                 <div className="absolute inset-0 z-0">
                   <Image
@@ -74,7 +74,7 @@ export default function HeroCarousel() {
                     sizes="100vw"
                   />
                   {/* Left-to-Right Dark Gradient Overlay */}
-                  <div className="from-theme-secondary/90 via-theme-secondary/60 to-theme-secondary/10 absolute inset-0 bg-gradient-to-r"></div>
+                  <div className="from-theme-secondary/90 via-theme-secondary/60 to-theme-secondary/10 absolute inset-0 bg-linear-to-r"></div>
                 </div>
 
                 {/* Text Content Overlay */}
@@ -102,8 +102,8 @@ export default function HeroCarousel() {
 
         {/* Navigation Arrows */}
         <div className="absolute right-12 bottom-12 z-20 hidden space-x-4 lg:block">
-          <CarouselPrevious className="bg-theme-bg/10 hover:bg-theme-bg text-theme-bg hover:text-theme-secondary relative static h-12 w-12 translate-x-0 translate-y-0 border-none backdrop-blur-sm transition-all" />
-          <CarouselNext className="bg-theme-bg/10 hover:bg-theme-bg text-theme-bg hover:text-theme-secondary relative static h-12 w-12 translate-x-0 translate-y-0 border-none backdrop-blur-sm transition-all" />
+          <CarouselPrevious className="bg-theme-bg/10 hover:bg-theme-bg text-theme-bg hover:text-theme-secondary static h-12 w-12 translate-x-0 translate-y-0 border-none backdrop-blur-sm transition-all" />
+          <CarouselNext className="bg-theme-bg/10 hover:bg-theme-bg text-theme-bg hover:text-theme-secondary relative h-12 w-12 translate-x-0 translate-y-0 border-none backdrop-blur-sm transition-all" />
         </div>
       </Carousel>
     </section>
