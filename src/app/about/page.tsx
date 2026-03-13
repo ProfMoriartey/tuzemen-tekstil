@@ -53,7 +53,7 @@ export default function AboutPage() {
               </h2>
               <div className="text-theme-text/80 space-y-4 text-lg leading-relaxed">
                 <p>
-                  Located in the heart of Türkiye's textile capital, Tuzemen
+                  Located in the heart of Türkiye&aposs textile capital, Tuzemen
                   Group was founded with a singular vision: to engineer fabrics
                   that bridge the gap between traditional craftsmanship and
                   modern material science.
