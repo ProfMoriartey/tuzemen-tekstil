@@ -1,0 +1,138 @@
+{
+  "LandingPage": {
+    "sheers": {
+      "title": "Mastering the Art of Sheers",
+      "description": "Our lightweight sheers are designed to invite natural light while preserving your privacy. Carefully woven for maximum durability and a soft, elegant drape, they form the perfect foundation for any window treatment.",
+      "link": "Shop Sheers",
+      "imageAlt": "Sheer fabrics"
+    },
+    "drapery": {
+      "title": "Rich Textures & Heavy Drapery",
+      "description": "Anchor your space with our premium heavy drapery. Engineered for superior light control, insulation, and acoustic dampening, these fabrics bring bold presence and deep, resonant colors to your interior.",
+      "link": "Shop Drapery",
+      "imageAlt": "Drapery fabrics"
+    },
+    "values": {
+      "variants": {
+        "title": "Vibrant Variants",
+        "description": "Extensive color options to match any design requirement."
+      },
+      "dimensions": {
+        "title": "Exact Dimensions",
+        "description": "Precise width and weight specifications listed for every fabric."
+      },
+      "quality": {
+        "title": "Premium Quality",
+        "description": "Durable compositions with optional leadbands for perfect draping."
+      }
+    },
+    "products": {
+      "title": "New Arrivals",
+      "description": "Our latest additions to the catalog.",
+      "viewAll": "View All",
+      "viewAllMobile": "View All Products"
+    }
+  },
+  
+  "AboutPage": {
+    "hero": {
+      "title": "Weaving Excellence",
+      "subtitle": "Tuzemen Group is a premier manufacturer of high-quality sheers, heavy drapery, and accent textiles, rooted in the rich textile heritage of Bursa, Türkiye.",
+      "imageAlt": "Tuzemen Group Weaving Facility"
+    },
+    "heritage": {
+      "title": "Our Heritage",
+      "imageAlt": "Tuzemen Group weaving process",
+      "p1": "Located in the heart of Türkiye's textile capital, Tuzemen Group was founded with a singular vision: to engineer fabrics that bridge the gap between traditional craftsmanship and modern material science.",
+      "p2": "For years, we have supplied designers, architects, and global retailers with premium textiles that define spaces. From the lightest, most delicate sheers to heavy, acoustic-dampening drapery, every roll of fabric that leaves our facility proves our commitment to quality.",
+      "p3": "We control the entire production pipeline—from yarn selection to the final leadband finishing—ensuring that our strict standards are met at every single touchpoint."
+    },
+    "video": {
+      "title": "See Our Process",
+      "description": "Take a look inside our manufacturing facility and see how raw materials become premium textiles.",
+      "iframeTitle": "Tuzemen Group Introduction"
+    },
+    "standards": {
+      "title": "The Tuzemen Standard",
+      "description": "Our reputation is built into the very threads of our products. Here is how we ensure high quality across our entire catalog.",
+      "facilities": {
+        "title": "Advanced Facilities",
+        "description": "Our Bursa manufacturing hub uses state-of-the-art weaving and quality assurance technology to guarantee consistency across massive production runs."
+      },
+      "testing": {
+        "title": "Rigorous Testing",
+        "description": "Every fabric undergoes severe stress tests for colorfastness, weight accuracy, and tear resistance before being approved for distribution."
+      },
+      "finishing": {
+        "title": "Precision Finishing",
+        "description": "From exact-width cutting to the clean integration of heavy leadbands, our finishing process ensures your fabrics are ready for immediate installation."
+      },
+      "sustainability": {
+        "title": "Sustainable Practice",
+        "description": "We are committed to reducing our environmental footprint through water-recycling dye processes and responsibly sourced raw materials."
+      }
+    },
+    "cta": {
+      "title": "Ready to elevate your inventory?",
+      "description": "Browse our complete catalog to find the exact specifications, compositions, and colors you need for your next project.",
+      "button": "Explore Our Products"
+    }
+  },
+  "ContactPage": {
+    "hero": {
+      "title": "Get in Touch",
+      "subtitle": "Whether you are requesting fabric samples, inquiring about bulk orders, or looking to partner with us, our team is ready to assist you.",
+      "imageAlt": "Contact Tuzemen Group"
+    },
+    "form": {
+      "title": "Send a Message"
+    },
+    "info": {
+      "title": "Contact Information",
+      "address": {
+        "label": "Headquarters & Factory",
+        "value": "SAMANLI MAHALLESİ SEL SOK B BLOK NO:67/F\n16350 YILDIRIM BURSA/TURKEY"
+      },
+      "phone": {
+        "label": "Phone",
+        "hours": "Mon-Fri, 8am - 6pm (TRT)"
+      },
+      "email": {
+        "label": "Email"
+      }
+    },
+    "hours": {
+      "title": "Business Hours",
+      "weekdays": "Monday - Friday:",
+      "weekdaysTime": "08:00 - 18:00",
+      "weekend": "Sunday-Saturday:",
+      "weekendStatus": "Closed"
+    },
+    "map": {
+      "title": "Tuzemen Group Location"
+    }
+  },
+  "ContactForm": {
+    "labels": {
+      "firstName": "First Name",
+      "lastName": "Last Name",
+      "email": "Email Address",
+      "subject": "Subject",
+      "message": "Message"
+    },
+    "placeholders": {
+      "firstName": "John",
+      "lastName": "Doe",
+      "email": "john@company.com",
+      "subject": "Bulk Order Inquiry",
+      "message": "Tell us about your project requirements..."
+    },
+    "status": {
+      "sending": "Sending...",
+      "send": "Send Message",
+      "successTitle": "Message Sent",
+      "successDescription": "Thank you for reaching out. We will get back to you shortly.",
+      "sendAnother": "Send Another Message"
+    }
+  }
+}

@@ -1,34 +1,33 @@
 import { MapPin, Phone, Mail, Clock } from "lucide-react";
 import ContactForm from "./ContactForm";
 import Image from "next/image";
+import { getTranslations } from "next-intl/server";
 
-export default function ContactPage() {
+export default async function ContactPage() {
+  const t = await getTranslations("ContactPage");
+
   return (
     <div className="bg-theme-bg flex min-h-screen flex-col">
       {/* Header Section */}
       <section className="relative flex min-h-87.5 items-center overflow-hidden px-4 py-20 md:py-32">
-        {/* Background Image Container */}
         <div className="absolute inset-0 z-0">
           <Image
-            src="https://cdn.tuzemengroup.com/uploads/KLT_9147_1_1_61e43d6762.jpg?w=3840&q=75" // Replace with your contact header image
-            alt="Contact Tuzemen Group"
+            src="https://cdn.tuzemengroup.com/uploads/KLT_9147_1_1_61e43d6762.jpg?w=3840&q=75"
+            alt={t("hero.imageAlt")}
             fill
             className="object-cover"
             priority
             sizes="100vw"
           />
-          {/* Dark overlay to ensure text readability */}
           <div className="bg-theme-secondary/85 absolute inset-0"></div>
         </div>
 
         <div className="relative z-10 container mx-auto max-w-4xl text-center">
           <h1 className="mb-6 text-4xl font-bold tracking-tight text-white uppercase md:text-5xl">
-            Get in Touch
+            {t("hero.title")}
           </h1>
           <p className="text-theme-primary mx-auto max-w-2xl text-lg leading-relaxed">
-            Whether you are requesting fabric samples, inquiring about bulk
-            orders, or looking to partner with us, our team is ready to assist
-            you.
+            {t("hero.subtitle")}
           </p>
         </div>
       </section>
@@ -40,7 +39,7 @@ export default function ContactPage() {
             {/* Left Column: Contact Form */}
             <div className="border-theme-primary/20 rounded-2xl border bg-white p-8 shadow-sm md:p-10">
               <h2 className="text-theme-text mb-8 text-2xl font-bold tracking-tight uppercase">
-                Send a Message
+                {t("form.title")}
               </h2>
               <ContactForm />
             </div>
@@ -49,7 +48,7 @@ export default function ContactPage() {
             <div className="flex flex-col justify-center space-y-10">
               <div>
                 <h2 className="text-theme-text mb-8 text-2xl font-bold tracking-tight uppercase">
-                  Contact Information
+                  {t("info.title")}
                 </h2>
                 <div className="space-y-6">
                   <div className="flex items-start">
@@ -58,7 +57,7 @@ export default function ContactPage() {
                     </div>
                     <div>
                       <h3 className="text-theme-text mb-1 text-sm font-bold tracking-wider uppercase">
-                        Headquarters & Factory
+                        {t("info.address.label")}
                       </h3>
                       <p className="text-theme-text/90 leading-relaxed">
                         SAMANLI MAHALLESİ SEL SOK B BLOK NO:67/F
@@ -74,13 +73,13 @@ export default function ContactPage() {
                     </div>
                     <div>
                       <h3 className="text-theme-text mb-1 text-sm font-bold tracking-wider uppercase">
-                        Phone
+                        {t("info.phone.label")}
                       </h3>
                       <p className="text-theme-text/70">
                         +90 224 3460632
                         <br />
                         <span className="text-theme-text/50 text-sm">
-                          Mon-Fri, 8am - 6pm (TRT)
+                          {t("info.phone.hours")}
                         </span>
                       </p>
                     </div>
@@ -92,7 +91,7 @@ export default function ContactPage() {
                     </div>
                     <div>
                       <h3 className="text-theme-text mb-1 text-sm font-bold tracking-wider uppercase">
-                        Email
+                        {t("info.email.label")}
                       </h3>
                       <p className="text-theme-text/70">
                         info@tuzementekstil.com
@@ -111,16 +110,16 @@ export default function ContactPage() {
                   </div>
                   <div>
                     <h3 className="text-theme-text mb-1 text-sm font-bold tracking-wider uppercase">
-                      Business Hours
+                      {t("hours.title")}
                     </h3>
                     <ul className="text-theme-text/70 space-y-1">
                       <li className="flex w-48 justify-between">
-                        <span>Monday - Friday:</span>
-                        <span>08:00 - 18:00</span>
+                        <span>{t("hours.weekdays")}</span>
+                        <span>{t("hours.weekdaysTime")}</span>
                       </li>
                       <li className="text-theme-text/50 flex w-48 justify-between">
-                        <span>Sunday-Saturday:</span>
-                        <span>Closed</span>
+                        <span>{t("hours.weekend")}</span>
+                        <span>{t("hours.weekendStatus")}</span>
                       </li>
                     </ul>
                   </div>
@@ -142,7 +141,7 @@ export default function ContactPage() {
           loading="lazy"
           referrerPolicy="no-referrer-when-downgrade"
           className="absolute inset-0 opacity-90 grayscale transition-all duration-700 hover:opacity-100 hover:grayscale-0"
-          title="Tuzemen Group Location"
+          title={t("map.title")}
         ></iframe>
       </section>
     </div>

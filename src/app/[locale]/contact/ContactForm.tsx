@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { Send } from "lucide-react";
+import { useTranslations } from "next-intl";
 import { Button } from "~/components/ui/button";
 import { Input } from "~/components/ui/input";
 import { Label } from "~/components/ui/label";
@@ -9,6 +10,7 @@ import { Textarea } from "~/components/ui/textarea";
 import { sendContactEmail } from "~/server/actions/contact";
 
 export default function ContactForm() {
+  const t = useTranslations("ContactForm");
   const [status, setStatus] = useState<
     "idle" | "pending" | "success" | "error"
   >("idle");
@@ -30,15 +32,15 @@ export default function ContactForm() {
     return (
       <div className="bg-theme-accent/20 text-theme-text border-theme-accent/40 space-y-4 rounded-xl border p-8 text-center">
         <h3 className="text-2xl font-bold tracking-tight uppercase">
-          Message Sent
+          {t("status.successTitle")}
         </h3>
-        <p>Thank you for reaching out. We will get back to you shortly.</p>
+        <p>{t("status.successDescription")}</p>
         <Button
           onClick={() => setStatus("idle")}
           variant="outline"
           className="border-theme-primary text-theme-text hover:bg-theme-bg mt-4"
         >
-          Send Another Message
+          {t("status.sendAnother")}
         </Button>
       </div>
     );
@@ -49,25 +51,25 @@ export default function ContactForm() {
       <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
         <div className="space-y-2">
           <Label htmlFor="firstName" className="text-theme-text">
-            First Name
+            {t("labels.firstName")}
           </Label>
           <Input
             id="firstName"
             name="firstName"
             required
-            placeholder="John"
+            placeholder={t("placeholders.firstName")}
             className="bg-theme-bg border-theme-primary/30"
           />
         </div>
         <div className="space-y-2">
           <Label htmlFor="lastName" className="text-theme-text">
-            Last Name
+            {t("labels.lastName")}
           </Label>
           <Input
             id="lastName"
             name="lastName"
             required
-            placeholder="Doe"
+            placeholder={t("placeholders.lastName")}
             className="bg-theme-bg border-theme-primary/30"
           />
         </div>
@@ -75,40 +77,40 @@ export default function ContactForm() {
 
       <div className="space-y-2">
         <Label htmlFor="email" className="text-theme-text">
-          Email Address
+          {t("labels.email")}
         </Label>
         <Input
           id="email"
           name="email"
           type="email"
           required
-          placeholder="john@company.com"
+          placeholder={t("placeholders.email")}
           className="bg-theme-bg border-theme-primary/30"
         />
       </div>
 
       <div className="space-y-2">
         <Label htmlFor="subject" className="text-theme-text">
-          Subject
+          {t("labels.subject")}
         </Label>
         <Input
           id="subject"
           name="subject"
           required
-          placeholder="Bulk Order Inquiry"
+          placeholder={t("placeholders.subject")}
           className="bg-theme-bg border-theme-primary/30"
         />
       </div>
 
       <div className="space-y-2">
         <Label htmlFor="message" className="text-theme-text">
-          Message
+          {t("labels.message")}
         </Label>
         <Textarea
           id="message"
           name="message"
           required
-          placeholder="Tell us about your project requirements..."
+          placeholder={t("placeholders.message")}
           className="bg-theme-bg border-theme-primary/30 min-h-37.5"
         />
       </div>
@@ -121,7 +123,7 @@ export default function ContactForm() {
         disabled={status === "pending"}
         className="bg-theme-accent text-theme-secondary w-full py-6 font-bold tracking-wider uppercase transition-opacity hover:opacity-90"
       >
-        {status === "pending" ? "Sending..." : "Send Message"}
+        {status === "pending" ? t("status.sending") : t("status.send")}
         <Send className="ml-2 h-4 w-4" />
       </Button>
     </form>

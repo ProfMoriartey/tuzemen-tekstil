@@ -1,0 +1,140 @@
+{
+  "LandingPage": {
+    "sheers": {
+      "title": "Tül Sanatında Uzmanlık",
+      "description": "Hafif tüllerimiz, mahremiyetinizi korurken doğal ışığı içeri davet etmek için tasarlandı. Maksimum dayanıklılık ve yumuşak, zarif bir döküm için özenle dokunan tüllerimiz, her pencere dekorasyonu için mükemmel bir temel oluşturur.",
+      "link": "Tülleri İncele",
+      "imageAlt": "Tül kumaşlar"
+    },
+    "drapery": {
+      "title": "Zengin Dokular ve Ağır Perdeler",
+      "description": "Seçkin ağır perdelerimizle alanınızı sabitleyin. Üstün ışık kontrolü, yalıtım ve akustik sönümleme için tasarlanan bu kumaşlar, iç mekanınıza cesur bir duruş ve derin, yankı uyandıran renkler getirir.",
+      "link": "Perdeleri İncele",
+      "imageAlt": "Perdelik kumaşlar"
+    },
+    "values": {
+      "variants": {
+        "title": "Canlı Seçenekler",
+        "description": "Her türlü tasarım ihtiyacına uygun geniş renk seçenekleri."
+      },
+      "dimensions": {
+        "title": "Kesin Ölçüler",
+        "description": "Her kumaş için listelenen hassas genişlik ve ağırlık spesifikasyonları."
+      },
+      "quality": {
+        "title": "Üstün Kalite",
+        "description": "Mükemmel döküm için isteğe bağlı kurşun ağırlıklı, dayanıklı kompozisyonlar."
+      }
+    },
+    "products": {
+      "title": "Yeni Gelenler",
+      "description": "Kataloğumuza eklenen en son ürünler.",
+      "viewAll": "Tümünü Gör",
+      "viewAllMobile": "Tüm Ürünleri Gör"
+    }
+  },
+
+  "AboutPage": {
+    "hero": {
+      "title": "Dokumada Mükemmellik",
+      "subtitle": "Tüzemen Group; kökleri Bursa'nın zengin tekstil mirasına dayanan, yüksek kaliteli tül, ağır perde ve dekoratif tekstil ürünlerinin lider üreticisidir.",
+      "imageAlt": "Tüzemen Group Dokuma Tesisi"
+    },
+    "heritage": {
+      "title": "Mirasımız",
+      "imageAlt": "Tüzemen Group dokuma süreci",
+      "p1": "Türkiye'nin tekstil başkentinin kalbinde yer alan Tüzemen Group, geleneksel işçilik ile modern malzeme bilimi arasındaki boşluğu dolduran kumaşlar üretme vizyonuyla kuruldu.",
+      "p2": "Yıllardır tasarımcılara, mimarlara ve küresel perakendecilere mekanları tanımlayan seçkin tekstiller sunuyoruz. En hafif, en narin tüllerden ağır, akustik sönümleyici perdelere kadar tesisimizden çıkan her rulo kumaş, kaliteye olan bağlılığımızın bir kanıtıdır.",
+      "p3": "İplik seçiminden son kurşun dikimine kadar tüm üretim hattını kontrol ederek, katı standartlarımızın her bir temas noktasında karşılanmasını sağlıyoruz."
+    },
+    "video": {
+      "title": "Sürecimizi İzleyin",
+      "description": "Üretim tesisimizin içine bir göz atın ve ham maddelerin nasıl seçkin tekstillere dönüştüğünü görün.",
+      "iframeTitle": "Tüzemen Group Tanıtım"
+    },
+    "standards": {
+      "title": "Tüzemen Standardı",
+      "description": "İtibarımız, ürünlerimizin her bir ilmeğine işlenmiştir. Tüm kataloğumuzda yüksek kaliteyi bu şekilde sağlıyoruz.",
+      "facilities": {
+        "title": "Gelişmiş Tesisler",
+        "description": "Bursa'daki üretim merkezimiz, büyük üretim serilerinde sürekliliği garanti etmek için en son teknoloji dokuma ve kalite güvence sistemlerini kullanır."
+      },
+      "testing": {
+        "title": "Titiz Testler",
+        "description": "Her kumaş; dağıtım için onaylanmadan önce renk haslığı, ağırlık doğruluğu ve yırtılma direnci için ağır stres testlerinden geçer."
+      },
+      "finishing": {
+        "title": "Hassas Final İşlemleri",
+        "description": "Tam genişlikte kesimden ağır kurşunların temiz entegrasyonuna kadar, bitiş sürecimiz kumaşlarınızın hemen kuruluma hazır olmasını sağlar."
+      },
+      "sustainability": {
+        "title": "Sürdürülebilir Uygulamalar",
+        "description": "Su geri dönüşümlü boyama süreçleri ve sorumlu bir şekilde tedarik edilen ham maddelerle çevresel ayak izimizi azaltmaya kararlıyız."
+      }
+    },
+    "cta": {
+      "title": "Envanterinizi yükseltmeye hazır mısınız?",
+      "description": "Bir sonraki projeniz için ihtiyacınız olan kesin özellikleri, kompozisyonları ve renkleri bulmak için kataloğumuza göz atın.",
+      "button": "Ürünlerimizi Keşfedin"
+    }
+  },
+
+  "ContactPage": {
+    "hero": {
+      "title": "Bize Ulaşın",
+      "subtitle": "Kumaş numunesi talep etmek, toplu siparişler hakkında bilgi almak veya bizimle ortaklık kurmak isterseniz, ekibimiz size yardımcı olmaya hazırdır.",
+      "imageAlt": "Tüzemen Group İletişim"
+    },
+    "form": {
+      "title": "Mesaj Gönder"
+    },
+    "info": {
+      "title": "İletişim Bilgileri",
+      "address": {
+        "label": "Merkez ve Fabrika",
+        "value": "SAMANLI MAHALLESİ SEL SOK B BLOK NO:67/F\n16350 YILDIRIM BURSA/TÜRKİYE"
+      },
+      "phone": {
+        "label": "Telefon",
+        "hours": "Pzt-Cum, 08:00 - 18:00 (TSİ)"
+      },
+      "email": {
+        "label": "E-posta"
+      }
+    },
+    "hours": {
+      "title": "Çalışma Saatleri",
+      "weekdays": "Pazartesi - Cuma:",
+      "weekdaysTime": "08:00 - 18:00",
+      "weekend": "Cumartesi - Pazar:",
+      "weekendStatus": "Kapalı"
+    },
+    "map": {
+      "title": "Tüzemen Group Konum"
+    }
+  },
+
+  "ContactForm": {
+    "labels": {
+      "firstName": "Ad",
+      "lastName": "Soyad",
+      "email": "E-posta Adresi",
+      "subject": "Konu",
+      "message": "Mesaj"
+    },
+    "placeholders": {
+      "firstName": "Ahmet",
+      "lastName": "Yılmaz",
+      "email": "ahmet@sirket.com",
+      "subject": "Toplu Sipariş Talebi",
+      "message": "Proje gereksinimlerinizden bahsedin..."
+    },
+    "status": {
+      "sending": "Gönderiliyor...",
+      "send": "Mesaj Gönder",
+      "successTitle": "Mesaj Gönderildi",
+      "successDescription": "Bizimle iletişime geçtiğiniz için teşekkür ederiz. En kısa sürede size dönüş yapacağız.",
+      "sendAnother": "Yeni Mesaj Gönder"
+    }
+  }
+}
