@@ -2,8 +2,7 @@
 
 import { useState } from "react";
 import Image from "next/image";
-import { Check, Plus } from "lucide-react";
-import { useCart } from "~/store/useCart";
+import { Check } from "lucide-react";
 
 interface Variant {
   id: number;
@@ -12,12 +11,10 @@ interface Variant {
 }
 
 export default function ProductGallery({
-  designId,
   designName,
   displayImageUrl,
   variants,
 }: {
-  designId: number;
   designName: string;
   displayImageUrl: string | null;
   variants: Variant[];
@@ -25,9 +22,6 @@ export default function ProductGallery({
   const defaultImage = displayImageUrl ?? "/placeholder.jpg";
   const [activeImage, setActiveImage] = useState(defaultImage);
   const [activeColor, setActiveColor] = useState<string | null>(null);
-
-  const addItem = useCart((state) => state.addItem);
-  const cartItems = useCart((state) => state.items);
 
   function handleVariantClick(variant: Variant) {
     setActiveColor(variant.color);
@@ -37,23 +31,6 @@ export default function ProductGallery({
       setActiveImage(defaultImage);
     }
   }
-
-  function handleAddToCart() {
-    if (!activeColor) return;
-
-    addItem({
-      id: `${designId}-${activeColor}`,
-      designId: designId,
-      name: designName,
-      color: activeColor,
-      imageUrl: activeImage === defaultImage ? null : activeImage,
-    });
-  }
-
-  // Check if the currently selected variant is already in the cart
-  const isAlreadyInCart = cartItems.some(
-    (item) => item.id === `${designId}-${activeColor}`,
-  );
 
   return (
     <div className="space-y-6">
@@ -116,26 +93,6 @@ export default function ProductGallery({
           })}
         </div>
       </div>
-      {/* Add to Cart Action Area */}
-      {activeColor && (
-        <div className="mt-6 border-t pt-6">
-          <button
-            onClick={handleAddToCart}
-            disabled={isAlreadyInCart}
-            className={`flex w-full items-center justify-center rounded-md py-4 font-bold tracking-wide uppercase transition-all ${
-              isAlreadyInCart
-                ? "cursor-not-allowed bg-slate-100 text-slate-400"
-                : "bg-theme-accent text-theme-secondary hover:opacity-90"
-            }`}
-          >
-            {isAlreadyInCart ? "Sample Added" : "Request Sample"}
-            {!isAlreadyInCart && <Plus className="ml-2 h-5 w-5" />}
-          </button>
-          <p className="mt-3 text-center text-xs text-slate-500">
-            Select specific colors to add them to your sample inquiry list.
-          </p>
-        </div>
-      )}
     </div>
   );
 }

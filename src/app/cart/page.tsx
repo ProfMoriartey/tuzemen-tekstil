@@ -29,9 +29,9 @@ export default function CartPage() {
   async function handleAction(formData: FormData) {
     setStatus("pending");
 
-    // Format cart items into a readable string for the email
+    // Now formats as: "1. ACCENT (Full Color Hanger)"
     const formattedCart = cartItems
-      .map((item, index) => `${index + 1}. ${item.name} - Color: ${item.color}`)
+      .map((item, index) => `${index + 1}. ${item.name} (Full Color Hanger)`)
       .join("\n");
 
     formData.append("cartData", formattedCart);
@@ -112,7 +112,7 @@ export default function CartPage() {
                       <div className="relative h-24 w-24 shrink-0 overflow-hidden rounded-md border bg-slate-100">
                         <Image
                           src={item.imageUrl ?? "/placeholder.jpg"}
-                          alt={`${item.name} in ${item.color}`}
+                          alt={`${item.name} sample hanger`}
                           fill
                           className="object-cover"
                           sizes="96px"
@@ -122,8 +122,9 @@ export default function CartPage() {
                         <h3 className="text-theme-text text-lg font-bold uppercase">
                           {item.name}
                         </h3>
-                        <p className="text-theme-text/60 mt-1 text-sm font-medium">
-                          Color: {item.color}
+                        {/* Replaced the specific color text with this tag */}
+                        <p className="bg-theme-primary/20 text-theme-text/80 mt-2 inline-block rounded px-2 py-1 text-xs font-bold uppercase">
+                          Full Color Palette Hanger
                         </p>
                       </div>
                       <button

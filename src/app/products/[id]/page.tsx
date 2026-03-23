@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import Link from "next/link";
 import { ChevronLeft } from "lucide-react";
 import ProductGallery from "./ProductGallery";
+import RequestSampleButton from "~/components/RequestSampleButton";
 
 export default async function ProductDetailsPage({
   params,
@@ -33,7 +34,6 @@ export default async function ProductDetailsPage({
         {/* Left Column: Interactive Gallery */}
         <div>
           <ProductGallery
-            designId={fabric.id}
             designName={fabric.name}
             displayImageUrl={fabric.displayImageUrl}
             variants={fabric.variants}
@@ -105,6 +105,11 @@ export default async function ProductDetailsPage({
               </div>
             </dl>
           </div>
+          <RequestSampleButton
+            designId={fabric.id}
+            designName={fabric.name}
+            displayImageUrl={fabric.displayImageUrl}
+          />
         </div>
       </div>
     </div>

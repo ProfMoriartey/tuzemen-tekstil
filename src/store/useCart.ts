@@ -2,17 +2,15 @@ import { create } from "zustand"
 import { persist } from "zustand/middleware"
 
 export interface CartItem {
-  id: string // A unique ID like "designId-color"
-  designId: number
+  id: number // We now use the actual database design ID
   name: string
-  color: string
   imageUrl: string | null
 }
 
 interface CartStore {
   items: CartItem[]
   addItem: (item: CartItem) => void
-  removeItem: (id: string) => void
+  removeItem: (id: number) => void
   clearCart: () => void
 }
 
@@ -21,7 +19,7 @@ export const useCart = create<CartStore>()(
     (set) => ({
       items: [],
       addItem: (item) => set((state) => {
-        // Prevent adding the exact same fabric variant twice
+        // Prevent adding the exact same hanger twice
         const exists = state.items.find((i) => i.id === item.id)
         if (exists) return state
         
@@ -33,7 +31,7 @@ export const useCart = create<CartStore>()(
       clearCart: () => set({ items: [] }),
     }),
     { 
-      name: "tuzemen-cart" // The key used in localStorage
+      name: "tuzemen-cart" 
     }
   )
 )
