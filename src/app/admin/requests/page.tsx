@@ -24,6 +24,7 @@ export default async function AdminRequestsPage({
       ? or(
           ilike(sampleRequests.name, `%${query}%`),
           ilike(sampleRequests.company, `%${query}%`),
+          ilike(sampleRequests.status, `%${query}%`),
         )
       : undefined,
     orderBy: [desc(sampleRequests.createdAt)],

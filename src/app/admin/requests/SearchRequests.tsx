@@ -27,7 +27,7 @@ export default function SearchRequests() {
       <Search className="absolute top-1/2 left-3 h-4 w-4 -translate-y-1/2 text-slate-400" />
       <Input
         type="text"
-        placeholder="Search by name or company..."
+        placeholder="Search by name, companyor or status..."
         onChange={(e) => handleSearch(e.target.value)}
         defaultValue={searchParams.get("q")?.toString()}
         className="border-slate-200 bg-white pl-10"
