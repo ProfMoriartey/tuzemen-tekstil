@@ -3,6 +3,7 @@
 import { useState } from "react";
 import Image from "next/image";
 import { Check } from "lucide-react";
+import { useTranslations } from "next-intl";
 
 interface Variant {
   id: number;
@@ -19,6 +20,7 @@ export default function ProductGallery({
   displayImageUrl: string | null;
   variants: Variant[];
 }) {
+  const t = useTranslations("ProductGallery");
   const defaultImage = displayImageUrl ?? "/placeholder.jpg";
   const [activeImage, setActiveImage] = useState(defaultImage);
   const [activeColor, setActiveColor] = useState<string | null>(null);
@@ -38,7 +40,10 @@ export default function ProductGallery({
       <div className="relative aspect-square w-full overflow-hidden rounded-xl border bg-slate-50">
         <Image
           src={activeImage}
-          alt={`${designName} - ${activeColor ?? "Main"}`}
+          alt={t("imageAlt.template", {
+            name: designName,
+            color: activeColor ?? t("imageAlt.main"),
+          })}
           fill
           className="object-cover transition-opacity duration-300"
           sizes="(max-width: 768px) 100vw, 50vw"
@@ -49,7 +54,7 @@ export default function ProductGallery({
       {/* Color Selector */}
       <div>
         <div className="mb-3 flex items-end justify-between">
-          <h3 className="font-semibold text-slate-900">Available Colors</h3>
+          <h3 className="font-semibold text-slate-900">{t("colorsTitle")}</h3>
           {activeColor && (
             <span className="text-sm font-medium text-slate-500">
               {activeColor}
@@ -70,7 +75,7 @@ export default function ProductGallery({
                 : "bg-white text-slate-600 hover:bg-slate-50"
             }`}
           >
-            Original
+            {t("original")}
           </button>
 
           {/* Variant buttons */}

@@ -136,5 +136,164 @@
       "successDescription": "Bizimle iletişime geçtiğiniz için teşekkür ederiz. En kısa sürede size dönüş yapacağız.",
       "sendAnother": "Yeni Mesaj Gönder"
     }
+  },
+  "CartPage": {
+  "title": "Numune Talep Sepeti",
+  "empty": {
+    "title": "Sepetiniz boş",
+    "description": "Talep listenize kumaş numuneleri eklemek için koleksiyonumuza göz atın.",
+    "link": "Ürünleri Keşfedin"
+  },
+  "item": {
+    "tag": "Tam Renk Paleti Askısı",
+    "imageAlt": "{name} numune askısı",
+    "remove": "Numuneyi tamamen kaldır"
+  },
+  "form": {
+    "title": "Teslimat Bilgileri",
+    "fields": {
+      "name": "Ad Soyad *",
+      "company": "Şirket",
+      "email": "E-posta Adresi *",
+      "phone": "Telefon Numarası",
+      "address": "Tam Teslimat Adresi *",
+      "addressPlaceholder": "Sokak, Şehir, Eyalet/İl, Posta Kodu, Ülke",
+      "notes": "Ek Notlar",
+      "notesPlaceholder": "Proje detayları veya özel gereksinimler..."
+    },
+    "status": {
+      "pending": "Talep Gönderiliyor...",
+      "submit": "Talebi Gönder"
+    }
+  },
+  "success": {
+    "title": "Talep Alındı",
+    "description": "İlginiz için teşekkür ederiz. Ekibimiz numune askılarınızı hazırlayacak ve gönderim detayları için kısa süre içinde sizinle iletişime geçecektir.",
+    "link": "Göz Atmaya Devam Et"
   }
+},
+"FabricCard": {
+  "specs": {
+    "width": "En",
+    "composition": "İçerik",
+    "unit": "cm"
+  }
+},
+"Footer": {
+  "company": {
+    "name": "Tuzemen Group",
+    "description": "Her mekan için seçkin kumaşlar. Tam spesifikasyonlara göre üretilmiş yüksek kaliteli tül, perde ve dekoratif tekstil ürünlerinde uzmanlaşıyoruz."
+  },
+  "links": {
+    "title": "Hızlı Bağlantılar",
+    "home": "Ana Sayfa",
+    "products": "Ürünler",
+    "about": "Hakkımızda",
+    "contact": "İletişim",
+    "admin": "Yönetici Paneli"
+  },
+  "contact": {
+    "title": "Bize Ulaşın",
+    "address": "SAMANLI MAHALLESİ SEL SOK B BLOK NO:67/F\n16350 YILDIRIM BURSA/TÜRKİYE",
+    "mapTitle": "Tuzemen Group Konum"
+  },
+  "copyright": "© {year} Tuzemen Group. Tüm hakları saklıdır."
+},
+"HeroCarousel": {
+  "slides": [
+    {
+      "title": "Her Mekan İçin Seçkin Kumaşlar",
+      "description": "Yüksek kaliteli tül ve perdelerden oluşan özel koleksiyonumuzu keşfedin. Sektör lideri malzemelerle tam spesifikasyonlara göre üretilmiştir."
+    },
+    {
+      "title": "Zengin Dekoratif Tekstiller",
+      "description": "Onlarca zengin ve solmaya karşı dayanıklı renk seçeneğiyle sunulan özel dekoratif kumaş serimizle iç tasarımınızı yükseltin."
+    },
+    {
+      "title": "Kusursuzluk İçin Tasarlandı",
+      "description": "Her rulo, her seferinde kusursuz bir döküm sağlamak için ağırlık tutarlılığı ve içerik doğruluğu açısından titizlikle test edilir."
+    },
+    {
+      "title": "Sürdürülebilir Üretim",
+      "description": "Hem estetik hem de çevreye duyarlı kumaşlar sunmak için eko-bilinçli üretim tesisleriyle ortaklık yapıyoruz."
+    }
+  ],
+  "cta": "Koleksiyonu Keşfet"
+},
+"Navbar": {
+  "links": {
+    "home": "Ana Sayfa",
+    "products": "Ürünler",
+    "about": "Hakkımızda",
+    "contact": "İletişim"
+  },
+  "actions": {
+    "viewCart": "Sepeti Görüntüle",
+    "toggleMenu": "Navigasyon menüsünü aç/kapat",
+    "navTitle": "Navigasyon"
+  }
+},
+"RequestSampleButton": {
+  "addFirst": "Numune Askısı Talep Et",
+  "addAnother": "Bir Tane Daha Ekle (Sepette {count} Adet)"
+},
+"StorefrontFilter": {
+  "search": {
+    "placeholder": "İsme göre ara...",
+    "title": "Arama ve Sıralama"
+  },
+  "sort": {
+    "label": "Sırala",
+    "az": "A'dan Z'ye",
+    "za": "Z'den A'ya"
+  },
+  "dialog": {
+    "title": "Ürünleri Filtrele"
+  },
+  "sections": {
+    "widths": "Genişlikler",
+    "categories": "Kategoriler",
+    "colors": "Renkler",
+    "noWidths": "Genişlik bulunamadı.",
+    "noCategories": "Kategori bulunamadı.",
+    "noColors": "Renk bulunamadı."
+  },
+  "actions": {
+    "apply": "Filtreleri Uygula",
+    "clear": "Filtreleri Temizle"
+  }
+},
+"StorefrontPage": {
+  "header": {
+    "title": "Tüzemen Kumaşları",
+    "subtitle": "Seçkin koleksiyonumuzu keşfedin."
+  },
+  "emptyState": "Filtrelerinize uygun kumaş bulunamadı."
+},
+"ProductDetailsPage": {
+  "nav": {
+    "back": "Koleksiyona Geri Dön"
+  },
+  "info": {
+    "uncategorized": "Kategorize Edilmemiş"
+  },
+  "specs": {
+    "title": "Teknik Özellikler",
+    "composition": "İçerik",
+    "width": "Genişlik",
+    "weight": "Ağırlık",
+    "leadband": "Kurşun Kurdele Dahil",
+    "yes": "Evet",
+    "no": "Hayır",
+    "na": "Mevcut Değil"
+  }
+},
+"ProductGallery": {
+  "colorsTitle": "Mevcut Renkler",
+  "original": "Orijinal",
+  "imageAlt": {
+    "main": "Ana Görsel",
+    "template": "{name} - {color}"
+  }
+}
 }

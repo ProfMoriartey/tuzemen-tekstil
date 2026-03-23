@@ -2,6 +2,7 @@
 
 import { useRouter, usePathname, useSearchParams } from "next/navigation";
 import { useState, useMemo, useEffect, useCallback } from "react";
+import { useTranslations } from "next-intl";
 import { Input } from "~/components/ui/input";
 import { Button } from "~/components/ui/button";
 import { Filter, ArrowUpDown } from "lucide-react";
@@ -30,6 +31,7 @@ export default function StorefrontFilter({
   availableCategories: string[];
   availableWidths: number[];
 }) {
+  const t = useTranslations("StorefrontFilter");
   const router = useRouter();
   const pathname = usePathname();
   const searchParams = useSearchParams();
@@ -160,7 +162,7 @@ export default function StorefrontFilter({
       {/* Mobile Header & Dialog */}
       <div className="mb-6 flex gap-2 md:hidden">
         <Input
-          placeholder="Search by name..."
+          placeholder={t("search.placeholder")}
           value={searchTerm}
           onChange={(e) => setSearchTerm(e.target.value)}
           className="flex-1"
@@ -172,13 +174,13 @@ export default function StorefrontFilter({
         >
           <SelectTrigger
             className="flex w-10 shrink-0 justify-center border-slate-200 px-0"
-            aria-label="Sort"
+            aria-label={t("sort.label")}
           >
             <ArrowUpDown className="h-4 w-4 text-slate-700" />
           </SelectTrigger>
           <SelectContent>
-            <SelectItem value="name-asc">A to Z</SelectItem>
-            <SelectItem value="name-desc">Z to A</SelectItem>
+            <SelectItem value="name-asc">{t("sort.az")}</SelectItem>
+            <SelectItem value="name-desc">{t("sort.za")}</SelectItem>
           </SelectContent>
         </Select>
 
@@ -194,7 +196,7 @@ export default function StorefrontFilter({
         <Dialog open={isOpen} onOpenChange={setIsOpen}>
           <DialogContent className="max-h-[90vh] w-[90vw] max-w-106.25 overflow-y-auto rounded-lg p-6">
             <DialogHeader className="mb-4">
-              <DialogTitle className="text-xl">Filter Products</DialogTitle>
+              <DialogTitle className="text-xl">{t("dialog.title")}</DialogTitle>
             </DialogHeader>
 
             <div className="space-y-6 py-2">
@@ -205,47 +207,47 @@ export default function StorefrontFilter({
               />
               <div className="border-t border-slate-100" />
               <FilterChecklist
-                title="Widths"
+                title={t("sections.widths")}
                 items={availableWidths}
                 selectedItems={localWidths}
                 onToggle={handleWidthToggle}
                 idPrefix="mobile-width"
                 variant="mobile"
-                emptyMessage="No widths found."
+                emptyMessage={t("sections.noWidths")}
                 suffix=" cm"
               />
               <div className="border-t border-slate-100" />
               <FilterChecklist
-                title="Categories"
+                title={t("sections.categories")}
                 items={sortedCategories}
                 selectedItems={localCategories}
                 onToggle={handleCategoryToggle}
                 idPrefix="mobile-cat"
                 variant="mobile"
-                emptyMessage="No categories found."
+                emptyMessage={t("sections.noCategories")}
               />
               <div className="border-t border-slate-100" />
               <FilterChecklist
-                title="Colors"
+                title={t("sections.colors")}
                 items={sortedColors}
                 selectedItems={localColors}
                 onToggle={handleColorToggle}
                 idPrefix="mobile-color"
                 variant="mobile"
-                emptyMessage="No colors found."
+                emptyMessage={t("sections.noColors")}
               />
             </div>
 
             <div className="sticky bottom-0 flex flex-col gap-3 border-t border-slate-100 bg-white pt-4">
               <Button onClick={applyFilters} className="w-full">
-                Apply Filters
+                {t("actions.apply")}
               </Button>
               <Button
                 variant="outline"
                 onClick={clearFilters}
                 className="w-full"
               >
-                Clear Filters
+                {t("actions.clear")}
               </Button>
             </div>
           </DialogContent>
@@ -255,10 +257,10 @@ export default function StorefrontFilter({
       {/* Desktop Sidebar */}
       <div className="hidden space-y-8 md:block">
         <div>
-          <h3 className="mb-4 text-lg font-semibold">Search & Sort</h3>
+          <h3 className="mb-4 text-lg font-semibold">{t("search.title")}</h3>
           <div className="mb-4 flex gap-2">
             <Input
-              placeholder="Search by name..."
+              placeholder={t("search.placeholder")}
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
               className="flex-1"
@@ -270,13 +272,13 @@ export default function StorefrontFilter({
             >
               <SelectTrigger
                 className="flex w-10 shrink-0 justify-center border-slate-200 px-0"
-                aria-label="Sort"
+                aria-label={t("sort.label")}
               >
                 <ArrowUpDown className="h-4 w-4 text-slate-700" />
               </SelectTrigger>
               <SelectContent>
-                <SelectItem value="name-asc">A to Z</SelectItem>
-                <SelectItem value="name-desc">Z to A</SelectItem>
+                <SelectItem value="name-asc">{t("sort.az")}</SelectItem>
+                <SelectItem value="name-desc">{t("sort.za")}</SelectItem>
               </SelectContent>
             </Select>
           </div>
@@ -289,40 +291,40 @@ export default function StorefrontFilter({
             variant="desktop"
           />
           <FilterChecklist
-            title="Widths"
+            title={t("sections.widths")}
             items={availableWidths}
             selectedItems={localWidths}
             onToggle={handleWidthToggle}
             idPrefix="desktop-width"
             variant="desktop"
-            emptyMessage="No widths."
+            emptyMessage={t("sections.noWidths")}
             suffix=" cm"
           />
           <FilterChecklist
-            title="Categories"
+            title={t("sections.categories")}
             items={sortedCategories}
             selectedItems={localCategories}
             onToggle={handleCategoryToggle}
             idPrefix="desktop-cat"
             variant="desktop"
-            emptyMessage="No categories."
+            emptyMessage={t("sections.noCategories")}
           />
           <FilterChecklist
-            title="Colors"
+            title={t("sections.colors")}
             items={sortedColors}
             selectedItems={localColors}
             onToggle={handleColorToggle}
             idPrefix="desktop-color"
             variant="desktop"
-            emptyMessage="No colors."
+            emptyMessage={t("sections.noColors")}
           />
 
           <div className="flex flex-col gap-3 border-t pt-4">
             <Button onClick={applyFilters} className="w-full">
-              Apply Filters
+              {t("actions.apply")}
             </Button>
             <Button variant="outline" onClick={clearFilters} className="w-full">
-              Clear Filters
+              {t("actions.clear")}
             </Button>
           </div>
         </div>

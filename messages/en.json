@@ -134,5 +134,165 @@
       "successDescription": "Thank you for reaching out. We will get back to you shortly.",
       "sendAnother": "Send Another Message"
     }
+  },
+  
+  "CartPage": {
+    "title": "Sample Request Cart",
+    "empty": {
+      "title": "Your cart is empty",
+      "description": "Browse our collection to add fabric samples to your inquiry list.",
+      "link": "Explore Products"
+    },
+    "item": {
+      "tag": "Full Color Palette Hanger",
+      "imageAlt": "{name} sample hanger",
+      "remove": "Remove sample completely"
+    },
+    "form": {
+      "title": "Shipping Details",
+      "fields": {
+        "name": "Full Name *",
+        "company": "Company",
+        "email": "Email Address *",
+        "phone": "Phone Number",
+        "address": "Full Shipping Address *",
+        "addressPlaceholder": "Street, City, State, ZIP, Country",
+        "notes": "Additional Notes",
+        "notesPlaceholder": "Project details or specific requirements..."
+      },
+      "status": {
+        "pending": "Submitting Request...",
+        "submit": "Submit Inquiry"
+      }
+    },
+    "success": {
+      "title": "Request Received",
+      "description": "Thank you for your interest. Our team will prepare your sample hangers and contact you shortly with shipping details.",
+      "link": "Continue Browsing"
+    }
+  },
+"FabricCard": {
+    "specs": {
+      "width": "Width",
+      "composition": "Comp",
+      "unit": "cm"
+    }
+  },
+  "Footer": {
+    "company": {
+      "name": "Tuzemen Group",
+      "description": "Premium fabrics for every space. We specialize in high-quality sheers, drapery, and accent textiles crafted to exact specifications."
+    },
+    "links": {
+      "title": "Quick Links",
+      "home": "Home",
+      "products": "Products",
+      "about": "About Us",
+      "contact": "Contact",
+      "admin": "Admin Portal"
+    },
+    "contact": {
+      "title": "Contact Us",
+      "address": "SAMANLI MAHALLESİ SEL SOK B BLOK NO:67/F\n16350 YILDIRIM BURSA/TURKEY",
+      "mapTitle": "Tuzemen Group Location"
+    },
+    "copyright": "© {year} Tuzemen Group. All rights reserved."
+  },
+  "HeroCarousel": {
+    "slides": [
+      {
+        "title": "Premium Fabrics for Every Space",
+        "description": "Discover our curated collection of high-quality sheers and drapery. Built to exact specifications with industry-leading materials."
+      },
+      {
+        "title": "Rich Accent Textiles",
+        "description": "Elevate your interior design with our exclusive range of accent fabrics, available in dozens of rich, fade-resistant colors."
+      },
+      {
+        "title": "Engineered for Perfection",
+        "description": "Every roll is rigorously tested for weight consistency and composition accuracy, ensuring a flawless drape every time."
+      },
+      {
+        "title": "Sustainable Manufacturing",
+        "description": "We partner with eco-conscious mills to deliver fabrics that are as responsible as they are beautiful."
+      }
+    ],
+    "cta": "Explore Collection"
+  },
+"Navbar": {
+    "links": {
+      "home": "Home",
+      "products": "Products",
+      "about": "About Us",
+      "contact": "Contact"
+    },
+    "actions": {
+      "viewCart": "View Cart",
+      "toggleMenu": "Toggle navigation menu",
+      "navTitle": "Navigation"
+    }
+  },
+  "RequestSampleButton": {
+    "addFirst": "Request Sample Hanger",
+    "addAnother": "Add Another ({count} in Cart)"
+  },
+  "StorefrontFilter": {
+    "search": {
+      "placeholder": "Search by name...",
+      "title": "Search & Sort"
+    },
+    "sort": {
+      "label": "Sort",
+      "az": "A to Z",
+      "za": "Z to A"
+    },
+    "dialog": {
+      "title": "Filter Products"
+    },
+    "sections": {
+      "widths": "Widths",
+      "categories": "Categories",
+      "colors": "Colors",
+      "noWidths": "No widths found.",
+      "noCategories": "No categories found.",
+      "noColors": "No colors found."
+    },
+    "actions": {
+      "apply": "Apply Filters",
+      "clear": "Clear Filters"
+    }
+  },
+"StorefrontPage": {
+    "header": {
+      "title": "Tuzemen Fabrics",
+      "subtitle": "Explore our premium collection."
+    },
+    "emptyState": "No fabrics found matching your filters."
+  },
+  "ProductDetailsPage": {
+    "nav": {
+      "back": "Back to Collection"
+    },
+    "info": {
+      "uncategorized": "Uncategorized"
+    },
+    "specs": {
+      "title": "Technical Specifications",
+      "composition": "Composition",
+      "width": "Width",
+      "weight": "Weight",
+      "leadband": "Leadband Included",
+      "yes": "Yes",
+      "no": "No",
+      "na": "N/A"
+    }
+  },
+  "ProductGallery": {
+    "colorsTitle": "Available Colors",
+    "original": "Original",
+    "imageAlt": {
+      "main": "Main",
+      "template": "{name} - {color}"
+    }
   }
 }

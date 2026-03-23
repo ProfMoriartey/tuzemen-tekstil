@@ -6,6 +6,7 @@ import {
 } from "~/server/actions/public";
 import StorefrontFilter from "~/components/StorefrontFilter";
 import FabricCard, { type Design } from "~/components/FabricCard";
+import { getTranslations } from "next-intl/server";
 
 export default async function StorefrontPage({
   searchParams,
@@ -20,6 +21,7 @@ export default async function StorefrontPage({
     leadband?: string;
   }>;
 }) {
+  const t = await getTranslations("StorefrontPage");
   const params = await searchParams;
 
   const query = params.q ?? "";
@@ -64,11 +66,9 @@ export default async function StorefrontPage({
     <div className="container mx-auto p-4 md:p-8">
       <header className="mb-8 border-b pb-4">
         <h1 className="text-3xl font-bold tracking-wide uppercase">
-          Tuzemen Fabrics
+          {t("header.title")}
         </h1>
-        <p className="text-muted-foreground mt-2">
-          Explore our premium collection.
-        </p>
+        <p className="text-muted-foreground mt-2">{t("header.subtitle")}</p>
       </header>
 
       <div className="flex flex-col gap-8 md:flex-row">
@@ -81,11 +81,10 @@ export default async function StorefrontPage({
         </aside>
 
         <main className="flex-1">
-          {/* Updated Grid: 2 cols on mobile, 3 on md, 4 on xl. Tighter gap on mobile. */}
           <div className="grid grid-cols-2 gap-3 sm:gap-6 md:grid-cols-3 xl:grid-cols-4">
             {designs.length === 0 ? (
               <div className="col-span-full py-12 text-center text-slate-500">
-                No fabrics found matching your filters.
+                {t("emptyState")}
               </div>
             ) : (
               designs.map((design: Design) => (

@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Menu, ShoppingBag } from "lucide-react";
+import { useTranslations } from "next-intl";
 import { useCart } from "~/store/useCart";
 import {
   Dialog,
@@ -14,27 +15,26 @@ import {
 } from "~/components/ui/dialog";
 
 export default function Navbar() {
+  const t = useTranslations("Navbar");
   const pathname = usePathname();
   const [isOpen, setIsOpen] = useState(false);
   const [isMounted, setIsMounted] = useState(false);
   const cartItems = useCart((state) => state.items);
 
-  // Ensure hydration matches between server and client
   useEffect(() => {
     setIsMounted(true);
   }, []);
 
   const links = [
-    { name: "Home", href: "/" },
-    { name: "Products", href: "/products" },
-    { name: "About Us", href: "/about" },
-    { name: "Contact", href: "/contact" },
+    { name: t("links.home"), href: "/" },
+    { name: t("links.products"), href: "/products" },
+    { name: t("links.about"), href: "/about" },
+    { name: t("links.contact"), href: "/contact" },
   ];
 
   return (
     <nav className="sticky top-0 z-50 w-full border-b bg-white/95 backdrop-blur supports-backdrop-filter:bg-white/60">
       <div className="container mx-auto flex h-16 items-center justify-between px-4 md:px-8">
-        {/* Logo */}
         <Link
           href="/"
           className="text-xl font-bold tracking-widest text-slate-900 uppercase"
@@ -42,7 +42,6 @@ export default function Navbar() {
           Tuzemen Group
         </Link>
 
-        {/* Desktop Navigation */}
         <div className="hidden items-center gap-8 md:flex">
           {links.map((link) => {
             const isActive =
@@ -50,7 +49,7 @@ export default function Navbar() {
               (link.href !== "/" && pathname.startsWith(link.href));
             return (
               <Link
-                key={link.name}
+                key={link.href}
                 href={link.href}
                 className={`text-sm font-medium transition-colors hover:text-slate-900 ${
                   isActive ? "text-slate-900" : "text-slate-500"
@@ -62,9 +61,7 @@ export default function Navbar() {
           })}
         </div>
 
-        {/* Right Side Actions (Cart & Mobile Menu) */}
         <div className="flex items-center gap-2">
-          {/* Cart Icon */}
           <Link
             href="/cart"
             className="relative flex h-10 w-10 items-center justify-center rounded-md text-slate-700 transition-colors hover:bg-slate-100"
@@ -75,21 +72,20 @@ export default function Navbar() {
                 {cartItems.length}
               </span>
             )}
-            <span className="sr-only">View Cart</span>
+            <span className="sr-only">{t("actions.viewCart")}</span>
           </Link>
 
-          {/* Mobile Navigation (Dialog) */}
           <div className="md:hidden">
             <Dialog open={isOpen} onOpenChange={setIsOpen}>
               <DialogTrigger className="flex h-10 w-10 items-center justify-center rounded-md text-slate-700 transition-colors hover:bg-slate-100 focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 focus:outline-none">
                 <Menu className="h-6 w-6" />
-                <span className="sr-only">Toggle navigation menu</span>
+                <span className="sr-only">{t("actions.toggleMenu")}</span>
               </DialogTrigger>
 
               <DialogContent className="w-[90vw] max-w-100 rounded-2xl p-6">
                 <DialogHeader className="mb-4 border-b pb-4">
                   <DialogTitle className="text-left text-xl font-bold tracking-widest text-slate-900 uppercase">
-                    Navigation
+                    {t("actions.navTitle")}
                   </DialogTitle>
                 </DialogHeader>
 
@@ -100,7 +96,7 @@ export default function Navbar() {
                       (link.href !== "/" && pathname.startsWith(link.href));
                     return (
                       <Link
-                        key={link.name}
+                        key={link.href}
                         href={link.href}
                         onClick={() => setIsOpen(false)}
                         className={`text-lg font-medium transition-colors hover:text-slate-900 ${

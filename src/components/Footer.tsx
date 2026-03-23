@@ -1,7 +1,17 @@
 import Link from "next/link";
 import { MapPin, Phone, Mail, ChevronRight } from "lucide-react";
+import { getTranslations } from "next-intl/server";
 
-export default function Footer() {
+export default async function Footer() {
+  const t = await getTranslations("Footer");
+
+  const quickLinks = [
+    { name: t("links.home"), path: "/" },
+    { name: t("links.products"), path: "/products" },
+    { name: t("links.about"), path: "/about" },
+    { name: t("links.contact"), path: "/contact" },
+  ];
+
   return (
     <footer className="mt-auto border-t border-slate-800 bg-slate-900 py-12 text-slate-300 md:py-16">
       <div className="container mx-auto max-w-7xl px-4 md:px-8">
@@ -9,28 +19,21 @@ export default function Footer() {
           {/* Column 1: Company Info */}
           <div className="space-y-4">
             <h3 className="mb-6 text-xl font-bold tracking-widest text-white uppercase">
-              Tuzemen Group
+              {t("company.name")}
             </h3>
             <p className="text-sm leading-relaxed text-slate-400">
-              Premium fabrics for every space. We specialize in high-quality
-              sheers, drapery, and accent textiles crafted to exact
-              specifications.
+              {t("company.description")}
             </p>
           </div>
 
           {/* Column 2: Quick Links */}
           <div>
             <h4 className="mb-6 text-sm font-bold tracking-wider text-white uppercase">
-              Quick Links
+              {t("links.title")}
             </h4>
             <ul className="space-y-3">
-              {[
-                { name: "Home", path: "/" },
-                { name: "Products", path: "/products" },
-                { name: "About Us", path: "/about" },
-                { name: "Contact", path: "/contact" },
-              ].map((link) => (
-                <li key={link.name}>
+              {quickLinks.map((link) => (
+                <li key={link.path}>
                   <Link
                     href={link.path}
                     className="group flex items-center text-sm transition-colors hover:text-white"
@@ -41,14 +44,13 @@ export default function Footer() {
                 </li>
               ))}
 
-              {/* Admin Link Separator */}
               <li className="mt-4 border-t border-slate-800 pt-4">
                 <Link
                   href="/tuzemen"
                   className="group flex items-center text-sm text-slate-500 transition-colors hover:text-white"
                 >
                   <ChevronRight className="mr-2 h-4 w-4 text-slate-700 transition-colors group-hover:text-white" />
-                  Admin Portal
+                  {t("links.admin")}
                 </Link>
               </li>
             </ul>
@@ -57,7 +59,7 @@ export default function Footer() {
           {/* Column 3: Contact Info */}
           <div>
             <h4 className="mb-6 text-sm font-bold tracking-wider text-white uppercase">
-              Contact Us
+              {t("contact.title")}
             </h4>
             <ul className="space-y-4">
               <li className="flex items-start">
@@ -83,7 +85,6 @@ export default function Footer() {
 
           {/* Column 4: Embedded Map */}
           <div className="relative h-48 min-h-50 overflow-hidden rounded-lg bg-slate-800 md:h-full">
-            {/* Replace this src with your actual Google Maps embed link */}
             <iframe
               src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3045.7522123081053!2d29.114439476047426!3d40.2368112714691!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14ca4024c47b7f8f%3A0x5c9fb57a97de00a4!2sT%C3%BCzemen%20Tekstil%20Makina%20G%C4%B1da%20Turizm%20Sa%C4%9Fl%C4%B1k%20Otomotiv%20%C4%B0n%C5%9Faat%20San.%20Tic.%20Ltd.%20%C5%9Eti.!5e0!3m2!1sen!2str!4v1773228921380!5m2!1sen!2str"
               width="100%"
@@ -93,17 +94,14 @@ export default function Footer() {
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"
               className="absolute inset-0 opacity-80 grayscale transition-all duration-500 hover:opacity-100 hover:grayscale-0"
-              title="Tuzemen Group Location"
+              title={t("contact.mapTitle")}
             ></iframe>
           </div>
         </div>
 
         {/* Bottom Bar */}
         <div className="mt-12 flex flex-col items-center justify-between gap-4 border-t border-slate-800 pt-8 text-xs text-slate-500 md:flex-row">
-          <p>
-            &copy; {new Date().getFullYear()} Tuzemen Group. All rights
-            reserved.
-          </p>
+          <p>{t("copyright", { year: new Date().getFullYear() })}</p>
         </div>
       </div>
     </footer>

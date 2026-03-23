@@ -1,5 +1,8 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
+import { useTranslations } from "next-intl";
 
 interface Variant {
   id: number;
@@ -20,6 +23,8 @@ export interface Design {
 }
 
 export default function FabricCard({ design }: { design: Design }) {
+  const t = useTranslations("FabricCard");
+
   return (
     <Link href={`/products/${design.id}`} className="group block h-full">
       <div className="flex h-full flex-col overflow-hidden rounded-lg border bg-white transition-all duration-200 hover:shadow-md">
@@ -33,7 +38,6 @@ export default function FabricCard({ design }: { design: Design }) {
           />
         </div>
 
-        {/* Responsive padding: tighter on mobile, standard on desktop */}
         <div className="flex flex-1 flex-col p-3 sm:p-4">
           <div className="mb-2 flex items-start justify-between gap-2">
             <h2 className="text-sm leading-tight font-bold text-slate-900 uppercase sm:text-base">
@@ -49,13 +53,17 @@ export default function FabricCard({ design }: { design: Design }) {
           <div className="mb-3 flex flex-col gap-0.5 text-[11px] text-slate-600 sm:text-xs">
             {design.width && (
               <div>
-                <span className="font-semibold text-slate-500">Width:</span>{" "}
-                {design.width} cm
+                <span className="font-semibold text-slate-500">
+                  {t("specs.width")}:
+                </span>{" "}
+                {design.width} {t("specs.unit")}
               </div>
             )}
             {design.composition && (
               <div className="line-clamp-1" title={design.composition}>
-                <span className="font-semibold text-slate-500">Comp:</span>{" "}
+                <span className="font-semibold text-slate-500">
+                  {t("specs.composition")}:
+                </span>{" "}
                 {design.composition}
               </div>
             )}

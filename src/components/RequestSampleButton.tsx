@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { Plus, Check } from "lucide-react";
+import { useTranslations } from "next-intl";
 import { useCart } from "~/store/useCart";
 
 export default function RequestSampleButton({
@@ -13,6 +14,7 @@ export default function RequestSampleButton({
   designName: string;
   displayImageUrl: string | null;
 }) {
+  const t = useTranslations("RequestSampleButton");
   const [isMounted, setIsMounted] = useState(false);
   const addItem = useCart((state) => state.addItem);
   const cartItems = useCart((state) => state.items);
@@ -21,7 +23,6 @@ export default function RequestSampleButton({
     setIsMounted(true);
   }, []);
 
-  // Check how many of this specific hanger are in the cart
   const cartItem = cartItems.find((item) => item.id === designId);
   const currentQuantity = cartItem?.quantity ?? 0;
 
@@ -38,8 +39,8 @@ export default function RequestSampleButton({
       className="bg-theme-accent text-theme-secondary mt-8 flex w-full items-center justify-center rounded-md py-4 font-bold tracking-wide uppercase shadow-sm transition-all hover:opacity-90"
     >
       {currentQuantity > 0
-        ? `Add Another (${currentQuantity} in Cart)`
-        : "Request Sample Hanger"}
+        ? t("addAnother", { count: currentQuantity })
+        : t("addFirst")}
       {currentQuantity > 0 ? (
         <Check className="ml-2 h-5 w-5" />
       ) : (
