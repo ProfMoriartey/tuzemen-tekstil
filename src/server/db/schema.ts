@@ -1,4 +1,4 @@
-import { pgTable, serial, text, varchar, timestamp, integer, boolean } from "drizzle-orm/pg-core"
+import { pgTable, serial, text, varchar, timestamp, integer, boolean, jsonb } from "drizzle-orm/pg-core"
 import { relations } from "drizzle-orm"
 
 export const designs = pgTable("designs", {
@@ -34,3 +34,16 @@ export const variantsRelations = relations(variants, ({ one }) => ({
     references: [designs.id],
   }),
 }))
+
+export const sampleRequests = pgTable("sample_requests", {
+  id: serial("id").primaryKey(),
+  name: varchar("name", { length: 255 }).notNull(),
+  company: varchar("company", { length: 255 }),
+  email: varchar("email", { length: 255 }).notNull(),
+  phone: varchar("phone", { length: 255 }),
+  address: text("address").notNull(),
+  notes: text("notes"),
+  items: jsonb("items").notNull(), // Stores the cart array
+  status: varchar("status", { length: 50 }).default("pending").notNull(), // pending, contacted, shipped
+  createdAt: timestamp("created_at").defaultNow().notNull(),
+})

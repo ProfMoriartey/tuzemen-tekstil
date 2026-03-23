@@ -39,6 +39,7 @@ export default function CartPage() {
       .join("\n");
 
     formData.append("cartData", formattedCart);
+    formData.append("cartJson", JSON.stringify(cartItems));
 
     const result = await sendSampleRequest(formData);
 
