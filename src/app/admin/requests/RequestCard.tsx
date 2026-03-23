@@ -36,9 +36,13 @@ export interface SampleRequestRecord {
 export default function RequestCard({
   request,
   timeAgo,
+  isSelected, // NEW PROP
+  onToggleSelect, // NEW PROP
 }: {
   request: SampleRequestRecord;
   timeAgo: string;
+  isSelected: boolean;
+  onToggleSelect: () => void;
 }) {
   const [isOpen, setIsOpen] = useState(false);
 
@@ -49,6 +53,16 @@ export default function RequestCard({
     <div className="overflow-hidden rounded-xl border bg-white shadow-sm transition-all">
       {/* Header Row */}
       <div className="flex flex-col gap-4 border-b bg-slate-50 px-6 py-4 md:flex-row md:items-center">
+        {/* NEW: Checkbox Area */}
+        <div className="flex items-center justify-center border-slate-200 py-4 pr-4 pl-6 md:border-r">
+          <input
+            type="checkbox"
+            checked={isSelected}
+            onChange={onToggleSelect}
+            onClick={(e) => e.stopPropagation()}
+            className="text-theme-accent focus:ring-theme-accent h-5 w-5 cursor-pointer rounded border-slate-300"
+          />
+        </div>
         {/* Clickable Area for Expansion */}
         <div
           className="group flex flex-1 cursor-pointer items-center justify-between"
