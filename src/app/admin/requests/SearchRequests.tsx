@@ -7,7 +7,9 @@ import { Input } from "~/components/ui/input";
 export default function SearchRequests() {
   const searchParams = useSearchParams();
   const pathname = usePathname();
-  const { replace } = useRouter();
+
+  // Fix: Keep the router object intact instead of destructuring it
+  const router = useRouter();
 
   function handleSearch(term: string) {
     const params = new URLSearchParams(searchParams);
@@ -18,8 +20,8 @@ export default function SearchRequests() {
       params.delete("q");
     }
 
-    // Updates the URL without reloading the page
-    replace(`${pathname}?${params.toString()}`);
+    // Fix: Call replace directly on the router object
+    router.replace(`${pathname}?${params.toString()}`);
   }
 
   return (
@@ -27,7 +29,7 @@ export default function SearchRequests() {
       <Search className="absolute top-1/2 left-3 h-4 w-4 -translate-y-1/2 text-slate-400" />
       <Input
         type="text"
-        placeholder="Search by name, companyor or status..."
+        placeholder="Search by name, company, or status..."
         onChange={(e) => handleSearch(e.target.value)}
         defaultValue={searchParams.get("q")?.toString()}
         className="border-slate-200 bg-white pl-10"

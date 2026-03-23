@@ -4,6 +4,13 @@ import { Download } from "lucide-react";
 import { format } from "date-fns";
 import type { SampleRequestRecord } from "./RequestCard";
 
+// 1. Define the exact shape of the JSON items
+interface RequestedItem {
+  id: number;
+  name: string;
+  quantity: number;
+}
+
 export default function ExportButton({
   requests,
 }: {
@@ -12,7 +19,6 @@ export default function ExportButton({
   function handleExport() {
     if (requests.length === 0) return;
 
-    // 1. Define CSV Headers
     const headers = [
       "ID",
       "Date",
@@ -26,7 +32,6 @@ export default function ExportButton({
       "Notes",
     ];
 
-    // 2. Helper to safely escape CSV fields containing commas or quotes
     const escapeCsv = (val: string | null | undefined) => {
       if (!val) return '""';
       const stringVal = String(val);
@@ -40,12 +45,9 @@ export default function ExportButton({
       return stringVal;
     };
 
-    // 3. Map database records into CSV rows
     const csvRows = requests.map((req) => {
-      // Format the items array into a single readable string
-      // e.g., "2x ACCENT, 1x SHEER"
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
-      const itemsString = (req.items as any[])
+      // 2. Cast the items to our strict interface instead of any[]
+      const itemsString = (req.items as RequestedItem[])
         .map((item) => `${item.quantity}x ${item.name}`)
         .join(", ");
 
@@ -63,10 +65,8 @@ export default function ExportButton({
       ].join(",");
     });
 
-    // 4. Combine headers and rows
     const csvContent = [headers.join(","), ...csvRows].join("\n");
 
-    // 5. Trigger the browser download
     const blob = new Blob([csvContent], { type: "text/csv;charset=utf-8;" });
     const url = URL.createObjectURL(blob);
     const link = document.createElement("a");
@@ -87,7 +87,6 @@ export default function ExportButton({
       className="hover:text-theme-accent flex shrink-0 items-center gap-2 rounded-md border border-slate-200 bg-white px-4 py-2 text-sm font-bold tracking-wider text-slate-700 uppercase transition-colors hover:bg-slate-50 disabled:cursor-not-allowed disabled:opacity-50"
     >
       <Download className="h-4 w-4" />
-      {/* Updated text logic to show the count */}
       <span className="hidden sm:inline">
         {requests.length > 0
           ? `Export Selected (${requests.length})`

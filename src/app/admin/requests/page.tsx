@@ -10,14 +10,14 @@ import RequestsClientList from "./RequestsClientList";
 export default async function AdminRequestsPage({
   searchParams,
 }: {
-  searchParams?: { q?: string };
+  searchParams?: Promise<{ q?: string }>;
 }) {
   const user = await currentUser();
   if (user?.publicMetadata?.role !== "admin") {
     redirect("/");
   }
 
-  const query = searchParams?.q || "";
+  const query = (await searchParams)?.q ?? "";
 
   const rawRequests = await db.query.sampleRequests.findMany({
     where: query
