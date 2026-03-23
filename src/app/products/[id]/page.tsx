@@ -33,6 +33,7 @@ export default async function ProductDetailsPage({
         {/* Left Column: Interactive Gallery */}
         <div>
           <ProductGallery
+            designId={fabric.id}
             designName={fabric.name}
             displayImageUrl={fabric.displayImageUrl}
             variants={fabric.variants}
