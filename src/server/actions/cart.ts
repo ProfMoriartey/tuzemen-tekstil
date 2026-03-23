@@ -4,6 +4,13 @@ import { Resend } from "resend"
 import { db } from "~/server/db"
 import { sampleRequests } from "~/server/db/schema"
 
+interface ParsedCartItem {
+  id: number
+  name: string
+  imageUrl: string | null
+  quantity: number
+}
+
 const resend = new Resend(process.env.RESEND_API_KEY)
 
 export async function sendSampleRequest(formData: FormData) {
@@ -24,7 +31,8 @@ export async function sendSampleRequest(formData: FormData) {
 
   try {
     // 1. Save to Database
-    const parsedItems = JSON.parse(cartJsonString)
+    const parsedItems = JSON.parse(cartJsonString) as ParsedCartItem[]
+    
     await db.insert(sampleRequests).values({
       name,
       company,
@@ -32,7 +40,7 @@ export async function sendSampleRequest(formData: FormData) {
       phone,
       address,
       notes,
-      items: parsedItems,
+      items: parsedItems, // TypeScript is now happy because this isn't 'any'
       status: "pending"
     })
 

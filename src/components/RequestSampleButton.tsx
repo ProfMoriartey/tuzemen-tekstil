@@ -23,7 +23,7 @@ export default function RequestSampleButton({
 
   // Check how many of this specific hanger are in the cart
   const cartItem = cartItems.find((item) => item.id === designId);
-  const currentQuantity = cartItem?.quantity || 0;
+  const currentQuantity = cartItem?.quantity ?? 0;
 
   if (!isMounted)
     return (
