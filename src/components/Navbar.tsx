@@ -71,7 +71,7 @@ export default function Navbar() {
           <div className="hidden h-6 w-px bg-slate-200 md:block"></div>
 
           {/* Action Icons & Mobile Menu */}
-          <div className="flex items-center gap-2">
+          <div className="flex items-center gap-1">
             <Link
               href="/cart"
               className="relative flex h-10 w-10 items-center justify-center rounded-md text-slate-700 transition-colors hover:bg-slate-100"
