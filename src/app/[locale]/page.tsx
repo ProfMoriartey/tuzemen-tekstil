@@ -1,4 +1,4 @@
-import Link from "next/link";
+import { Link } from "~/i18n/routing";
 import Image from "next/image";
 import { ArrowRight, Ruler, Palette, ShieldCheck } from "lucide-react";
 import { getTranslations } from "next-intl/server";

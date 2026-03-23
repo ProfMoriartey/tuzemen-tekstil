@@ -1,6 +1,6 @@
 import { getFabricById } from "~/server/actions/public";
 import { notFound } from "next/navigation";
-import Link from "next/link";
+import { Link } from "~/i18n/routing";
 import { ChevronLeft } from "lucide-react";
 import { getTranslations } from "next-intl/server";
 import ProductGallery from "./ProductGallery";

@@ -2,7 +2,7 @@
 
 import { useRef } from "react";
 import Image from "next/image";
-import Link from "next/link";
+import { Link } from "~/i18n/routing";
 import { ArrowRight } from "lucide-react";
 import Autoplay from "embla-carousel-autoplay";
 import { useTranslations } from "next-intl";
