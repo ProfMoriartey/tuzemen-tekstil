@@ -36,7 +36,7 @@ export default async function RootLayout({
 
   // Verify the URL locale matches your supported languages
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  if (!routing.locales.includes(locale as any)) {
+  if (!(routing.locales as readonly string[]).includes(locale)) {
     notFound();
   }
 

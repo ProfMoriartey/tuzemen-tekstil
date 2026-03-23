@@ -2,18 +2,23 @@ import { getRequestConfig } from "next-intl/server"
 
 const locales = ["en", "tr"]
 
+// Define a generic type for your nested JSON dictionaries
+type Messages = Record<string, Record<string, string>>
+
 export default getRequestConfig(async ({ requestLocale }) => {
-  // Await the locale from the incoming request
   let locale = await requestLocale
 
-  // Validate the locale or fallback to English
   if (!locale || !locales.includes(locale)) {
     locale = "en"
   }
 
+  // Cast the dynamic import to satisfy strict TypeScript rules
+  const messageModule = (await import(`../../messages/${locale}.json`)) as {
+    default: Messages
+  }
+
   return {
     locale,
-    // Load the correct dictionary dynamically
-    messages: (await import(`../../messages/${locale}.json`)).default
+    messages: messageModule.default
   }
 })
