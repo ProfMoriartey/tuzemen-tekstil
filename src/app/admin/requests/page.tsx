@@ -5,6 +5,7 @@ import { db } from "~/server/db";
 import { sampleRequests } from "~/server/db/schema";
 import { formatDistanceToNow } from "date-fns";
 import { Mail, Phone, MapPin, Package } from "lucide-react";
+import StatusDropdown from "./StatusDropdown";
 
 export default async function AdminRequestsPage() {
   // 1. Verify Admin Access
@@ -50,17 +51,11 @@ export default async function AdminRequestsPage() {
               </div>
 
               <div className="flex items-center gap-3">
-                <span
-                  className={`rounded-full px-3 py-1 text-xs font-bold tracking-wider uppercase ${
-                    request.status === "pending"
-                      ? "bg-amber-100 text-amber-800"
-                      : request.status === "contacted"
-                        ? "bg-blue-100 text-blue-800"
-                        : "bg-green-100 text-green-800"
-                  }`}
-                >
-                  {request.status}
-                </span>
+                {/* Replaced static span with the new dropdown */}
+                <StatusDropdown
+                  requestId={request.id}
+                  currentStatus={request.status}
+                />
               </div>
             </div>
 
