@@ -1,6 +1,6 @@
 import { getRequestConfig } from "next-intl/server"
 
-const locales = ["en", "tr"]
+const locales = ["en", "tr", "ru"]
 
 // Define a generic type for your nested JSON dictionaries
 type Messages = Record<string, Record<string, string>>

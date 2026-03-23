@@ -294,5 +294,8 @@
       "main": "Main",
       "template": "{name} - {color}"
     }
+  },
+  "Loading": {
+    "loading": "Loading..."
   }
 }

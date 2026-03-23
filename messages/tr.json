@@ -295,5 +295,8 @@
     "main": "Ana Görsel",
     "template": "{name} - {color}"
   }
-}
+},
+  "Loading": {
+    "loading": "Yükleniyor..."
+  }
 }

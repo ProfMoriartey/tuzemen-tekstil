@@ -29,6 +29,7 @@ export default function LanguageSwitcher() {
       >
         <option value="en">EN</option>
         <option value="tr">TR</option>
+        <option value="ru">RU</option>
       </select>
     </div>
   );
