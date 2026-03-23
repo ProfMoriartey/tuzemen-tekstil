@@ -298,5 +298,17 @@
 },
   "Loading": {
     "loading": "Yükleniyor..."
+  },
+"FilterLeadband": {
+  "title": "Kurşun Kurdele",
+  "placeholder": "Gereksinim seçin",
+  "options": {
+    "all": "Hepsi",
+    "yes": "Evet (Dahil)",
+    "no": "Hayır"
   }
+},
+"FilterChecklist": {
+  "defaultEmpty": "Öğe bulunamadı."
+}
 }

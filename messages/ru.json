@@ -295,5 +295,17 @@
   },
   "Loading": {
     "loading": "Загрузка..."
+  },
+  "FilterLeadband": {
+  "title": "Утяжелитель",
+  "placeholder": "Выберите требование",
+  "options": {
+    "all": "Любой",
+    "yes": "Да (в комплекте)",
+    "no": "Нет"
   }
+},
+"FilterChecklist": {
+  "defaultEmpty": "Элементы не найдены."
+}
 }

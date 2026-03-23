@@ -1,5 +1,6 @@
 "use client";
 
+import { useTranslations } from "next-intl";
 import { Checkbox } from "~/components/ui/checkbox";
 import { Label } from "~/components/ui/label";
 
@@ -21,10 +22,12 @@ export default function FilterChecklist({
   onToggle,
   idPrefix,
   variant,
-  emptyMessage = "No items.",
+  emptyMessage,
   suffix = "",
 }: FilterChecklistProps) {
+  const t = useTranslations("FilterChecklist");
   const isDesktop = variant === "desktop";
+  const displayEmptyMessage = emptyMessage ?? t("defaultEmpty");
 
   return (
     <div className={isDesktop ? "mb-6" : ""}>
@@ -63,7 +66,7 @@ export default function FilterChecklist({
         })}
         {items.length === 0 && (
           <p className={`text-sm text-slate-500 ${!isDesktop ? "py-2" : ""}`}>
-            {emptyMessage}
+            {displayEmptyMessage}
           </p>
         )}
       </div>

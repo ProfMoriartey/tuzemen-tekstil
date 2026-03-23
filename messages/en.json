@@ -297,5 +297,17 @@
   },
   "Loading": {
     "loading": "Loading..."
+  },
+  "FilterLeadband": {
+    "title": "Leadband",
+    "placeholder": "Select requirement",
+    "options": {
+      "all": "Any",
+      "yes": "Yes (Included)",
+      "no": "No"
+    }
+  },
+  "FilterChecklist": {
+    "defaultEmpty": "No items."
   }
 }

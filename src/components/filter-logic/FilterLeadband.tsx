@@ -1,5 +1,6 @@
 "use client";
 
+import { useTranslations } from "next-intl";
 import {
   Select,
   SelectContent,
@@ -19,6 +20,7 @@ export default function FilterLeadband({
   onChange,
   variant,
 }: FilterLeadbandProps) {
+  const t = useTranslations("FilterLeadband");
   const isDesktop = variant === "desktop";
 
   return (
@@ -30,16 +32,16 @@ export default function FilterLeadband({
             : "mb-4 text-lg font-semibold"
         }
       >
-        Leadband
+        {t("title")}
       </h3>
       <Select value={value} onValueChange={(val) => onChange(val ?? "all")}>
         <SelectTrigger className={isDesktop ? "w-full" : ""}>
-          <SelectValue placeholder="Select requirement" />
+          <SelectValue placeholder={t("placeholder")} />
         </SelectTrigger>
         <SelectContent>
-          <SelectItem value="all">Any</SelectItem>
-          <SelectItem value="yes">Yes (Included)</SelectItem>
-          <SelectItem value="no">No</SelectItem>
+          <SelectItem value="all">{t("options.all")}</SelectItem>
+          <SelectItem value="yes">{t("options.yes")}</SelectItem>
+          <SelectItem value="no">{t("options.no")}</SelectItem>
         </SelectContent>
       </Select>
     </div>
