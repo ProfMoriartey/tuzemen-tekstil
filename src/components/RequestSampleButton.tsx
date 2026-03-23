@@ -17,14 +17,14 @@ export default function RequestSampleButton({
   const addItem = useCart((state) => state.addItem);
   const cartItems = useCart((state) => state.items);
 
-  // Wait for client to mount to avoid hydration errors with local storage
   useEffect(() => {
     setIsMounted(true);
   }, []);
 
-  const isAlreadyInCart = cartItems.some((item) => item.id === designId);
+  // Check how many of this specific hanger are in the cart
+  const cartItem = cartItems.find((item) => item.id === designId);
+  const currentQuantity = cartItem?.quantity || 0;
 
-  // Show a blank placeholder of the same size while loading to prevent layout shift
   if (!isMounted)
     return (
       <div className="mt-8 h-14 w-full animate-pulse rounded-md bg-slate-100" />
@@ -35,15 +35,12 @@ export default function RequestSampleButton({
       onClick={() =>
         addItem({ id: designId, name: designName, imageUrl: displayImageUrl })
       }
-      disabled={isAlreadyInCart}
-      className={`mt-8 flex w-full items-center justify-center rounded-md py-4 font-bold tracking-wide uppercase transition-all ${
-        isAlreadyInCart
-          ? "cursor-not-allowed bg-slate-100 text-slate-400"
-          : "bg-theme-accent text-theme-secondary shadow-sm hover:opacity-90"
-      }`}
+      className="bg-theme-accent text-theme-secondary mt-8 flex w-full items-center justify-center rounded-md py-4 font-bold tracking-wide uppercase shadow-sm transition-all hover:opacity-90"
     >
-      {isAlreadyInCart ? "Hanger Added to Cart" : "Request Sample Hanger"}
-      {isAlreadyInCart ? (
+      {currentQuantity > 0
+        ? `Add Another (${currentQuantity} in Cart)`
+        : "Request Sample Hanger"}
+      {currentQuantity > 0 ? (
         <Check className="ml-2 h-5 w-5" />
       ) : (
         <Plus className="ml-2 h-5 w-5" />

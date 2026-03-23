@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { Trash2, ArrowRight, PackageOpen } from "lucide-react";
+import { Trash2, ArrowRight, PackageOpen, Minus, Plus } from "lucide-react";
 import { useCart } from "~/store/useCart";
 import { Button } from "~/components/ui/button";
 import { Input } from "~/components/ui/input";
@@ -20,6 +20,7 @@ export default function CartPage() {
 
   const cartItems = useCart((state) => state.items);
   const removeItem = useCart((state) => state.removeItem);
+  const updateQuantity = useCart((state) => state.updateQuantity);
   const clearCart = useCart((state) => state.clearCart);
 
   useEffect(() => {
@@ -31,7 +32,10 @@ export default function CartPage() {
 
     // Now formats as: "1. ACCENT (Full Color Hanger)"
     const formattedCart = cartItems
-      .map((item, index) => `${index + 1}. ${item.name} (Full Color Hanger)`)
+      .map(
+        (item, index) =>
+          `${index + 1}. ${item.quantity}x ${item.name} (Full Color Hanger)`,
+      )
       .join("\n");
 
     formData.append("cartData", formattedCart);
@@ -127,13 +131,39 @@ export default function CartPage() {
                           Full Color Palette Hanger
                         </p>
                       </div>
-                      <button
-                        onClick={() => removeItem(item.id)}
-                        className="text-theme-text/40 rounded-md p-2 transition-colors hover:bg-red-50 hover:text-red-500"
-                        title="Remove sample"
-                      >
-                        <Trash2 className="h-5 w-5" />
-                      </button>
+                      <div className="border-theme-primary/10 mt-4 flex items-center justify-between gap-6 border-t pt-4 sm:mt-0 sm:w-auto sm:justify-end sm:border-0 sm:pt-0">
+                        {/* Quantity Selector */}
+                        <div className="border-theme-primary/30 bg-theme-bg flex items-center rounded-md border">
+                          <button
+                            onClick={() =>
+                              updateQuantity(item.id, item.quantity - 1)
+                            }
+                            className="text-theme-text/60 hover:text-theme-text hover:bg-theme-primary/10 p-2 transition-colors"
+                          >
+                            <Minus className="h-4 w-4" />
+                          </button>
+                          <span className="text-theme-text w-10 text-center text-sm font-semibold">
+                            {item.quantity}
+                          </span>
+                          <button
+                            onClick={() =>
+                              updateQuantity(item.id, item.quantity + 1)
+                            }
+                            className="text-theme-text/60 hover:text-theme-text hover:bg-theme-primary/10 p-2 transition-colors"
+                          >
+                            <Plus className="h-4 w-4" />
+                          </button>
+                        </div>
+
+                        {/* Remove Item Button */}
+                        <button
+                          onClick={() => removeItem(item.id)}
+                          className="text-theme-text/40 rounded-md p-2 transition-colors hover:bg-red-50 hover:text-red-500"
+                          title="Remove sample completely"
+                        >
+                          <Trash2 className="h-5 w-5" />
+                        </button>
+                      </div>
                     </li>
                   ))}
                 </ul>
