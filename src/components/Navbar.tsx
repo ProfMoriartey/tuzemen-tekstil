@@ -15,6 +15,7 @@ import {
 } from "~/components/ui/dialog";
 
 import LanguageSwitcher from "./LanguageSwitcher";
+import Image from "next/image";
 
 export default function Navbar() {
   const t = useTranslations("Navbar");
@@ -40,9 +41,15 @@ export default function Navbar() {
         {/* Left Side: Logo */}
         <Link
           href="/"
-          className="shrink-0 text-xl font-bold tracking-widest text-slate-900 uppercase"
+          className="relative h-12 w-48 transition-opacity hover:opacity-90"
         >
-          Tuzemen Group
+          <Image
+            src="/logo.svg" // Replace with your actual path (e.g., /logo.png)
+            alt="Tuzemen Group Logo"
+            fill
+            className="object-contain object-left"
+            priority
+          />
         </Link>
 
         {/* Right Side: Links + Separator + Icons */}
