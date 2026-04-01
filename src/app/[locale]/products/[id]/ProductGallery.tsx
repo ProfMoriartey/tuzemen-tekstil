@@ -2,7 +2,7 @@
 
 import { useState, useEffect, useCallback } from "react";
 import Image from "next/image";
-import { ChevronLeft, ChevronRight } from "lucide-react";
+import { ChevronLeft, ChevronRight, Loader2 } from "lucide-react"; // Added Loader2
 import { useTranslations } from "next-intl";
 import {
   Carousel,
@@ -33,6 +33,9 @@ export default function ProductGallery({
 
   const [selectedIndex, setSelectedIndex] = useState(0);
   const [carouselApi, setCarouselApi] = useState<CarouselApi>();
+
+  // NEW: Track the loading state of the main image
+  const [isLoading, setIsLoading] = useState(true);
 
   const carouselItems = [
     {
@@ -65,12 +68,25 @@ export default function ProductGallery({
   }, [carouselApi, selectedIndex]);
 
   const activeItem = carouselItems[selectedIndex];
+
+  // NEW: Reset loading state whenever the active image URL changes
+  useEffect(() => {
+    setIsLoading(true);
+  }, [activeItem?.imageUrl]);
+
   if (!activeItem) return null;
 
   return (
     <div className="space-y-6">
       {/* Main Image Stage */}
       <div className="group relative aspect-square w-full overflow-hidden rounded-xl border bg-slate-50">
+        {/* NEW: Loading Spinner Overlay */}
+        {isLoading && (
+          <div className="absolute inset-0 z-10 flex items-center justify-center bg-slate-50/50 backdrop-blur-sm">
+            <Loader2 className="h-8 w-8 animate-spin text-slate-400" />
+          </div>
+        )}
+
         <Image
           src={activeItem.imageUrl}
           alt={t("imageAlt.template", {
@@ -78,7 +94,11 @@ export default function ProductGallery({
             color: activeItem.color,
           })}
           fill
-          className="object-cover transition-opacity duration-300"
+          // NEW: Added onLoad handler and dynamic opacity for a smooth fade-in
+          onLoad={() => setIsLoading(false)}
+          className={`object-cover transition-opacity duration-500 ${
+            isLoading ? "opacity-0" : "opacity-100"
+          }`}
           sizes="(max-width: 768px) 100vw, 50vw"
           priority
         />
@@ -87,7 +107,7 @@ export default function ProductGallery({
           <>
             <button
               onClick={handlePrev}
-              className="focus:ring-theme-accent absolute top-1/2 left-4 flex h-10 w-10 -translate-y-1/2 items-center justify-center rounded-full bg-white/90 text-slate-800 opacity-0 shadow-md transition-all group-hover:opacity-100 hover:scale-105 hover:bg-white focus:opacity-100 focus:ring-2 focus:outline-none"
+              className="focus:ring-theme-accent absolute top-1/2 left-4 z-20 flex h-10 w-10 -translate-y-1/2 items-center justify-center rounded-full bg-white/90 text-slate-800 opacity-0 shadow-md transition-all group-hover:opacity-100 hover:scale-105 hover:bg-white focus:opacity-100 focus:ring-2 focus:outline-none"
               aria-label="Previous image"
             >
               <ChevronLeft className="h-6 w-6 pr-0.5" />
@@ -95,7 +115,7 @@ export default function ProductGallery({
 
             <button
               onClick={handleNext}
-              className="focus:ring-theme-accent absolute top-1/2 right-4 flex h-10 w-10 -translate-y-1/2 items-center justify-center rounded-full bg-white/90 text-slate-800 opacity-0 shadow-md transition-all group-hover:opacity-100 hover:scale-105 hover:bg-white focus:opacity-100 focus:ring-2 focus:outline-none"
+              className="focus:ring-theme-accent absolute top-1/2 right-4 z-20 flex h-10 w-10 -translate-y-1/2 items-center justify-center rounded-full bg-white/90 text-slate-800 opacity-0 shadow-md transition-all group-hover:opacity-100 hover:scale-105 hover:bg-white focus:opacity-100 focus:ring-2 focus:outline-none"
               aria-label="Next image"
             >
               <ChevronRight className="h-6 w-6 pl-0.5" />
@@ -148,7 +168,6 @@ export default function ProductGallery({
                         className="object-cover"
                       />
 
-                      {/* Name Overlay */}
                       <div className="absolute inset-x-0 bottom-0 bg-linear-to-t from-black/70 to-transparent p-1.5 pb-1">
                         <span className="block truncate text-center text-[10px] font-medium text-white drop-shadow-md">
                           {item.color}
