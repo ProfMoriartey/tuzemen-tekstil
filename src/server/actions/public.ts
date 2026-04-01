@@ -34,8 +34,9 @@ export async function getStorefrontDesigns(
   leadbandParam: boolean | undefined,
   sortBy = "name",
   sortOrder: "asc" | "desc" = "asc",
-  page: number = 1,
-  limit: number = 24
+  page = 1,
+  limit = 24
+
 ) {
   const searchPattern = `%${query}%`
   const orderDirection = sortOrder === "desc" ? desc(designs.name) : asc(designs.name)
