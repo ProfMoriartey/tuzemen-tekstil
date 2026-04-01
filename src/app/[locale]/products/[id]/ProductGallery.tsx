@@ -75,13 +75,15 @@ export default function ProductGallery({
 
   // ADDED SAFETY CHECKS FOR TYPESCRIPT
   const handleTouchStart = (e: React.TouchEvent) => {
-    if (!e.targetTouches || !e.targetTouches[0]) return;
+    // NEW: Using optional chaining ?.[0]
+    if (!e.targetTouches?.[0]) return;
     setTouchEndX(null);
     setTouchStartX(e.targetTouches[0].clientX);
   };
 
   const handleTouchMove = (e: React.TouchEvent) => {
-    if (!e.targetTouches || !e.targetTouches[0]) return;
+    // NEW: Using optional chaining ?.[0]
+    if (!e.targetTouches?.[0]) return;
     setTouchEndX(e.targetTouches[0].clientX);
   };
 
