@@ -1,10 +1,11 @@
-import { getFabricById } from "~/server/actions/public";
+import { getFabricById, getAdjacentDesigns } from "~/server/actions/public";
 import { notFound } from "next/navigation";
 import { Link } from "~/i18n/routing";
-import { ChevronLeft } from "lucide-react";
+import { ChevronLeft, Undo2 } from "lucide-react";
 import { getTranslations } from "next-intl/server";
 import ProductGallery from "./ProductGallery";
 import RequestSampleButton from "~/components/RequestSampleButton";
+import ProductNavigation from "~/components/ProductNavigation";
 
 export default async function ProductDetailsPage({
   params,
@@ -18,19 +19,35 @@ export default async function ProductDetailsPage({
   if (isNaN(fabricId)) notFound();
 
   const fabric = await getFabricById(fabricId);
-
   if (!fabric) notFound();
+
+  const adjacentDesigns = await getAdjacentDesigns(fabric.name);
 
   return (
     <div className="container mx-auto max-w-6xl p-4 md:p-8">
-      {/* Navigation */}
-      <Link
-        href="/products"
-        className="mb-8 inline-flex items-center text-sm font-medium text-slate-500 transition-colors hover:text-slate-900"
-      >
-        <ChevronLeft className="mr-1 h-4 w-4" />
-        {t("nav.back")}
-      </Link>
+      {/* NEW NAVIGATION HEADER 
+        Flexbox ensures everything stays perfectly on one horizontal line. 
+        A subtle bottom border separates it from the product content.
+      */}
+      <header className="mb-6 flex items-center justify-between border-b border-slate-100 pb-4">
+        {/* Left Side: Back Button (Styled to match the Prev/Next buttons) */}
+        <Link
+          href="/products"
+          className="group flex items-center gap-2 text-sm font-medium text-slate-500 transition-colors hover:text-slate-900"
+        >
+          <div className="flex h-8 w-8 items-center justify-center rounded-full border border-slate-200 bg-white transition-all group-hover:border-slate-300 group-hover:bg-slate-50">
+            <Undo2 className="h-4 w-4 pr-0.5" />
+          </div>
+          {/* Hide the text 'Back' on tiny mobile screens if needed, otherwise show it */}
+          <span className="hidden sm:inline">{t("nav.back")}</span>
+        </Link>
+
+        {/* Right Side: Prev/Next Buttons */}
+        <ProductNavigation
+          previous={adjacentDesigns.previous}
+          next={adjacentDesigns.next}
+        />
+      </header>
 
       <div className="grid grid-cols-1 gap-10 lg:grid-cols-2 lg:gap-16">
         {/* Left Column: Interactive Gallery */}

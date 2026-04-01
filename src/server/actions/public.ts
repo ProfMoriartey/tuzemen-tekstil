@@ -1,6 +1,6 @@
 "use server"
 
-import { ilike, or, exists, and, eq, inArray, asc, desc, sql } from "drizzle-orm"
+import { ilike, or, exists, and, eq, inArray, asc, desc, sql, lt, gt } from "drizzle-orm"
 import { db } from "~/server/db"
 import { designs, variants } from "~/server/db/schema"
 
@@ -109,4 +109,25 @@ export async function getFeaturedDesigns(limitCount = 4) {
   })
 
   return data
+}
+
+export async function getAdjacentDesigns(currentName: string) {
+  // Find the item right before this one alphabetically
+  const prevDesign = await db.query.designs.findFirst({
+    where: lt(designs.name, currentName),
+    orderBy: [desc(designs.name)], // Order descending so we get the closest match
+    columns: { id: true, name: true }, // We only need id for the URL and name for the button
+  })
+
+  // Find the item right after this one alphabetically
+  const nextDesign = await db.query.designs.findFirst({
+    where: gt(designs.name, currentName),
+    orderBy: [asc(designs.name)], // Order ascending for the closest match
+    columns: { id: true, name: true },
+  })
+
+  return {
+    previous: prevDesign ?? null,
+    next: nextDesign ?? null,
+  }
 }

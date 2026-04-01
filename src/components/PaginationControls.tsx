@@ -87,7 +87,7 @@ export default function PaginationControls({
             // Changed: Slightly smaller height on mobile
             className="h-8 rounded-md border border-slate-200 bg-white px-3 py-1 text-sm text-slate-900 focus:ring-2 focus:ring-slate-400 focus:outline-none sm:h-9"
           >
-            <option value="25">25</option>
+            <option value="24">24</option>
             <option value="50">50</option>
             <option value="100">100</option>
           </select>
