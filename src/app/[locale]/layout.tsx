@@ -10,6 +10,7 @@ import { ClerkProvider } from "@clerk/nextjs";
 import Navbar from "~/components/Navbar";
 import Footer from "~/components/Footer";
 import { notFound } from "next/navigation";
+import WhatsAppButton from "~/components/WhatsAppButton";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-sans" });
 
@@ -52,6 +53,7 @@ export default async function RootLayout({
             <Footer />
           </ClerkProvider>
         </NextIntlClientProvider>
+        <WhatsAppButton />
       </body>
     </html>
   );

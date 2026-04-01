@@ -1,5 +1,13 @@
 import { Link } from "~/i18n/routing";
-import { MapPin, Phone, Mail, ChevronRight } from "lucide-react";
+import {
+  MapPin,
+  Phone,
+  Mail,
+  ChevronRight,
+  Instagram,
+  Facebook,
+  Linkedin,
+} from "lucide-react";
 import { getTranslations } from "next-intl/server";
 
 export default async function Footer() {
@@ -24,6 +32,37 @@ export default async function Footer() {
             <p className="text-sm leading-relaxed text-slate-400">
               {t("company.description")}
             </p>
+            <div className="mt-8 flex items-center gap-5">
+              <a
+                href="https://instagram.com/tuzemengroup"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-theme-accent text-slate-400 transition-colors"
+              >
+                <Instagram className="h-6 w-6" />
+                <span className="sr-only">Instagram</span>
+              </a>
+
+              <a
+                href="https://facebook.com/tuzemengroup"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-theme-accent text-slate-400 transition-colors"
+              >
+                <Facebook className="h-6 w-6" />
+                <span className="sr-only">Facebook</span>
+              </a>
+
+              <a
+                href="https://linkedin.com/company/tuzemengroup"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-theme-accent text-slate-400 transition-colors"
+              >
+                <Linkedin className="h-6 w-6" />
+                <span className="sr-only">LinkedIn</span>
+              </a>
+            </div>
           </div>
 
           {/* Column 2: Quick Links */}
