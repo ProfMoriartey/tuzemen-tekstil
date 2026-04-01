@@ -6,6 +6,7 @@ import {
 } from "~/server/actions/public";
 import StorefrontFilter from "~/components/StorefrontFilter";
 import FabricCard, { type Design } from "~/components/FabricCard";
+import PaginationControls from "~/components/PaginationControls";
 import { getTranslations } from "next-intl/server";
 
 export default async function StorefrontPage({
@@ -19,6 +20,8 @@ export default async function StorefrontPage({
     order?: string;
     widths?: string;
     leadband?: string;
+    page?: string;
+    limit?: string;
   }>;
 }) {
   const t = await getTranslations("StorefrontPage");
@@ -31,7 +34,6 @@ export default async function StorefrontPage({
   const categoriesArray = params.categories
     ? params.categories.split(",").filter(Boolean)
     : [];
-
   const widthsArray = params.widths
     ? params.widths
         .split(",")
@@ -46,7 +48,12 @@ export default async function StorefrontPage({
   const sort = params.sort ?? "name";
   const order = (params.order as "asc" | "desc") ?? "asc";
 
-  const [designs, availableColors, availableCategories, availableWidths] =
+  // Parse pagination parameters with defaults
+  const page = parseInt(params.page ?? "1", 10);
+  const limit = parseInt(params.limit ?? "24", 10);
+
+  // Destructure the updated response format
+  const [designData, availableColors, availableCategories, availableWidths] =
     await Promise.all([
       getStorefrontDesigns(
         query,
@@ -56,11 +63,16 @@ export default async function StorefrontPage({
         leadbandFilter,
         sort,
         order,
+        page,
+        limit,
       ),
       getAvailableColors(),
       getAvailableCategories(),
       getAvailableWidths(),
     ]);
+
+  const { designs, totalCount } = designData;
+  const totalPages = Math.ceil(totalCount / limit);
 
   return (
     <div className="container mx-auto p-4 md:p-8">
@@ -80,8 +92,8 @@ export default async function StorefrontPage({
           />
         </aside>
 
-        <main className="flex-1">
-          <div className="grid grid-cols-2 gap-3 sm:gap-6 md:grid-cols-3 xl:grid-cols-4">
+        <main className="flex min-h-full flex-1 flex-col">
+          <div className="grid flex-1 grid-cols-2 content-start gap-3 sm:gap-6 md:grid-cols-3 xl:grid-cols-4">
             {designs.length === 0 ? (
               <div className="col-span-full py-12 text-center text-slate-500">
                 {t("emptyState")}
@@ -92,6 +104,18 @@ export default async function StorefrontPage({
               ))
             )}
           </div>
+
+          {/* Pagination Controls */}
+          {totalPages > 0 && (
+            <div className="mt-8 border-t border-slate-200 pt-6">
+              <PaginationControls
+                currentPage={page}
+                totalPages={totalPages}
+                currentLimit={limit}
+                totalCount={totalCount}
+              />
+            </div>
+          )}
         </main>
       </div>
     </div>

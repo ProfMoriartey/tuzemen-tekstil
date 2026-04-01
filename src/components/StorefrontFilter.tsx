@@ -1,26 +1,20 @@
 "use client";
 
 import { useRouter, usePathname, useSearchParams } from "next/navigation";
-import { useState, useMemo, useEffect, useCallback } from "react";
+import { useState, useMemo, useEffect } from "react";
 import { useTranslations } from "next-intl";
-import { Input } from "~/components/ui/input";
 import { Button } from "~/components/ui/button";
-import { Filter, ArrowUpDown } from "lucide-react";
+import { Filter } from "lucide-react";
 import {
   Dialog,
   DialogContent,
   DialogHeader,
   DialogTitle,
 } from "~/components/ui/dialog";
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-} from "~/components/ui/select";
 
-import FilterChecklist from "./filter-logic/FilterChecklist";
-import FilterLeadband from "./filter-logic/FilterLeadband";
+// Import the newly extracted components
+import SearchAndSort from "./filter-logic/SearchAndSort";
+import FilterContent from "./filter-logic/FilterContent";
 
 export default function StorefrontFilter({
   availableColors,
@@ -44,7 +38,6 @@ export default function StorefrontFilter({
   const currentWidths =
     searchParams.get("widths")?.split(",").filter(Boolean) ?? [];
   const currentLeadband = searchParams.get("leadband") ?? "all";
-
   const currentSort = searchParams.get("sort") ?? "name";
   const currentOrder = searchParams.get("order") ?? "asc";
 
@@ -56,25 +49,21 @@ export default function StorefrontFilter({
   const [localLeadband, setLocalLeadband] = useState<string>(currentLeadband);
   const [isOpen, setIsOpen] = useState(false);
 
-  const createQueryString = useCallback(
-    (name: string, value: string) => {
-      const params = new URLSearchParams(searchParams.toString());
-      if (value) params.set(name, value);
-      else params.delete(name);
-      return params.toString();
-    },
-    [searchParams],
-  );
-
+  // Debounced search with Pagination Reset fix
   useEffect(() => {
     const delayDebounceFn = setTimeout(() => {
       if (searchTerm !== currentSearch) {
-        router.push(`${pathname}?${createQueryString("q", searchTerm)}`);
+        const params = new URLSearchParams(searchParams.toString());
+        if (searchTerm) params.set("q", searchTerm);
+        else params.delete("q");
+
+        params.set("page", "1"); // Reset page on search
+        router.push(`${pathname}?${params.toString()}`);
       }
     }, 300);
 
     return () => clearTimeout(delayDebounceFn);
-  }, [searchTerm, currentSearch, pathname, router, createQueryString]);
+  }, [searchTerm, currentSearch, pathname, router, searchParams]);
 
   const sortedColors = useMemo(() => {
     return [...availableColors].sort((a, b) => {
@@ -111,6 +100,7 @@ export default function StorefrontFilter({
     else setLocalWidths(localWidths.filter((w) => w !== widthStr));
   }
 
+  // Apply filters with Pagination Reset fix
   function applyFilters() {
     const params = new URLSearchParams(searchParams.toString());
 
@@ -127,10 +117,13 @@ export default function StorefrontFilter({
     if (localLeadband !== "all") params.set("leadband", localLeadband);
     else params.delete("leadband");
 
+    params.set("page", "1"); // Reset page on filter application
+
     router.push(pathname + "?" + params.toString());
     setIsOpen(false);
   }
 
+  // Clear filters with Pagination Reset fix
   function clearFilters() {
     setLocalColors([]);
     setLocalCategories([]);
@@ -143,46 +136,38 @@ export default function StorefrontFilter({
     params.delete("widths");
     params.delete("leadband");
 
+    params.set("page", "1"); // Reset page on clear
+
     router.push(pathname + "?" + params.toString());
     setIsOpen(false);
   }
 
+  // Sort change with Pagination Reset fix
   function handleSortChange(value: string | null) {
     if (!value) return;
     const [sort, order] = value.split("-");
     if (!sort || !order) return;
+
     const params = new URLSearchParams(searchParams.toString());
     params.set("sort", sort);
     params.set("order", order);
+    params.set("page", "1"); // Reset page on sort
+
     router.push(pathname + "?" + params.toString());
   }
 
   return (
     <div className="w-full">
-      {/* Mobile Header & Dialog */}
+      {/* Mobile Layout */}
       <div className="mb-6 flex gap-2 md:hidden">
-        <Input
-          placeholder={t("search.placeholder")}
-          value={searchTerm}
-          onChange={(e) => setSearchTerm(e.target.value)}
-          className="flex-1"
-        />
-
-        <Select
-          value={`${currentSort}-${currentOrder}`}
-          onValueChange={handleSortChange}
-        >
-          <SelectTrigger
-            className="flex w-10 shrink-0 justify-center border-slate-200 px-0"
-            aria-label={t("sort.label")}
-          >
-            <ArrowUpDown className="h-4 w-4 text-slate-700" />
-          </SelectTrigger>
-          <SelectContent>
-            <SelectItem value="name-asc">{t("sort.az")}</SelectItem>
-            <SelectItem value="name-desc">{t("sort.za")}</SelectItem>
-          </SelectContent>
-        </Select>
+        <div className="flex-1">
+          <SearchAndSort
+            searchTerm={searchTerm}
+            onSearchChange={setSearchTerm}
+            currentSortOrder={`${currentSort}-${currentOrder}`}
+            onSortChange={handleSortChange}
+          />
+        </div>
 
         <Button
           variant="outline"
@@ -199,46 +184,24 @@ export default function StorefrontFilter({
               <DialogTitle className="text-xl">{t("dialog.title")}</DialogTitle>
             </DialogHeader>
 
-            <div className="space-y-6 py-2">
-              <FilterLeadband
-                value={localLeadband}
-                onChange={setLocalLeadband}
+            <div className="py-2">
+              <FilterContent
                 variant="mobile"
-              />
-              <div className="border-t border-slate-100" />
-              <FilterChecklist
-                title={t("sections.widths")}
-                items={availableWidths}
-                selectedItems={localWidths}
-                onToggle={handleWidthToggle}
-                idPrefix="mobile-width"
-                variant="mobile"
-                emptyMessage={t("sections.noWidths")}
-                suffix=" cm"
-              />
-              <div className="border-t border-slate-100" />
-              <FilterChecklist
-                title={t("sections.categories")}
-                items={sortedCategories}
-                selectedItems={localCategories}
-                onToggle={handleCategoryToggle}
-                idPrefix="mobile-cat"
-                variant="mobile"
-                emptyMessage={t("sections.noCategories")}
-              />
-              <div className="border-t border-slate-100" />
-              <FilterChecklist
-                title={t("sections.colors")}
-                items={sortedColors}
-                selectedItems={localColors}
-                onToggle={handleColorToggle}
-                idPrefix="mobile-color"
-                variant="mobile"
-                emptyMessage={t("sections.noColors")}
+                localLeadband={localLeadband}
+                setLocalLeadband={setLocalLeadband}
+                availableWidths={availableWidths}
+                localWidths={localWidths}
+                handleWidthToggle={handleWidthToggle}
+                sortedCategories={sortedCategories}
+                localCategories={localCategories}
+                handleCategoryToggle={handleCategoryToggle}
+                sortedColors={sortedColors}
+                localColors={localColors}
+                handleColorToggle={handleColorToggle}
               />
             </div>
 
-            <div className="sticky bottom-0 flex flex-col gap-3 border-t border-slate-100 bg-white pt-4">
+            <div className="sticky bottom-0 mt-6 flex flex-col gap-3 border-t border-slate-100 bg-white pt-4">
               <Button onClick={applyFilters} className="w-full">
                 {t("actions.apply")}
               </Button>
@@ -254,72 +217,35 @@ export default function StorefrontFilter({
         </Dialog>
       </div>
 
-      {/* Desktop Sidebar */}
+      {/* Desktop Layout */}
       <div className="hidden space-y-8 md:block">
         <div>
           <h3 className="mb-4 text-lg font-semibold">{t("search.title")}</h3>
-          <div className="mb-4 flex gap-2">
-            <Input
-              placeholder={t("search.placeholder")}
-              value={searchTerm}
-              onChange={(e) => setSearchTerm(e.target.value)}
-              className="flex-1"
-            />
-
-            <Select
-              value={`${currentSort}-${currentOrder}`}
-              onValueChange={handleSortChange}
-            >
-              <SelectTrigger
-                className="flex w-10 shrink-0 justify-center border-slate-200 px-0"
-                aria-label={t("sort.label")}
-              >
-                <ArrowUpDown className="h-4 w-4 text-slate-700" />
-              </SelectTrigger>
-              <SelectContent>
-                <SelectItem value="name-asc">{t("sort.az")}</SelectItem>
-                <SelectItem value="name-desc">{t("sort.za")}</SelectItem>
-              </SelectContent>
-            </Select>
-          </div>
+          <SearchAndSort
+            searchTerm={searchTerm}
+            onSearchChange={setSearchTerm}
+            currentSortOrder={`${currentSort}-${currentOrder}`}
+            onSortChange={handleSortChange}
+          />
         </div>
 
         <div className="rounded-lg border bg-white p-4 shadow-sm">
-          <FilterLeadband
-            value={localLeadband}
-            onChange={setLocalLeadband}
+          <FilterContent
             variant="desktop"
-          />
-          <FilterChecklist
-            title={t("sections.widths")}
-            items={availableWidths}
-            selectedItems={localWidths}
-            onToggle={handleWidthToggle}
-            idPrefix="desktop-width"
-            variant="desktop"
-            emptyMessage={t("sections.noWidths")}
-            suffix=" cm"
-          />
-          <FilterChecklist
-            title={t("sections.categories")}
-            items={sortedCategories}
-            selectedItems={localCategories}
-            onToggle={handleCategoryToggle}
-            idPrefix="desktop-cat"
-            variant="desktop"
-            emptyMessage={t("sections.noCategories")}
-          />
-          <FilterChecklist
-            title={t("sections.colors")}
-            items={sortedColors}
-            selectedItems={localColors}
-            onToggle={handleColorToggle}
-            idPrefix="desktop-color"
-            variant="desktop"
-            emptyMessage={t("sections.noColors")}
+            localLeadband={localLeadband}
+            setLocalLeadband={setLocalLeadband}
+            availableWidths={availableWidths}
+            localWidths={localWidths}
+            handleWidthToggle={handleWidthToggle}
+            sortedCategories={sortedCategories}
+            localCategories={localCategories}
+            handleCategoryToggle={handleCategoryToggle}
+            sortedColors={sortedColors}
+            localColors={localColors}
+            handleColorToggle={handleColorToggle}
           />
 
-          <div className="flex flex-col gap-3 border-t pt-4">
+          <div className="mt-6 flex flex-col gap-3 border-t pt-6">
             <Button onClick={applyFilters} className="w-full">
               {t("actions.apply")}
             </Button>
