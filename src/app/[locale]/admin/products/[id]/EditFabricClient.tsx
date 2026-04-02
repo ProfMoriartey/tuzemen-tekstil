@@ -11,6 +11,7 @@ interface Variant {
   color: string;
   sku: string | null;
   imageUrl: string | null;
+  sortOrder: number;
 }
 
 interface Design {
