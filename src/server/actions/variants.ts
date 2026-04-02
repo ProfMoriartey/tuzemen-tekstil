@@ -104,3 +104,22 @@ export async function deleteDisplayImage(designId: number, imageUrl: string) {
   
   revalidatePath(`/admin/products/${designId}`)
 }
+
+export async function updateVariantOrder(
+  designId: number, 
+  orderedIds: { id: number; sortOrder: number }[]
+) {
+  // Loop through and update each variant's sortOrder
+  await Promise.all(
+    orderedIds.map((item) =>
+      db
+        .update(variants)
+        .set({ sortOrder: item.sortOrder })
+        .where(eq(variants.id, item.id))
+    )
+  );
+
+  // Refresh the data on the page
+  revalidatePath(`/admin/products/${designId}`);
+  revalidatePath(`/products/${designId}`);
+}

@@ -241,7 +241,7 @@ export default function ProductGallery({
         <div className="group relative">
           <Carousel
             setApi={setCarouselApi}
-            opts={{ align: "start", loop: false }}
+            opts={{ align: "start", dragFree: true, loop: false }}
             className="w-full"
           >
             <CarouselContent className="-ml-2">

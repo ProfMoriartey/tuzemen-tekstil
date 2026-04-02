@@ -53,7 +53,7 @@ export async function getStorefrontDesigns(
       db.select().from(variants).where(
         and(
           eq(variants.designId, designs.id),
-          inArray(variants.color, colors)
+          inArray(variants.color, colors),
         )
       )
     ) : undefined,
@@ -74,7 +74,9 @@ export async function getStorefrontDesigns(
   const data = await db.query.designs.findMany({
     where: filterLogic,
     with: {
-      variants: true,
+      variants: {
+    orderBy: [asc(variants.sortOrder)],
+  },
     },
     orderBy: [orderDirection],
     limit: limit,
@@ -92,7 +94,9 @@ export async function getFabricById(id: number) {
   const data = await db.query.designs.findFirst({
     where: eq(designs.id, id),
     with: {
-      variants: true,
+      variants: {
+    orderBy: [asc(variants.sortOrder)],
+  },
     }
   })
   

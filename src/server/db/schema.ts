@@ -22,6 +22,7 @@ export const variants = pgTable("variants", {
   color: varchar("color", { length: 255 }).notNull(),
   sku: varchar("sku", { length: 255 }),
   imageUrl: text("image_url"),
+  sortOrder: integer("sort_order").default(0).notNull(),
 })
 
 export const designsRelations = relations(designs, ({ many }) => ({
