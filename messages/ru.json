@@ -283,7 +283,10 @@
       "yes": "Да",
       "no": "Нет",
       "na": "Н/Д"
-    }
+    }    ,
+  "contactButton": {
+    "text": "Свяжитесь с нами"
+  }
   },
   "ProductGallery": {
     "colorsTitle": "Доступные цвета",

@@ -285,7 +285,10 @@
       "yes": "Yes",
       "no": "No",
       "na": "N/A"
-    }
+    },
+  "contactButton": {
+    "text": "Get in touch"
+  }
   },
   "ProductGallery": {
     "colorsTitle": "Available Colors",

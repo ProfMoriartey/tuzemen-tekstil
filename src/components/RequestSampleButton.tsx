@@ -36,7 +36,7 @@ export default function RequestSampleButton({
       onClick={() =>
         addItem({ id: designId, name: designName, imageUrl: displayImageUrl })
       }
-      className="bg-theme-accent text-theme-secondary mt-8 flex w-full items-center justify-center rounded-md py-4 font-bold tracking-wide uppercase shadow-sm transition-all hover:opacity-90"
+      className="bg-foreground text-background mt-8 flex w-full items-center justify-center rounded-md py-4 font-bold tracking-wide uppercase shadow-sm transition-all hover:opacity-90"
     >
       {currentQuantity > 0
         ? t("addAnother", { count: currentQuantity })

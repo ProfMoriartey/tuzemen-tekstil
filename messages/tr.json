@@ -286,6 +286,9 @@
     "yes": "Evet",
     "no": "Hayır",
     "na": "Mevcut Değil"
+  },
+  "contactButton": {
+    "text": "İletişime geçin"
   }
 },
 "ProductGallery": {
