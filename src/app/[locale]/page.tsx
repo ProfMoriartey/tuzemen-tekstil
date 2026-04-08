@@ -15,7 +15,7 @@ export default async function LandingPage() {
       <HeroCarousel />
 
       {/* Feature 1: Text Left, Image Right */}
-      <section className="bg-white px-4 py-16 md:py-24">
+      <section className="bg-theme-bg px-4 py-16 md:py-24">
         <div className="container mx-auto max-w-7xl">
           <div className="grid grid-cols-1 items-center gap-10 lg:grid-cols-2 lg:gap-20">
             <div className="space-y-6">
@@ -34,7 +34,7 @@ export default async function LandingPage() {
               </Link>
             </div>
 
-            <div className="relative aspect-video w-full overflow-hidden rounded-xl bg-slate-100 lg:aspect-4/3">
+            <div className="bg-theme-secondary/10 relative aspect-video w-full overflow-hidden rounded-xl lg:aspect-4/3">
               <Image
                 src="https://cdn.tuzemengroup.com/uploads/large_Adobe_Stock_396957872_37ef4ed558_04b20ceb76.jpeg?w=2048&q=75"
                 alt={t("sheers.imageAlt")}
@@ -51,7 +51,7 @@ export default async function LandingPage() {
       <section className="bg-theme-bg border-theme-primary/30 border-t px-4 py-16 md:py-24">
         <div className="container mx-auto max-w-7xl">
           <div className="grid grid-cols-1 items-center gap-10 lg:grid-cols-2 lg:gap-20">
-            <div className="relative order-last aspect-video w-full overflow-hidden rounded-xl bg-slate-100 lg:order-first lg:aspect-4/3">
+            <div className="bg-theme-secondary/10 relative order-last aspect-video w-full overflow-hidden rounded-xl lg:order-first lg:aspect-4/3">
               <Image
                 src="https://cdn.tuzemengroup.com/uploads/win3_5ab69159a7.jpg?w=1920&q=75"
                 alt={t("drapery.imageAlt")}
@@ -81,7 +81,7 @@ export default async function LandingPage() {
       </section>
 
       {/* Value Propositions */}
-      <section className="border-theme-primary/30 border-t border-b bg-white px-4 py-16 md:py-24">
+      <section className="border-theme-primary/30 border-t border-b bg-theme-bg px-4 py-16 md:py-24">
         <div className="container mx-auto max-w-6xl">
           <div className="grid grid-cols-1 gap-10 text-center md:grid-cols-3">
             <div className="flex flex-col items-center">

@@ -33,13 +33,13 @@ export default async function ProductDetailsPage({
         Flexbox ensures everything stays perfectly on one horizontal line. 
         A subtle bottom border separates it from the product content.
       */}
-      <header className="mb-6 flex items-center justify-between border-b border-slate-100 pb-4">
+      <header className="border-theme-primary/20 mb-6 flex items-center justify-between border-b pb-4">
         {/* Left Side: Back Button (Styled to match the Prev/Next buttons) */}
         <Link
           href="/products"
-          className="group flex items-center gap-2 text-sm font-medium text-slate-500 transition-colors hover:text-slate-900"
+          className="text-theme-text/70 hover:text-theme-text group flex items-center gap-2 text-sm font-medium transition-colors"
         >
-          <div className="flex h-8 w-8 items-center justify-center rounded-full border border-slate-200 bg-white transition-all group-hover:border-slate-300 group-hover:bg-slate-50">
+          <div className="bg-theme-bg border-theme-primary/30 group-hover:border-theme-primary/60 group-hover:bg-theme-secondary/10 flex h-8 w-8 items-center justify-center rounded-full border transition-all">
             <Undo2 className="h-4 w-4 pr-0.5" />
           </div>
           {/* Hide the text 'Back' on tiny mobile screens if needed, otherwise show it */}
@@ -66,65 +66,65 @@ export default async function ProductDetailsPage({
         {/* Right Column: Product Details */}
         <div className="flex flex-col">
           <div className="mb-6">
-            <p className="mb-2 text-sm font-semibold tracking-widest text-slate-500 uppercase">
+            <p className="text-theme-text/70 mb-2 text-sm font-semibold tracking-widest uppercase">
               {fabric.category ?? t("info.uncategorized")}
             </p>
-            <h1 className="mb-4 text-3xl font-bold text-slate-900 uppercase md:text-4xl">
+            <h1 className="text-theme-text mb-4 text-3xl font-bold uppercase md:text-4xl">
               {fabric.name}
             </h1>
 
             {fabric.fabricType && (
-              <span className="inline-block rounded bg-slate-100 px-3 py-1 text-xs font-bold tracking-wider text-slate-800 uppercase">
+              <span className="bg-theme-secondary/20 text-theme-text inline-block rounded px-3 py-1 text-xs font-bold tracking-wider uppercase">
                 {fabric.fabricType}
               </span>
             )}
           </div>
 
           {fabric.description && (
-            <div className="prose prose-slate mb-8 leading-relaxed text-slate-600">
+            <div className="text-theme-text/80 mb-8 leading-relaxed">
               <p>{fabric.description}</p>
             </div>
           )}
 
           {/* Technical Specifications Board */}
-          <div className="mb-8 rounded-xl border bg-slate-50 p-6">
-            <h3 className="mb-4 border-b pb-2 text-sm font-bold tracking-wider text-slate-900 uppercase">
+          <div className="bg-theme-secondary/10 border-theme-primary/20 mb-8 rounded-xl border p-6">
+            <h3 className="text-theme-text border-theme-primary/30 mb-4 border-b pb-2 text-sm font-bold tracking-wider uppercase">
               {t("specs.title")}
             </h3>
 
             <dl className="grid grid-cols-1 gap-x-4 gap-y-4 text-sm sm:grid-cols-2">
               <div className="flex flex-col">
-                <dt className="mb-1 font-medium text-slate-500">
+                <dt className="text-theme-text/70 mb-1 font-medium">
                   {t("specs.composition")}
                 </dt>
-                <dd className="font-semibold text-slate-900">
+                <dd className="text-theme-text font-semibold">
                   {fabric.composition ?? t("specs.na")}
                 </dd>
               </div>
 
               <div className="flex flex-col">
-                <dt className="mb-1 font-medium text-slate-500">
+                <dt className="text-theme-text/70 mb-1 font-medium">
                   {t("specs.width")}
                 </dt>
-                <dd className="font-semibold text-slate-900">
+                <dd className="text-theme-text font-semibold">
                   {fabric.width ? `${fabric.width} cm` : t("specs.na")}
                 </dd>
               </div>
 
               <div className="flex flex-col">
-                <dt className="mb-1 font-medium text-slate-500">
+                <dt className="text-theme-text/70 mb-1 font-medium">
                   {t("specs.weight")}
                 </dt>
-                <dd className="font-semibold text-slate-900">
+                <dd className="text-theme-text font-semibold">
                   {fabric.weight ? `${fabric.weight} g/m²` : t("specs.na")}
                 </dd>
               </div>
 
               <div className="flex flex-col">
-                <dt className="mb-1 font-medium text-slate-500">
+                <dt className="text-theme-text/70 mb-1 font-medium">
                   {t("specs.leadband")}
                 </dt>
-                <dd className="font-semibold text-slate-900">
+                <dd className="text-theme-text font-semibold">
                   {fabric.hasLeadband === true
                     ? t("specs.yes")
                     : fabric.hasLeadband === false

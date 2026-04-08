@@ -133,7 +133,7 @@ export default function ProductGallery({
       {/* Main Image Stage */}
       <div
         ref={imageContainerRef}
-        className={`group relative aspect-square w-full touch-pan-y overflow-hidden rounded-xl border bg-slate-50 ${
+        className={`bg-theme-secondary/10 border-theme-primary/20 group relative aspect-square w-full touch-pan-y overflow-hidden rounded-xl border ${
           magnifier.show ? "cursor-none" : "cursor-default"
         }`}
         onTouchStart={handleTouchStart}
@@ -154,8 +154,8 @@ export default function ProductGallery({
           }}
           className={`focus:ring-theme-accent absolute right-4 bottom-4 z-40 hidden h-10 w-10 cursor-pointer items-center justify-center rounded-full shadow-md transition-all focus:ring-2 focus:outline-none md:flex ${
             isMagnifierActive
-              ? "bg-slate-900 text-white hover:bg-slate-800"
-              : "bg-white/90 text-slate-800 opacity-0 group-hover:opacity-100 hover:scale-105 hover:bg-white"
+              ? "bg-theme-text text-theme-bg hover:bg-theme-text/90"
+              : "bg-theme-bg/90 text-theme-text opacity-0 group-hover:opacity-100 hover:scale-105 hover:bg-theme-bg"
           }`}
           aria-label={
             isMagnifierActive ? "Disable magnifier" : "Enable magnifier"
@@ -166,8 +166,8 @@ export default function ProductGallery({
         </button>
 
         {isLoading && (
-          <div className="absolute inset-0 z-10 flex items-center justify-center bg-slate-50/50 backdrop-blur-sm">
-            <Loader2 className="h-8 w-8 animate-spin text-slate-400" />
+          <div className="bg-theme-bg/60 absolute inset-0 z-10 flex items-center justify-center backdrop-blur-sm">
+            <Loader2 className="text-theme-primary h-8 w-8 animate-spin" />
           </div>
         )}
 
@@ -190,7 +190,7 @@ export default function ProductGallery({
         {/* The Magnifying Glass Element */}
         {magnifier.show && !isLoading && (
           <div
-            className="pointer-events-none absolute z-30 hidden h-50 w-50 rounded-full border-[3px] border-white bg-slate-100 shadow-[0_8px_30px_rgb(0,0,0,0.3)] md:block"
+            className="bg-theme-secondary/20 border-theme-bg pointer-events-none absolute z-30 hidden h-50 w-50 rounded-full border-[3px] shadow-[0_8px_30px_rgb(0,0,0,0.3)] md:block"
             style={{
               left: `${magnifier.x - 95}px`,
               top: `${magnifier.y - 95}px`,
@@ -209,7 +209,7 @@ export default function ProductGallery({
                 e.stopPropagation();
                 handlePrev();
               }}
-              className="focus:ring-theme-accent absolute top-1/2 left-4 z-20 flex h-10 w-10 -translate-y-1/2 cursor-pointer items-center justify-center rounded-full bg-white/90 text-slate-800 opacity-0 shadow-md transition-all group-hover:opacity-100 hover:scale-105 hover:bg-white focus:opacity-100 focus:ring-2 focus:outline-none"
+              className="focus:ring-theme-accent bg-theme-bg/90 text-theme-text absolute top-1/2 left-4 z-20 flex h-10 w-10 -translate-y-1/2 cursor-pointer items-center justify-center rounded-full opacity-0 shadow-md transition-all group-hover:opacity-100 hover:scale-105 hover:bg-theme-bg focus:opacity-100 focus:ring-2 focus:outline-none"
               aria-label="Previous image"
             >
               <ChevronLeft className="h-6 w-6 pr-0.5" />
@@ -220,7 +220,7 @@ export default function ProductGallery({
                 e.stopPropagation();
                 handleNext();
               }}
-              className="focus:ring-theme-accent absolute top-1/2 right-4 z-20 flex h-10 w-10 -translate-y-1/2 cursor-pointer items-center justify-center rounded-full bg-white/90 text-slate-800 opacity-0 shadow-md transition-all group-hover:opacity-100 hover:scale-105 hover:bg-white focus:opacity-100 focus:ring-2 focus:outline-none"
+              className="focus:ring-theme-accent bg-theme-bg/90 text-theme-text absolute top-1/2 right-4 z-20 flex h-10 w-10 -translate-y-1/2 cursor-pointer items-center justify-center rounded-full opacity-0 shadow-md transition-all group-hover:opacity-100 hover:scale-105 hover:bg-theme-bg focus:opacity-100 focus:ring-2 focus:outline-none"
               aria-label="Next image"
             >
               <ChevronRight className="h-6 w-6 pl-0.5" />
@@ -232,8 +232,8 @@ export default function ProductGallery({
       {/* Interactive Thumbnail Carousel */}
       <div>
         <div className="mb-3 flex items-end justify-between">
-          <h3 className="font-semibold text-slate-900">{t("colorsTitle")}</h3>
-          <span className="text-sm font-medium tracking-wider text-slate-500 uppercase">
+          <h3 className="text-theme-text font-semibold">{t("colorsTitle")}</h3>
+          <span className="text-theme-text/70 text-sm font-medium tracking-wider uppercase">
             {activeItem.color}
           </span>
         </div>
@@ -256,8 +256,8 @@ export default function ProductGallery({
                       onClick={() => setSelectedIndex(index)}
                       className={`focus:ring-theme-accent relative flex aspect-square w-full flex-col overflow-hidden rounded-lg border-2 transition-all focus:ring-2 focus:ring-offset-2 focus:outline-none ${
                         isSelected
-                          ? "border-slate-900 opacity-100 ring-2 ring-slate-900 ring-offset-1"
-                          : "border-transparent opacity-70 hover:border-slate-300 hover:opacity-100"
+                          ? "border-theme-text opacity-100 ring-theme-text ring-2 ring-offset-1"
+                          : "border-transparent opacity-70 hover:border-theme-primary/70 hover:opacity-100"
                       }`}
                       aria-label={`Select color ${item.color}`}
                     >
@@ -269,7 +269,7 @@ export default function ProductGallery({
                         className="object-cover"
                       />
                       <div className="absolute inset-x-0 bottom-0 bg-linear-to-t from-black/70 to-transparent p-1.5 pb-1">
-                        <span className="block truncate text-center text-[10px] font-medium text-white drop-shadow-md">
+                        <span className="text-theme-bg block truncate text-center text-[10px] font-medium drop-shadow-md">
                           {item.color}
                         </span>
                       </div>
@@ -279,8 +279,8 @@ export default function ProductGallery({
               })}
             </CarouselContent>
             <div className="hidden opacity-0 transition-opacity duration-200 group-hover:opacity-100 md:block">
-              <CarouselPrevious className="left-1 h-8 w-8 bg-white/90 shadow-sm hover:bg-white" />
-              <CarouselNext className="right-1 h-8 w-8 bg-white/90 shadow-sm hover:bg-white" />
+              <CarouselPrevious className="bg-theme-bg/90 hover:bg-theme-bg left-1 h-8 w-8 shadow-sm" />
+              <CarouselNext className="bg-theme-bg/90 hover:bg-theme-bg right-1 h-8 w-8 shadow-sm" />
             </div>
           </Carousel>
         </div>

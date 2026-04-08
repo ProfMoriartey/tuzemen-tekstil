@@ -58,7 +58,7 @@ export default function CartPage() {
   if (status === "success") {
     return (
       <div className="bg-theme-bg flex min-h-screen items-center justify-center px-4 py-24">
-        <div className="border-theme-primary/20 w-full max-w-md rounded-2xl border bg-white p-10 text-center shadow-sm">
+        <div className="border-theme-primary/20 bg-theme-bg w-full max-w-md rounded-2xl border p-10 text-center shadow-sm">
           <div className="bg-theme-accent/20 text-theme-accent mx-auto mb-6 flex h-16 w-16 items-center justify-center rounded-full">
             <PackageOpen className="h-8 w-8" />
           </div>
@@ -70,7 +70,7 @@ export default function CartPage() {
           </p>
           <Link
             href="/products"
-            className="bg-theme-secondary inline-flex w-full items-center justify-center rounded-md py-4 font-bold tracking-wide text-white uppercase transition-opacity hover:opacity-90"
+            className="bg-theme-secondary text-theme-bg inline-flex w-full items-center justify-center rounded-md py-4 font-bold tracking-wide uppercase transition-opacity hover:opacity-90"
           >
             {t("success.link")}
           </Link>
@@ -87,7 +87,7 @@ export default function CartPage() {
         </h1>
 
         {cartItems.length === 0 ? (
-          <div className="border-theme-primary/20 rounded-xl border bg-white py-20 text-center">
+          <div className="border-theme-primary/20 bg-theme-bg rounded-xl border py-20 text-center">
             <h2 className="text-theme-text mb-4 text-xl font-bold">
               {t("empty.title")}
             </h2>
@@ -103,14 +103,14 @@ export default function CartPage() {
         ) : (
           <div className="grid grid-cols-1 gap-10 lg:grid-cols-12 lg:gap-16">
             <div className="space-y-6 lg:col-span-7">
-              <div className="border-theme-primary/20 overflow-hidden rounded-xl border bg-white">
+              <div className="border-theme-primary/20 bg-theme-bg overflow-hidden rounded-xl border">
                 <ul className="divide-theme-primary/20 divide-y">
                   {cartItems.map((item) => (
                     <li
                       key={item.id}
                       className="flex items-center gap-6 p-4 md:p-6"
                     >
-                      <div className="relative h-24 w-24 shrink-0 overflow-hidden rounded-md border bg-slate-100">
+                      <div className="bg-theme-secondary/10 relative h-24 w-24 shrink-0 overflow-hidden rounded-md border">
                         <Image
                           src={item.imageUrl ?? "/placeholder.jpg"}
                           alt={t("item.imageAlt", { name: item.name })}
@@ -152,7 +152,7 @@ export default function CartPage() {
 
                         <button
                           onClick={() => removeItem(item.id)}
-                          className="text-theme-text/40 rounded-md p-2 transition-colors hover:bg-red-50 hover:text-red-500"
+                          className="text-theme-text/40 hover:bg-theme-secondary/20 hover:text-theme-text rounded-md p-2 transition-colors"
                           title={t("item.remove")}
                         >
                           <Trash2 className="h-5 w-5" />
@@ -165,7 +165,7 @@ export default function CartPage() {
             </div>
 
             <div className="lg:col-span-5">
-              <div className="border-theme-primary/20 sticky top-24 rounded-xl border bg-white p-6 shadow-sm md:p-8">
+              <div className="border-theme-primary/20 bg-theme-bg sticky top-24 rounded-xl border p-6 shadow-sm md:p-8">
                 <h2 className="text-theme-text mb-6 text-xl font-bold tracking-tight uppercase">
                   {t("form.title")}
                 </h2>
@@ -264,7 +264,7 @@ export default function CartPage() {
                   </div>
 
                   {status === "error" && (
-                    <p className="text-sm font-medium text-red-500">
+                    <p className="text-sm font-medium text-destructive">
                       {errorMessage}
                     </p>
                   )}

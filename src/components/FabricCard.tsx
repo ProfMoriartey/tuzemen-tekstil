@@ -27,8 +27,8 @@ export default function FabricCard({ design }: { design: Design }) {
 
   return (
     <Link href={`/products/${design.id}`} className="group block h-full">
-      <div className="flex h-full flex-col overflow-hidden rounded-lg border bg-white transition-all duration-200 hover:shadow-md">
-        <div className="relative aspect-square w-full shrink-0 border-b bg-slate-100">
+      <div className="bg-theme-bg border-theme-primary/20 flex h-full flex-col overflow-hidden rounded-lg border transition-all duration-200 hover:shadow-md">
+        <div className="bg-theme-secondary/10 border-theme-primary/20 relative aspect-square w-full shrink-0 border-b">
           <Image
             src={design.displayImageUrl ?? "/placeholder.jpg"}
             alt={design.name}
@@ -40,20 +40,20 @@ export default function FabricCard({ design }: { design: Design }) {
 
         <div className="flex flex-1 flex-col p-3 sm:p-4">
           <div className="mb-2 flex items-start justify-between gap-2">
-            <h2 className="text-sm leading-tight font-bold text-slate-900 uppercase sm:text-base">
+            <h2 className="text-theme-text text-sm leading-tight font-bold uppercase sm:text-base">
               {design.name}
             </h2>
             {design.fabricType && (
-              <span className="shrink-0 rounded-sm bg-slate-900 px-1.5 py-0.5 text-[10px] font-semibold tracking-wider text-white uppercase sm:text-xs">
+              <span className="bg-theme-text text-theme-bg shrink-0 rounded-sm px-1.5 py-0.5 text-[10px] font-semibold tracking-wider uppercase sm:text-xs">
                 {design.fabricType}
               </span>
             )}
           </div>
 
-          <div className="mb-3 flex flex-col gap-0.5 text-[11px] text-slate-600 sm:text-xs">
+          <div className="text-theme-text/80 mb-3 flex flex-col gap-0.5 text-[11px] sm:text-xs">
             {design.width && (
               <div>
-                <span className="font-semibold text-slate-500">
+                <span className="text-theme-text/70 font-semibold">
                   {t("specs.width")}:
                 </span>{" "}
                 {design.width} {t("specs.unit")}
@@ -61,7 +61,7 @@ export default function FabricCard({ design }: { design: Design }) {
             )}
             {design.composition && (
               <div className="line-clamp-1" title={design.composition}>
-                <span className="font-semibold text-slate-500">
+                <span className="text-theme-text/70 font-semibold">
                   {t("specs.composition")}:
                 </span>{" "}
                 {design.composition}
@@ -69,17 +69,17 @@ export default function FabricCard({ design }: { design: Design }) {
             )}
           </div>
 
-          <div className="mt-auto flex flex-wrap gap-1 border-t border-slate-50 pt-2">
+          <div className="border-theme-primary/20 mt-auto flex flex-wrap gap-1 border-t pt-2">
             {design.variants.slice(0, 4).map((variant) => (
               <span
                 key={variant.id}
-                className="max-w-18.75 truncate rounded bg-slate-100 px-1.5 py-0.5 text-[10px] text-slate-600"
+                className="bg-theme-secondary/20 text-theme-text/80 max-w-18.75 truncate rounded px-1.5 py-0.5 text-[10px]"
               >
                 {variant.color}
               </span>
             ))}
             {design.variants.length > 4 && (
-              <span className="rounded bg-slate-100 px-1.5 py-0.5 text-[10px] font-medium text-slate-600">
+              <span className="bg-theme-secondary/20 text-theme-text/80 rounded px-1.5 py-0.5 text-[10px] font-medium">
                 +{design.variants.length - 4}
               </span>
             )}

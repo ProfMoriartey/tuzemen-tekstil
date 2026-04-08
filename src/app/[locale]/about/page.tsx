@@ -23,7 +23,7 @@ export default async function AboutPage() {
         </div>
 
         <div className="relative z-10 container mx-auto max-w-4xl text-center">
-          <h1 className="mb-6 text-4xl font-bold tracking-tight text-white uppercase md:text-5xl lg:text-6xl">
+          <h1 className="text-theme-bg mb-6 text-4xl font-bold tracking-tight uppercase md:text-5xl lg:text-6xl">
             {t("hero.title")}
           </h1>
           <p className="text-theme-primary mx-auto max-w-2xl text-lg leading-relaxed md:text-xl">
@@ -36,7 +36,7 @@ export default async function AboutPage() {
       <section className="bg-theme-bg px-4 py-16 md:py-24">
         <div className="container mx-auto max-w-7xl">
           <div className="grid grid-cols-1 items-center gap-10 lg:grid-cols-2 lg:gap-16">
-            <div className="relative aspect-square w-full overflow-hidden rounded-xl bg-slate-200 lg:aspect-4/3">
+            <div className="bg-theme-secondary/20 relative aspect-square w-full overflow-hidden rounded-xl lg:aspect-4/3">
               <Image
                 src="/tuzemen-family.jpeg"
                 alt={t("heritage.imageAlt")}
@@ -61,7 +61,7 @@ export default async function AboutPage() {
       </section>
 
       {/* Introductory Video Section */}
-      <section className="bg-theme-secondary px-4 py-16 text-white md:py-24">
+      <section className="bg-theme-secondary px-4 py-16 text-theme-bg md:py-24">
         <div className="container mx-auto max-w-5xl text-center">
           <div className="mb-12">
             <h2 className="mb-4 text-3xl font-bold tracking-tight uppercase">
@@ -72,7 +72,7 @@ export default async function AboutPage() {
             </p>
           </div>
 
-          <div className="border-theme-primary/20 relative aspect-video w-full overflow-hidden rounded-xl border bg-slate-900 shadow-2xl">
+          <div className="border-theme-primary/20 bg-theme-text relative aspect-video w-full overflow-hidden rounded-xl border shadow-2xl">
             <iframe
               src="https://www.youtube.com/embed/5Vjr305OYPI?si=PnZmwhQwsTDjww_J"
               title={t("video.iframeTitle")}
@@ -85,7 +85,7 @@ export default async function AboutPage() {
       </section>
 
       {/* Core Values / Manufacturing Standards */}
-      <section className="border-theme-primary/30 border-t bg-white px-4 py-16 md:py-24">
+      <section className="border-theme-primary/30 border-t bg-theme-bg px-4 py-16 md:py-24">
         <div className="container mx-auto max-w-7xl">
           <div className="mb-16 text-center">
             <h2 className="text-theme-text mb-4 text-3xl font-bold tracking-tight uppercase">
@@ -141,7 +141,7 @@ export default async function AboutPage() {
       </section>
 
       {/* Call to Action */}
-      <section className="bg-theme-secondary px-4 py-16 text-center text-white md:py-24">
+      <section className="bg-theme-secondary px-4 py-16 text-center text-theme-bg md:py-24">
         <div className="container mx-auto max-w-3xl">
           <h2 className="mb-6 text-3xl font-bold tracking-tight uppercase md:text-4xl">
             {t("cta.title")}

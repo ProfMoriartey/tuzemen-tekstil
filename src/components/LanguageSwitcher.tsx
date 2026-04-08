@@ -20,12 +20,12 @@ export default function LanguageSwitcher() {
 
   return (
     <div className="relative flex items-center">
-      <Globe className="pointer-events-none absolute left-2 h-4 w-4 text-slate-500" />
+      <Globe className="text-theme-text/70 pointer-events-none absolute left-2 h-4 w-4" />
       <select
         defaultValue={locale}
         disabled={isPending}
         onChange={onSelectChange}
-        className="hover:text-theme-accent cursor-pointer appearance-none bg-transparent py-2 pr-4 pl-8 text-sm font-bold text-slate-700 uppercase focus:outline-none disabled:opacity-50"
+        className="text-theme-text hover:text-theme-accent cursor-pointer appearance-none bg-transparent py-2 pr-4 pl-8 text-sm font-bold uppercase focus:outline-none disabled:opacity-50"
       >
         <option value="en">EN</option>
         <option value="tr">TR</option>

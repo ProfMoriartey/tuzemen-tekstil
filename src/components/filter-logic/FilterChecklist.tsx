@@ -41,7 +41,7 @@ export default function FilterChecklist({
         {title}
       </h3>
       <div
-        className={`scrollbar-thin space-y-3 overflow-y-auto pr-2 ${isDesktop ? "max-h-40" : "max-h-[20vh]"}`}
+        className={`scrollbar-thin  space-y-3 overflow-y-auto pr-2 ${isDesktop ? "max-h-40" : "max-h-[20vh]"}`}
       >
         {items.map((item) => {
           const itemStr = item.toString();

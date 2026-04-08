@@ -86,7 +86,7 @@ export default function DataTable({ initialData }: { initialData: Design[] }) {
         className="w-full max-w-md"
       />
 
-      <div className="overflow-hidden rounded-md border bg-white">
+      <div className="overflow-hidden rounded-md border bg-theme-bg">
         <Table>
           <TableHeader>
             <TableRow>

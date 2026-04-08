@@ -36,7 +36,7 @@ export default function Navbar() {
   ];
 
   return (
-    <nav className="sticky top-0 z-50 w-full border-b bg-white/95 backdrop-blur supports-backdrop-filter:bg-white/80">
+    <nav className="bg-theme-bg/95 border-theme-primary/30 sticky top-0 z-50 w-full border-b backdrop-blur supports-backdrop-filter:bg-theme-bg/80">
       <div className="container mx-auto flex h-16 items-center justify-between px-4 md:px-8">
         {/* Left Side: Logo */}
         <Link
@@ -64,8 +64,8 @@ export default function Navbar() {
                 <Link
                   key={link.href}
                   href={link.href}
-                  className={`text-sm font-medium transition-colors hover:text-slate-900 ${
-                    isActive ? "text-slate-900" : "text-slate-500"
+                  className={`text-sm font-medium transition-colors hover:text-theme-text ${
+                    isActive ? "text-theme-text" : "text-theme-text/70"
                   }`}
                 >
                   {link.name}
@@ -75,13 +75,13 @@ export default function Navbar() {
           </div>
 
           {/* Desktop Separator */}
-          <div className="hidden h-6 w-px bg-slate-200 md:block"></div>
+          <div className="bg-theme-primary/30 hidden h-6 w-px md:block"></div>
 
           {/* Action Icons & Mobile Menu */}
           <div className="flex items-center gap-1">
             <Link
               href="/cart"
-              className="relative flex h-10 w-10 items-center justify-center rounded-md text-slate-700 transition-colors hover:bg-slate-100"
+              className="text-theme-text hover:bg-theme-secondary/20 relative flex h-10 w-10 items-center justify-center rounded-md transition-colors"
             >
               <ShoppingBag className="h-5 w-5" />
               {isMounted && cartItems.length > 0 && (
@@ -96,14 +96,14 @@ export default function Navbar() {
 
             <div className="md:hidden">
               <Dialog open={isOpen} onOpenChange={setIsOpen}>
-                <DialogTrigger className="flex h-10 w-10 items-center justify-center rounded-md text-slate-700 transition-colors hover:bg-slate-100 focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 focus:outline-none">
+                <DialogTrigger className="text-theme-text hover:bg-theme-secondary/20 focus:ring-theme-accent flex h-10 w-10 items-center justify-center rounded-md transition-colors focus:ring-2 focus:ring-offset-2 focus:outline-none">
                   <Menu className="h-6 w-6" />
                   <span className="sr-only">{t("actions.toggleMenu")}</span>
                 </DialogTrigger>
 
                 <DialogContent className="w-[90vw] max-w-100 rounded-2xl p-6">
                   <DialogHeader className="mb-4 border-b pb-4">
-                    <DialogTitle className="text-left text-xl font-bold tracking-widest text-slate-900 uppercase">
+                    <DialogTitle className="text-theme-text text-left text-xl font-bold tracking-widest uppercase">
                       {t("actions.navTitle")}
                     </DialogTitle>
                   </DialogHeader>
@@ -118,8 +118,8 @@ export default function Navbar() {
                           key={link.href}
                           href={link.href}
                           onClick={() => setIsOpen(false)}
-                          className={`text-lg font-medium transition-colors hover:text-slate-900 ${
-                            isActive ? "text-slate-900" : "text-slate-500"
+                          className={`text-lg font-medium transition-colors hover:text-theme-text ${
+                            isActive ? "text-theme-text" : "text-theme-text/70"
                           }`}
                         >
                           {link.name}

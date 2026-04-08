@@ -201,7 +201,7 @@ export default function StorefrontFilter({
               />
             </div>
 
-            <div className="sticky bottom-0 mt-6 flex flex-col gap-3 border-t border-slate-100 bg-white pt-4">
+            <div className="sticky bottom-0 mt-6 flex flex-col gap-3 border-t border-slate-100 bg-theme-bg pt-4">
               <Button onClick={applyFilters} className="w-full">
                 {t("actions.apply")}
               </Button>
@@ -229,7 +229,7 @@ export default function StorefrontFilter({
           />
         </div>
 
-        <div className="rounded-lg border bg-white p-4 shadow-sm">
+        <div className="rounded-lg border bg-theme-bg p-4 shadow-sm">
           <FilterContent
             variant="desktop"
             localLeadband={localLeadband}

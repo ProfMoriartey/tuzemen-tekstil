@@ -95,7 +95,7 @@ export default async function StorefrontPage({
         <main className="flex min-h-full flex-1 flex-col">
           <div className="grid flex-1 grid-cols-2 content-start gap-3 sm:gap-6 md:grid-cols-3 xl:grid-cols-4">
             {designs.length === 0 ? (
-              <div className="col-span-full py-12 text-center text-slate-500">
+              <div className="text-theme-text/70 col-span-full py-12 text-center">
                 {t("emptyState")}
               </div>
             ) : (
@@ -107,7 +107,7 @@ export default async function StorefrontPage({
 
           {/* Pagination Controls */}
           {totalPages > 0 && (
-            <div className="mt-8 border-t border-slate-200 pt-6">
+            <div className="border-theme-primary/30 mt-8 border-t pt-6">
               <PaginationControls
                 currentPage={page}
                 totalPages={totalPages}
