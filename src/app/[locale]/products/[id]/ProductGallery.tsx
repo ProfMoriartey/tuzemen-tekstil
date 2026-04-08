@@ -164,8 +164,8 @@ export default function ProductGallery({
           <div
             className="pointer-events-none absolute z-30 hidden h-50 w-50 rounded-full border-[3px] border-white bg-slate-100 shadow-[0_8px_30px_rgb(0,0,0,0.3)] md:block"
             style={{
-              left: `${magnifier.x - 80}px`,
-              top: `${magnifier.y - 80}px`,
+              left: `${magnifier.x - 100}px`,
+              top: `${magnifier.y - 100}px`,
               // CHANGE THIS LINE
               backgroundImage: `url("${optimizedSrc || activeItem.imageUrl}")`,
               backgroundPosition: `${magnifier.bgX}% ${magnifier.bgY}%`,
