@@ -19,7 +19,7 @@ export default async function ContactPage() {
             priority
             sizes="100vw"
           />
-          <div className="bg-theme-secondary/85 absolute inset-0"></div>
+          <div className="bg-theme-secondary/80 absolute inset-0"></div>
         </div>
 
         <div className="relative z-10 container mx-auto max-w-4xl text-center">
@@ -113,7 +113,7 @@ export default async function ContactPage() {
                       {t("hours.title")}
                     </h3>
                     <ul className="text-theme-text/70 space-y-1">
-                      <li className="flex w-48 justify-between">
+                      <li className="flex flex-col w-48 justify-between">
                         <span>{t("hours.weekdays")}</span>
                         <span>{t("hours.weekdaysTime")}</span>
                       </li>

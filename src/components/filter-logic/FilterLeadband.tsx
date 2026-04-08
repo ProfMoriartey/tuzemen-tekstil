@@ -28,7 +28,7 @@ export default function FilterLeadband({
       <h3
         className={
           isDesktop
-            ? "mb-3 text-sm font-semibold tracking-wider text-slate-500 uppercase"
+            ? "mb-3 text-sm font-semibold tracking-wider text-theme-text uppercase"
             : "mb-4 text-lg font-semibold"
         }
       >

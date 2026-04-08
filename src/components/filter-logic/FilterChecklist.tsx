@@ -34,14 +34,14 @@ export default function FilterChecklist({
       <h3
         className={
           isDesktop
-            ? "mb-3 text-sm font-semibold tracking-wider text-slate-500 uppercase"
+            ? "mb-3 text-sm font-semibold tracking-wider text-theme-text uppercase"
             : "mb-4 text-lg font-semibold"
         }
       >
         {title}
       </h3>
       <div
-        className={`scrollbar-thin  space-y-3 overflow-y-auto pr-2 ${isDesktop ? "max-h-40" : "max-h-[20vh]"}`}
+        className={`scrollbar-thin space-y-3 overflow-y-auto pr-2 ${isDesktop ? "max-h-40" : "max-h-[20vh]"}`}
       >
         {items.map((item) => {
           const itemStr = item.toString();
@@ -65,7 +65,7 @@ export default function FilterChecklist({
           );
         })}
         {items.length === 0 && (
-          <p className={`text-sm text-slate-500 ${!isDesktop ? "py-2" : ""}`}>
+          <p className={`text-sm text-theme-text ${!isDesktop ? "py-2" : ""}`}>
             {displayEmptyMessage}
           </p>
         )}

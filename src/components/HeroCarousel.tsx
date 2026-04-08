@@ -23,17 +23,17 @@ export default function HeroCarousel() {
     {
       id: 1,
       image:
-        "https://cdn.tuzemengroup.com/uploads/DSC_3212_5796bdce25.jpg?w=3840&q=75",
+       "https://cdn.tuzemengroup.com/uploads/winbrella_sosyal_yeni_1_126_87d70ea499.JPG?w=3840&q=75",
     },
     {
       id: 2,
       image:
-        "https://cdn.tuzemengroup.com/uploads/DBBC_9725_Kopya_26268c3a4c.JPG?w=3840&q=75",
+      "https://cdn.tuzemengroup.com/uploads/DSC_3212_5796bdce25.jpg?w=3840&q=75",
     },
     {
       id: 3,
       image:
-        "https://cdn.tuzemengroup.com/uploads/winbrella_sosyal_yeni_1_126_87d70ea499.JPG?w=3840&q=75",
+        "https://cdn.tuzemengroup.com/uploads/DBBC_9725_Kopya_26268c3a4c.JPG?w=3840&q=75",
     },
     {
       id: 4,
@@ -63,7 +63,7 @@ export default function HeroCarousel() {
                     priority={slide.id === 1}
                     sizes="100vw"
                   />
-                  <div className="from-theme-secondary/90 via-theme-secondary/60 to-theme-secondary/10 absolute inset-0 bg-linear-to-r"></div>
+                  <div className="from-theme-accent/50 via-theme-accent/30 to-theme-secondary/10 absolute inset-0 bg-linear-to-r"></div>
                 </div>
 
                 <div className="relative z-10 container mx-auto w-full px-4 md:px-8">
@@ -71,12 +71,12 @@ export default function HeroCarousel() {
                     <h1 className="mb-6 text-4xl leading-tight font-bold tracking-tight text-white uppercase md:text-5xl xl:text-6xl">
                       {t(`slides.${index}.title`)}
                     </h1>
-                    <p className="text-theme-primary mb-10 text-lg leading-relaxed md:text-xl">
+                    <p className="text-theme-bg mb-10 text-lg leading-relaxed md:text-xl">
                       {t(`slides.${index}.description`)}
                     </p>
                     <Link
                       href="/products"
-                      className="bg-theme-accent text-theme-secondary inline-flex items-center justify-center rounded-md px-8 py-4 font-bold tracking-wide uppercase transition-opacity hover:opacity-90"
+                      className="bg-theme-secondary text-theme-primary inline-flex items-center justify-center rounded-md px-8 py-4 font-bold tracking-wide uppercase transition-opacity hover:opacity-90"
                     >
                       {t("cta")}
                       <ArrowRight className="ml-2 h-5 w-5" />

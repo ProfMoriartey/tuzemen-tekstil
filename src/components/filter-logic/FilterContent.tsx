@@ -42,7 +42,7 @@ export default function FilterContent({
         onChange={setLocalLeadband}
         variant={variant}
       />
-      <div className="border-t border-slate-100" />
+      <div className="border-t border-theme-border" />
       <FilterChecklist
         title={t("sections.widths")}
         items={availableWidths}
@@ -53,7 +53,7 @@ export default function FilterContent({
         emptyMessage={t("sections.noWidths")}
         suffix=" cm"
       />
-      <div className="border-t border-slate-100" />
+      <div className="border-t border-theme-border" />
       <FilterChecklist
         title={t("sections.categories")}
         items={sortedCategories}
@@ -63,7 +63,7 @@ export default function FilterContent({
         variant={variant}
         emptyMessage={t("sections.noCategories")}
       />
-      <div className="border-t border-slate-100" />
+      <div className="border-t border-theme-border" />
       <FilterChecklist
         title={t("sections.colors")}
         items={sortedColors}

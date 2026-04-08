@@ -36,7 +36,7 @@ export default function SearchAndSort({
 
       <Select value={currentSortOrder} onValueChange={onSortChange}>
         <SelectTrigger
-          className="flex w-10 shrink-0 justify-center border-slate-200 px-0"
+          className="flex w-10 shrink-0 justify-center border-theme-border px-0"
           aria-label={t("sort.label")}
         >
           <ArrowUpDown className="h-4 w-4 text-slate-700" />

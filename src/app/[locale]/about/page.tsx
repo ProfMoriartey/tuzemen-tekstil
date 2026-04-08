@@ -19,7 +19,7 @@ export default async function AboutPage() {
             priority
             sizes="100vw"
           />
-          <div className="bg-theme-secondary/85 absolute inset-0"></div>
+          <div className="bg-theme-secondary/80 absolute inset-0"></div>
         </div>
 
         <div className="relative z-10 container mx-auto max-w-4xl text-center">
