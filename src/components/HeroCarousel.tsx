@@ -63,7 +63,7 @@ export default function HeroCarousel() {
                     priority={slide.id === 1}
                     sizes="100vw"
                   />
-                  <div className="from-theme-accent/50 via-theme-accent/30 to-theme-secondary/10 absolute inset-0 bg-linear-to-r"></div>
+                  <div className="from-card-foreground/50 via-card-foreground/30 to-card/10 absolute inset-0 bg-linear-to-r"></div>
                 </div>
 
                 <div className="relative z-10 container mx-auto w-full px-4 md:px-8">
@@ -76,7 +76,7 @@ export default function HeroCarousel() {
                     </p>
                     <Link
                       href="/products"
-                      className="bg-theme-secondary text-theme-primary inline-flex items-center justify-center rounded-md px-8 py-4 font-bold tracking-wide uppercase transition-opacity hover:opacity-90"
+                      className="bg-theme-text text-theme-secondary inline-flex items-center justify-center rounded-md px-8 py-4 font-bold tracking-wide uppercase transition-opacity hover:opacity-90"
                     >
                       {t("cta")}
                       <ArrowRight className="ml-2 h-5 w-5" />
@@ -88,7 +88,7 @@ export default function HeroCarousel() {
           ))}
         </CarouselContent>
 
-        <div className="absolute right-12 bottom-12 z-20 hidden space-x-4 lg:block">
+        <div className="absolute right-36 bottom-12 z-20 hidden space-x-4 lg:block">
           <CarouselPrevious className="bg-theme-bg/10 hover:bg-theme-bg text-theme-bg hover:text-theme-secondary static h-12 w-12 translate-x-0 translate-y-0 border-none backdrop-blur-sm transition-all" />
           <CarouselNext className="bg-theme-bg/10 hover:bg-theme-bg text-theme-bg hover:text-theme-secondary relative h-12 w-12 translate-x-0 translate-y-0 border-none backdrop-blur-sm transition-all" />
         </div>
