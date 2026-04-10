@@ -21,7 +21,7 @@ export default async function Footer() {
   ];
 
   return (
-    <footer className="bg-theme-text text-theme-secondary mt-auto border-t border-theme-primary/40 py-12 md:py-16">
+    <footer className="bg-theme-primary text-theme-bg mt-auto border-t border-theme-primary/40 py-12 md:py-16">
       <div className="container mx-auto max-w-7xl px-4 md:px-8">
         <div className="grid grid-cols-1 gap-10 md:grid-cols-2 lg:grid-cols-4 lg:gap-8">
           {/* Column 1: Company Info */}
@@ -29,7 +29,7 @@ export default async function Footer() {
             <h3 className="text-theme-bg mb-6 text-xl font-bold tracking-widest uppercase">
               {t("company.name")}
             </h3>
-            <p className="text-theme-secondary/85 text-sm leading-relaxed">
+            <p className="text-theme-bg text-sm leading-relaxed">
               {t("company.description")}
             </p>
             <div className="mt-8 flex items-center gap-5">
@@ -82,16 +82,6 @@ export default async function Footer() {
                   </Link>
                 </li>
               ))}
-
-              <li className="border-theme-primary/40 mt-4 border-t pt-4">
-                <Link
-                  href="/tuzemen"
-                  className="text-theme-secondary/70 hover:text-theme-bg group flex items-center text-sm transition-colors"
-                >
-                  <ChevronRight className="text-theme-secondary/50 group-hover:text-theme-bg mr-2 h-4 w-4 transition-colors" />
-                  {t("links.admin")}
-                </Link>
-              </li>
             </ul>
           </div>
 
@@ -102,20 +92,20 @@ export default async function Footer() {
             </h4>
             <ul className="space-y-4">
               <li className="flex items-start">
-                <MapPin className="text-theme-secondary/70 mt-0.5 mr-3 h-5 w-5 shrink-0" />
-                <span className="text-theme-secondary/85 text-sm leading-relaxed">
+                <MapPin className="text-theme-bg mt-0.5 mr-3 h-5 w-5 shrink-0" />
+                <span className="text-theme-bg text-sm leading-relaxed">
                   SAMANLI MAHALLESİ SEL SOK B BLOK NO:67/F
                   <br />
                   16350 YILDIRIM BURSA/TURKEY
                 </span>
               </li>
               <li className="flex items-center">
-                <Phone className="text-theme-secondary/70 mr-3 h-5 w-5 shrink-0" />
-                <span className="text-theme-secondary/85 text-sm">+90 224 3460632</span>
+                <Phone className="text-theme-bg mr-3 h-5 w-5 shrink-0" />
+                <span className="text-theme-bg text-sm">+90 224 3460632</span>
               </li>
               <li className="flex items-center">
-                <Mail className="text-theme-secondary/70 mr-3 h-5 w-5 shrink-0" />
-                <span className="text-theme-secondary/85 text-sm">
+                <Mail className="text-theme-bg mr-3 h-5 w-5 shrink-0" />
+                <span className="text-theme-bg text-sm">
                   info@tuzemengroup.com
                 </span>
               </li>
@@ -123,7 +113,7 @@ export default async function Footer() {
           </div>
 
           {/* Column 4: Embedded Map */}
-          <div className="bg-theme-secondary/30 relative h-48 min-h-50 overflow-hidden rounded-lg md:h-full">
+          <div className="bg-theme-bg/50 relative h-48 min-h-50 overflow-hidden rounded-lg md:h-full">
             <iframe
               src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3045.7522123081053!2d29.114439476047426!3d40.2368112714691!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14ca4024c47b7f8f%3A0x5c9fb57a97de00a4!2sT%C3%BCzemen%20Tekstil%20Makina%20G%C4%B1da%20Turizm%20Sa%C4%9Fl%C4%B1k%20Otomotiv%20%C4%B0n%C5%9Faat%20San.%20Tic.%20Ltd.%20%C5%9Eti.!5e0!3m2!1sen!2str!4v1773228921380!5m2!1sen!2str"
               width="100%"

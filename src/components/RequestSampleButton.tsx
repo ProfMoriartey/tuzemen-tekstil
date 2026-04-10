@@ -28,7 +28,7 @@ export default function RequestSampleButton({
 
   if (!isMounted)
     return (
-      <div className="mt-8 h-14 w-full animate-pulse rounded-md bg-slate-100" />
+      <div className="mt-8 h-14 w-full cursor-pointer animate-pulse rounded-md bg-slate-100" />
     );
 
   return (
@@ -36,7 +36,7 @@ export default function RequestSampleButton({
       onClick={() =>
         addItem({ id: designId, name: designName, imageUrl: displayImageUrl })
       }
-      className="bg-foreground text-background mt-8 flex w-full items-center justify-center rounded-md py-4 font-bold tracking-wide uppercase shadow-sm transition-all hover:opacity-90"
+      className="bg-foreground cursor-pointer text-background mt-8 flex w-full items-center justify-center rounded-md py-4 font-bold tracking-wide uppercase shadow-sm transition-all hover:opacity-90"
     >
       {currentQuantity > 0
         ? t("addAnother", { count: currentQuantity })

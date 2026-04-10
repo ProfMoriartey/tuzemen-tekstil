@@ -76,12 +76,7 @@ export default async function StorefrontPage({
 
   return (
     <div className="container mx-auto p-4 md:p-8">
-      <header className="mb-8 border-b pb-4">
-        <h1 className="text-3xl font-bold tracking-wide uppercase">
-          {t("header.title")}
-        </h1>
-        <p className="text-muted-foreground mt-2">{t("header.subtitle")}</p>
-      </header>
+     
 
       <div className="flex flex-col gap-8 md:flex-row">
         <aside className="w-full shrink-0 md:w-64">

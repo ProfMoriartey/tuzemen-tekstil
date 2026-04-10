@@ -19,14 +19,14 @@ export default async function AboutPage() {
             priority
             sizes="100vw"
           />
-          <div className="bg-theme-secondary/80 absolute inset-0"></div>
+          <div className="bg-theme-secondary/70 absolute inset-0"></div>
         </div>
 
         <div className="relative z-10 container mx-auto max-w-4xl text-center">
-          <h1 className="text-theme-bg mb-6 text-4xl font-bold tracking-tight uppercase md:text-5xl lg:text-6xl">
+          <h1 className="text-theme-primary mb-6 text-4xl font-bold tracking-tight uppercase md:text-5xl lg:text-6xl">
             {t("hero.title")}
           </h1>
-          <p className="text-theme-primary mx-auto max-w-2xl text-lg leading-relaxed md:text-xl">
+          <p className="text-slate-800 mx-auto max-w-2xl text-lg leading-relaxed md:text-xl">
             {t("hero.subtitle")}
           </p>
         </div>
@@ -61,7 +61,7 @@ export default async function AboutPage() {
       </section>
 
       {/* Introductory Video Section */}
-      <section className="bg-theme-secondary px-4 py-16 text-theme-bg md:py-24">
+      <section className="bg-theme-secondary px-4 py-16 text-theme-primary md:py-24">
         <div className="container mx-auto max-w-5xl text-center">
           <div className="mb-12">
             <h2 className="mb-4 text-3xl font-bold tracking-tight uppercase">
@@ -141,7 +141,7 @@ export default async function AboutPage() {
       </section>
 
       {/* Call to Action */}
-      <section className="bg-theme-secondary px-4 py-16 text-center text-theme-bg md:py-24">
+      <section className="bg-theme-secondary px-4 py-16 text-center text-theme-primary md:py-24">
         <div className="container mx-auto max-w-3xl">
           <h2 className="mb-6 text-3xl font-bold tracking-tight uppercase md:text-4xl">
             {t("cta.title")}
@@ -151,7 +151,7 @@ export default async function AboutPage() {
           </p>
           <Link
             href="/products"
-            className="bg-theme-accent text-theme-secondary inline-flex items-center justify-center rounded-md px-8 py-4 font-bold tracking-wide uppercase transition-opacity hover:opacity-90"
+            className="bg-theme-text text-theme-bg inline-flex items-center justify-center rounded-md px-8 py-4 font-bold tracking-wide uppercase transition-opacity hover:opacity-90"
           >
             {t("cta.button")}
             <ArrowRight className="ml-2 h-5 w-5" />

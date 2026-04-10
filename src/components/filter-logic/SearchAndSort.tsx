@@ -39,7 +39,7 @@ export default function SearchAndSort({
           className="flex w-10 shrink-0 justify-center border-theme-border px-0"
           aria-label={t("sort.label")}
         >
-          <ArrowUpDown className="h-4 w-4 text-slate-700" />
+          <ArrowUpDown className="h-4 w-4 ml-1 text-theme-text" />
         </SelectTrigger>
         <SelectContent>
           <SelectItem value="name-asc">{t("sort.az")}</SelectItem>

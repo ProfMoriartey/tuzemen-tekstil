@@ -76,7 +76,7 @@ export default function HeroCarousel() {
                     </p>
                     <Link
                       href="/products"
-                      className="bg-theme-text text-theme-secondary inline-flex items-center justify-center rounded-md px-8 py-4 font-bold tracking-wide uppercase transition-opacity hover:opacity-90"
+                      className="bg-theme-bg text-theme-text inline-flex items-center justify-center rounded-md px-8 py-4 font-bold tracking-wide uppercase transition-opacity hover:opacity-90"
                     >
                       {t("cta")}
                       <ArrowRight className="ml-2 h-5 w-5" />

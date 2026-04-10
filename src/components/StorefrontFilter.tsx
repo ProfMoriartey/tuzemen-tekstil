@@ -172,7 +172,7 @@ export default function StorefrontFilter({
         <Button
           variant="outline"
           size="icon"
-          className="shrink-0"
+          className="shrink-0 h-9 w-10"
           onClick={() => setIsOpen(true)}
         >
           <Filter className="h-4 w-4" />
