@@ -34,14 +34,14 @@ export default function FilterLeadband({
       >
         {t("title")}
       </h3>
-      <Select value={value} onValueChange={(val) => onChange(val ?? "all")}>
-        <SelectTrigger className={isDesktop ? "w-full" : ""}>
+      <Select value={value} onValueChange={(val) => onChange(val ?? "All")}>
+        <SelectTrigger className={isDesktop ? " text-theme-primary w-full" : "text-theme-primary"}>
           <SelectValue placeholder={t("placeholder")} />
         </SelectTrigger>
-        <SelectContent>
-          <SelectItem value="all">{t("options.all")}</SelectItem>
-          <SelectItem value="yes">{t("options.yes")}</SelectItem>
-          <SelectItem value="no">{t("options.no")}</SelectItem>
+        <SelectContent className="text-theme-primary bg-theme-bg">
+          <SelectItem value="All">{t("options.all")}</SelectItem>
+          <SelectItem value="Yes">{t("options.yes")}</SelectItem>
+          <SelectItem value="No">{t("options.no")}</SelectItem>
         </SelectContent>
       </Select>
     </div>

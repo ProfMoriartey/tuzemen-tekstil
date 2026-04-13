@@ -41,7 +41,7 @@ export default function SearchAndSort({
         >
           <ArrowUpDown className="h-4 w-4 ml-1 text-theme-text" />
         </SelectTrigger>
-        <SelectContent>
+        <SelectContent className="bg-theme-bg text-theme-primary">
           <SelectItem value="name-asc">{t("sort.az")}</SelectItem>
           <SelectItem value="name-desc">{t("sort.za")}</SelectItem>
         </SelectContent>

@@ -220,7 +220,7 @@ export default function StorefrontFilter({
       {/* Desktop Layout */}
       <div className="hidden space-y-8 md:block">
         <div>
-          <h3 className="mb-4 text-lg font-semibold">{t("search.title")}</h3>
+          <h3 className="mb-4 text-lg text-theme-primary font-semibold">{t("search.title")}</h3>
           <SearchAndSort
             searchTerm={searchTerm}
             onSearchChange={setSearchTerm}
@@ -245,11 +245,11 @@ export default function StorefrontFilter({
             handleColorToggle={handleColorToggle}
           />
 
-          <div className="mt-6 flex flex-col gap-3 border-t pt-6">
-            <Button onClick={applyFilters} className="w-full">
+          <div className=" mt-6 flex flex-col gap-3 border-t pt-6">
+            <Button  onClick={applyFilters} className="w-full">
               {t("actions.apply")}
             </Button>
-            <Button variant="outline" onClick={clearFilters} className="w-full">
+            <Button variant="outline" onClick={clearFilters} className="w-full bg-theme-secondary text-theme-primary">
               {t("actions.clear")}
             </Button>
           </div>

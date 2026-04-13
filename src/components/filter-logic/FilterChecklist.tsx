@@ -56,7 +56,7 @@ export default function FilterChecklist({
               />
               <Label
                 htmlFor={`${idPrefix}-${itemStr}`}
-                className={`cursor-pointer text-sm font-medium ${!isDesktop ? "flex-1 py-1" : ""}`}
+                className={`cursor-pointer text-sm text-theme-primary font-medium ${!isDesktop ? "flex-1 py-1" : ""}`}
               >
                 {itemStr}
                 {suffix}

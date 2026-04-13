@@ -305,7 +305,7 @@
     "title": "Leadband",
     "placeholder": "Select requirement",
     "options": {
-      "all": "Any",
+      "all": "All",
       "yes": "Yes (Included)",
       "no": "No"
     }
