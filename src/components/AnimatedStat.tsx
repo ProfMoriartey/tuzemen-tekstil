@@ -47,8 +47,8 @@ export default function AnimatedStat({
     let animationFrameId: number
 
     const step = (timestamp: number) => {
-      if (!startTimestamp) startTimestamp = timestamp
-      const progress = Math.min((timestamp - startTimestamp) / duration, 1)
+        startTimestamp ??= timestamp
+        const progress = Math.min((timestamp - startTimestamp) / duration, 1)
       
       // Easing function (easeOutExpo) makes it spin fast and slow down at the end
       const easeOutProgress = progress === 1 ? 1 : 1 - Math.pow(2, -10 * progress)
