@@ -6,6 +6,8 @@ import { getFeaturedDesigns } from "~/server/actions/public";
 import FabricCard, { type Design } from "~/components/FabricCard";
 import HeroCarousel from "~/components/HeroCarousel";
 import EventsCarousel from "~/components/EventsCarousel";
+import StatsSection from "~/components/StatsSection";
+
 
 export default async function LandingPage() {
   const t = await getTranslations("LandingPage");
@@ -123,6 +125,8 @@ export default async function LandingPage() {
           </div>
         </div>
       </section> */}
+
+<StatsSection />
 
       {/* Featured Products */}
       <section className="bg-theme-bg px-4 py-16 md:py-24">
