@@ -22,34 +22,34 @@ type CompanyEvent = {
 const companyEvents: CompanyEvent[] = [
   {
     id: "1",
-    name: "Global Textiles Expo",
-    date: "March 15-18",
-    year: "2023",
-    image: "/placeholder.jpg",
+    name: "Heimtextil",
+    date: "January 14-17",
+    year: "2025",
+    image: "https://cdn.tuzemengroup.com/uploads/heimtextil_2023_ec682e652e_a821285b5d.jpg?w=3840&q=75",
     description: "Showcased our latest sustainable fabric collections to international buyers and established new distribution partnerships across Europe.",
   },
   {
     id: "2",
-    name: "Design Week Milano",
-    date: "April 20-23",
-    year: "2023",
-    image: "/placeholder.jpg",
+    name: "Hometex",
+    date: "May 20-23",
+    year: "2025",
+    image: "https://cdn.tuzemengroup.com/uploads/Adobe_Stock_272373006_fbaf422748.jpeg?w=3840&q=75",
     description: "Collaborated with top interior designers to feature our premium drapery in award-winning modern living space installations.",
   },
   {
     id: "3",
-    name: "Home Decor Summit",
-    date: "September 10-12",
+    name: "Maison Objet",
+    date: "January 19-21",
     year: "2023",
-    image: "/placeholder.jpg",
+    image: "https://cdn.tuzemengroup.com/uploads/1454779_1d29b91fc1_5493647061_0aa073bc93.webp?w=3840&q=75",
     description: "Participated in panel discussions regarding the future of smart textiles and automated window treatments.",
   },
   {
     id: "4",
-    name: "Tech in Textiles",
-    date: "November 5-7",
+    name: "Proposte",
+    date: "April 18-20",
     year: "2023",
-    image: "/placeholder.jpg",
+    image: "https://cdn.tuzemengroup.com/uploads/Adobe_Stock_65604110_1_25b3a70c7e.jpg?w=3840&q=75",
     description: "Debuted our new line of UV-resistant and thermally insulated fabrics designed for extreme climates.",
   },
 ];
@@ -138,10 +138,10 @@ export default function EventsCarousel() {
   return (
     <div className="w-full py-12 overflow-hidden bg-theme-bg">
       <div className="container mx-auto px-4 mb-8">
-        <h2 className="text-3xl font-bold tracking-wide uppercase text-theme-primary">
+        <h2 className="text-3xl font-bold tracking-wide uppercase text-theme-text">
           Our Global Presence
         </h2>
-        <p className="text-theme-accent mt-2">
+        <p className="text-theme-text/70 mt-2">
           Discover the exhibitions and events we have participated in.
         </p>
       </div>
@@ -174,7 +174,7 @@ export default function EventsCarousel() {
                   draggable={false}
                   sizes="(max-width: 768px) 280px, 320px"
                 />
-                <div className="absolute top-3 right-3 bg-theme-text backdrop-blur-sm px-2.5 py-1 rounded-md text-xs font-bold text-theme-bg shadow-sm pointer-events-none">
+                <div className="absolute top-3 right-3 bg-theme-secondary backdrop-blur-sm px-2.5 py-1 rounded-md text-xs font-bold text-theme-primary shadow-sm pointer-events-none">
                   {event.year}
                 </div>
               </div>
@@ -201,7 +201,7 @@ export default function EventsCarousel() {
         <DialogContent className="max-w-2xl p-0 overflow-hidden gap-0 border-0 rounded-2xl">
           {selectedEvent && (
             <>
-              <div className="relative w-full h-64 sm:h-80 bg-slate-100">
+              <div className="relative w-full h-64 sm:h-80 bg-theme-bg">
                 <Image
                   src={selectedEvent.image}
                   alt={selectedEvent.name}
@@ -210,16 +210,16 @@ export default function EventsCarousel() {
                   priority
                 />
               </div>
-              <div className="p-6 sm:p-8 bg-white">
+              <div className="p-6 sm:p-8 bg-theme-secondary">
                 <DialogHeader className="mb-4">
-                  <div className="text-sm font-bold tracking-widest text-slate-500 uppercase mb-2">
+                  <div className="text-sm font-bold tracking-widest text-theme-bg uppercase mb-2">
                     {selectedEvent.date}, {selectedEvent.year}
                   </div>
-                  <DialogTitle className="text-2xl sm:text-3xl font-bold uppercase">
+                  <DialogTitle className="text-2xl sm:text-3xl text-theme-primary font-bold uppercase">
                     {selectedEvent.name}
                   </DialogTitle>
                 </DialogHeader>
-                <DialogDescription className="text-base text-slate-600 leading-relaxed">
+                <DialogDescription className="text-base text-theme-text/60 leading-relaxed">
                   {selectedEvent.description}
                 </DialogDescription>
               </div>

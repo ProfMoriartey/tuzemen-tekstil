@@ -5,6 +5,7 @@ import { getTranslations } from "next-intl/server";
 import { getFeaturedDesigns } from "~/server/actions/public";
 import FabricCard, { type Design } from "~/components/FabricCard";
 import HeroCarousel from "~/components/HeroCarousel";
+import EventsCarousel from "~/components/EventsCarousel";
 
 export default async function LandingPage() {
   const t = await getTranslations("LandingPage");
@@ -81,7 +82,7 @@ export default async function LandingPage() {
       </section>
 
       {/* Value Propositions */}
-      <section className="border-theme-primary/30 border-t border-b bg-theme-bg px-4 py-16 md:py-24">
+      {/* <section className="border-theme-primary/30 border-t border-b bg-theme-bg px-4 py-16 md:py-24">
         <div className="container mx-auto max-w-6xl">
           <div className="grid grid-cols-1 gap-10 text-center md:grid-cols-3">
             <div className="flex flex-col items-center">
@@ -121,7 +122,7 @@ export default async function LandingPage() {
             </div>
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* Featured Products */}
       <section className="bg-theme-bg px-4 py-16 md:py-24">
@@ -158,6 +159,7 @@ export default async function LandingPage() {
           </div>
         </div>
       </section>
+      <EventsCarousel />
     </div>
   );
 }

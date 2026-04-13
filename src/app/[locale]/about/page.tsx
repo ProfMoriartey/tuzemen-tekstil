@@ -86,7 +86,7 @@ export default async function AboutPage() {
       </section>
       <EventsCarousel />
       {/* Core Values / Manufacturing Standards */}
-      <section className="border-theme-primary/30 border-t bg-theme-bg px-4 py-16 md:py-24">
+      {/* <section className="border-theme-primary/30 border-t bg-theme-bg px-4 py-16 md:py-24">
         <div className="container mx-auto max-w-7xl">
           <div className="mb-16 text-center">
             <h2 className="text-theme-text mb-4 text-3xl font-bold tracking-tight uppercase">
@@ -139,7 +139,7 @@ export default async function AboutPage() {
             </div>
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* Call to Action */}
       <section className="bg-theme-secondary px-4 py-16 text-center text-theme-primary md:py-24">
