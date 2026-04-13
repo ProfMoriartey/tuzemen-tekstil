@@ -118,7 +118,7 @@ export default function ProductGallery({
       {/* Main Image Stage */}
       <div 
         ref={imageContainerRef}
-        className={`group relative aspect-square w-full overflow-hidden rounded-xl border bg-slate-50 touch-pan-y ${
+        className={`group relative aspect-square w-full overflow-hidden rounded-xl border bg-theme-bg touch-pan-y ${
           magnifier.show ? "cursor-none" : "cursor-default"
         }`}
         onTouchStart={handleTouchStart}
@@ -134,7 +134,7 @@ export default function ProductGallery({
 
         {isLoading && (
           <div className="absolute inset-0 z-10 flex items-center justify-center bg-theme-bg backdrop-blur-sm">
-            <Loader2 className="h-8 w-8 animate-spin text-slate-400" />
+            <Loader2 className="h-8 w-8 animate-spin text-theme-accent" />
           </div>
         )}
 <Image
@@ -162,7 +162,7 @@ export default function ProductGallery({
        {/* The Magnifying Glass Element */}
        {magnifier.show && !isLoading && (
           <div
-            className="pointer-events-none absolute z-30 hidden h-55 w-55 rounded-full border-[3px] border-accent bg-slate-100 shadow-[0_8px_30px_rgb(0,0,0,0.3)] md:block"
+            className="pointer-events-none absolute z-30 hidden h-55 w-55 rounded-full border-[3px] border-accent bg-theme-secondary shadow-[0_8px_30px_rgb(0,0,0,0.3)] md:block"
             style={{
               left: `${magnifier.x - 110}px`,
               top: `${magnifier.y - 110}px`,
@@ -205,8 +205,8 @@ export default function ProductGallery({
       {/* Interactive Thumbnail Carousel */}
       <div>
         <div className="mb-3 flex items-end justify-between">
-          <h3 className="font-semibold text-slate-900">{t("colorsTitle")}</h3>
-          <span className="text-sm font-medium uppercase tracking-wider text-slate-500">
+          <h3 className="font-semibold text-theme-primary">{t("colorsTitle")}</h3>
+          <span className="text-sm font-medium uppercase tracking-wider text-theme-accent">
             {activeItem.color}
           </span>
         </div>
@@ -221,13 +221,13 @@ export default function ProductGallery({
                     <button
                       onClick={() => setSelectedIndex(index)}
                       className={`relative flex aspect-square w-full flex-col overflow-hidden rounded-lg border-2 transition-all focus:outline-none focus:ring-2 focus:ring-theme-accent focus:ring-offset-2 ${
-                        isSelected ? "border-slate-900 opacity-100 ring-2 ring-slate-900 ring-offset-1" : "border-transparent opacity-70 hover:border-slate-300 hover:opacity-100"
+                        isSelected ? "border-theme-primary opacity-100 ring-2 ring-theme-secondary ring-offset-1" : "border-transparent opacity-70 hover:border-slate-300 hover:opacity-100"
                       }`}
                       aria-label={`Select color ${item.color}`}
                     >
                       <Image src={item.imageUrl} alt={item.color} fill sizes="100px" className="object-cover" />
                       <div className="absolute inset-x-0 bottom-0 bg-linear-to-t from-black/70 to-transparent p-1.5 pb-1">
-                        <span className="block truncate text-center text-[10px] font-medium text-white drop-shadow-md">
+                        <span className="block truncate text-center text-[10px] font-medium text-theme-primary drop-shadow-md">
                           {item.color}
                         </span>
                       </div>

@@ -19,14 +19,14 @@ export default async function ContactPage() {
             priority
             sizes="100vw"
           />
-          <div className="bg-theme-secondary/70 absolute inset-0"></div>
+          <div className="bg-theme-secondary/80 absolute inset-0"></div>
         </div>
 
         <div className="relative z-10 container mx-auto max-w-4xl text-center">
           <h1 className="text-theme-primary mb-6 text-4xl font-bold tracking-tight uppercase md:text-5xl">
             {t("hero.title")}
           </h1>
-          <p className="text-slate-800 mx-auto max-w-2xl text-lg leading-relaxed">
+          <p className="text-theme-primary mx-auto max-w-2xl text-lg leading-relaxed">
             {t("hero.subtitle")}
           </p>
         </div>

@@ -68,10 +68,10 @@ export default function HeroCarousel() {
 
                 <div className="relative z-10 container mx-auto w-full px-4 md:px-8">
                   <div className="max-w-2xl">
-                    <h1 className="mb-6 text-4xl leading-tight font-bold tracking-tight text-white uppercase md:text-5xl xl:text-6xl">
+                    <h1 className="mb-6 text-4xl leading-tight font-bold tracking-tight text-theme-bg uppercase md:text-5xl xl:text-6xl">
                       {t(`slides.${index}.title`)}
                     </h1>
-                    <p className="text-theme-bg mb-10 text-lg leading-relaxed md:text-xl">
+                    <p className="text-theme-bg/90 mb-10 text-lg leading-relaxed md:text-xl">
                       {t(`slides.${index}.description`)}
                     </p>
                     <Link
