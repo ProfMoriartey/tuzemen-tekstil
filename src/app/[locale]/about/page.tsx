@@ -2,6 +2,7 @@ import Image from "next/image";
 import { Link } from "~/i18n/routing";
 import { ShieldCheck, Leaf, Factory, Scissors, ArrowRight } from "lucide-react";
 import { getTranslations } from "next-intl/server";
+import EventsCarousel from "~/components/EventsCarousel";
 
 export default async function AboutPage() {
   const t = await getTranslations("AboutPage");
@@ -83,7 +84,7 @@ export default async function AboutPage() {
           </div>
         </div>
       </section>
-
+      <EventsCarousel />
       {/* Core Values / Manufacturing Standards */}
       <section className="border-theme-primary/30 border-t bg-theme-bg px-4 py-16 md:py-24">
         <div className="container mx-auto max-w-7xl">
