@@ -11,13 +11,14 @@ export default async function ContactPage() {
       {/* Header Section */}
       <section className="relative flex min-h-87.5 items-center overflow-hidden px-4 py-20 md:py-32">
         <div className="absolute inset-0 z-0">
-          <img
+          <Image
             src="https://cdn.tuzemengroup.com/uploads/KLT_9147_1_1_61e43d6762.jpg?w=3840&q=75"
             alt={t("hero.imageAlt")}
-            
+            fill
             className="object-cover"
-            
+            priority
             sizes="100vw"
+            unoptimized
           />
           <div className="bg-theme-secondary/80 absolute inset-0"></div>
         </div>

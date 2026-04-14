@@ -137,13 +137,14 @@ export default function ProductGallery({
             <Loader2 className="h-8 w-8 animate-spin text-theme-accent" />
           </div>
         )}
-<img
+        <Image
           src={activeItem.imageUrl}
           alt={t("imageAlt.template", {
             name: designName,
             color: activeItem.color,
           })}
-          
+          fill
+          unoptimized
           // UPDATE THIS ONLOAD FUNCTION
           onLoad={(e) => {
             setIsLoading(false)
@@ -155,7 +156,7 @@ export default function ProductGallery({
             isLoading ? "opacity-0" : "opacity-100"
           }`}
           sizes="(max-width: 768px) 100vw, 50vw"
-          
+          priority
           draggable={false} 
         />
 
@@ -225,7 +226,7 @@ export default function ProductGallery({
                       }`}
                       aria-label={`Select color ${item.color}`}
                     >
-                      <img src={item.imageUrl} alt={item.color}  sizes="100px" className="object-cover" />
+                      <Image src={item.imageUrl} alt={item.color} fill unoptimized sizes="100px" className="object-cover" />
                       <div className="absolute inset-x-0 bottom-0 bg-linear-to-t from-black/70 to-transparent p-1.5 pb-1">
                         <span className="block truncate text-center text-[10px] font-medium text-theme-primary drop-shadow-md">
                           {item.color}

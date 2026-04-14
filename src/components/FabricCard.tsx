@@ -29,12 +29,13 @@ export default function FabricCard({ design }: { design: Design }) {
     <Link href={`/products/${design.id}`} className="group block h-full">
       <div className="bg-theme-bg border-theme-primary/20 flex h-full flex-col overflow-hidden rounded-lg border transition-all duration-200 hover:shadow-md">
         <div className="bg-theme-secondary/10 border-theme-primary/20 relative aspect-square w-full shrink-0 border-b">
-          <img
+          <Image
             src={design.displayImageUrl ?? "/placeholder.jpg"}
             alt={design.name}
-            
+            fill
             className="object-cover transition-transform duration-500 group-hover:scale-105"
             sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw"
+            unoptimized
           />
         </div>
 

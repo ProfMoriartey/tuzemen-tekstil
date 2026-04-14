@@ -39,12 +39,13 @@ export default function ImageGallery({ design, variants }: ImageGalleryProps) {
   return (
     <div className="flex w-full flex-col gap-4">
       <div className="bg-muted relative aspect-square w-full overflow-hidden rounded-lg">
-        <img
+        <Image
           src={activeImage}
           alt={design.name}
-          
+          fill
           className="object-cover"
           sizes="(max-width: 768px) 100vw, 50vw"
+          unoptimized
         />
       </div>
 
@@ -58,10 +59,10 @@ export default function ImageGallery({ design, variants }: ImageGalleryProps) {
                   onClick={() => setActiveImage(thumbImage)}
                   className="focus:ring-ring relative aspect-square w-full overflow-hidden rounded-md border-2 focus:ring-2"
                 >
-                  <img
+                  <Image
                     src={thumbImage}
                     alt={variant.color}
-                    
+                    fill
                     className="object-cover"
                   />
                 </button>

@@ -38,12 +38,13 @@ export default async function LandingPage() {
             </div>
 
             <div className="bg-theme-secondary/10 relative aspect-video w-full overflow-hidden rounded-xl lg:aspect-4/3">
-              <img
+              <Image
                 src="https://cdn.tuzemengroup.com/uploads/large_Adobe_Stock_396957872_37ef4ed558_04b20ceb76.jpeg?w=2048&q=75"
                 alt={t("sheers.imageAlt")}
-                
+                fill
                 className="object-cover transition-transform duration-700 hover:scale-105"
                 sizes="(max-width: 1024px) 100vw, 50vw"
+                unoptimized
               />
             </div>
           </div>
@@ -55,12 +56,13 @@ export default async function LandingPage() {
         <div className="container mx-auto max-w-7xl">
           <div className="grid grid-cols-1 items-center gap-10 lg:grid-cols-2 lg:gap-20">
             <div className="bg-theme-secondary/10 relative order-last aspect-video w-full overflow-hidden rounded-xl lg:order-first lg:aspect-4/3">
-              <img
+              <Image
                 src="https://cdn.tuzemengroup.com/uploads/win3_5ab69159a7.jpg?w=1920&q=75"
                 alt={t("drapery.imageAlt")}
-                
+                fill
                 className="object-cover transition-transform duration-700 hover:scale-105"
                 sizes="(max-width: 1024px) 100vw, 50vw"
+                unoptimized
               />
             </div>
 

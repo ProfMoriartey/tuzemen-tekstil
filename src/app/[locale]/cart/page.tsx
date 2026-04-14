@@ -111,12 +111,13 @@ export default function CartPage() {
                       className="flex items-center gap-6 p-4 md:p-6"
                     >
                       <div className="bg-theme-secondary/10 relative h-24 w-24 shrink-0 overflow-hidden rounded-md border">
-                        <img
+                        <Image
                           src={item.imageUrl ?? "/placeholder.jpg"}
                           alt={t("item.imageAlt", { name: item.name })}
-                          
+                          fill
                           className="object-cover"
                           sizes="96px"
+                          unoptimized
                         />
                       </div>
                       <div className="flex-1">

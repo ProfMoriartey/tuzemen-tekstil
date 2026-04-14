@@ -12,13 +12,14 @@ export default async function AboutPage() {
       {/* Hero Section with Background Image */}
       <section className="relative flex min-h-100 items-center overflow-hidden px-4 py-24 md:py-36">
         <div className="absolute inset-0 z-0">
-          <img
+          <Image
             src="https://cdn.tuzemengroup.com/uploads/large_Adobe_Stock_396957872_37ef4ed558_04b20ceb76.jpeg?w=2048&q=75"
             alt={t("hero.imageAlt")}
-            
+            fill
             className="object-cover"
-            
+            priority
             sizes="100vw"
+            unoptimized
           />
           <div className="bg-theme-secondary/80 absolute inset-0"></div>
         </div>
@@ -38,12 +39,13 @@ export default async function AboutPage() {
         <div className="container mx-auto max-w-7xl">
           <div className="grid grid-cols-1 items-center gap-10 lg:grid-cols-2 lg:gap-16">
             <div className="bg-theme-secondary/20 relative aspect-square w-full overflow-hidden rounded-xl lg:aspect-4/3">
-              <img
+              <Image
                 src="/tuzemen-family.jpeg"
                 alt={t("heritage.imageAlt")}
-                
+                fill
                 className="object-cover"
                 sizes="(max-width: 1024px) 100vw, 50vw"
+                unoptimized
               />
             </div>
 

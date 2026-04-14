@@ -30,11 +30,12 @@ export default function MainImageManager({
       {displayImageUrl ? (
         <div className="space-y-4">
           <div className="relative aspect-square w-full overflow-hidden rounded-lg border bg-slate-100 shadow-sm">
-            <img
+            <Image
               src={displayImageUrl}
               alt={designName}
-              
+              fill
               className="object-cover"
+              unoptimized
             />
           </div>
           <Button

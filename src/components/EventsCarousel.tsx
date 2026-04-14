@@ -166,13 +166,14 @@ export default function EventsCarousel() {
               className="relative flex flex-col group/card w-[280px] sm:w-[320px] shrink-0 text-left rounded-xl transition-transform hover:-translate-y-1"
             >
               <div className="relative w-full aspect-4/3 overflow-hidden rounded-xl shadow-sm border border-border cursor-grab active:cursor-grabbing">
-                <img
+                <Image
                   src={event.image}
                   alt={event.name}
-                  
+                  fill
                   className="object-cover transition-transform duration-500 group-hover/card:scale-105 pointer-events-none"
                   draggable={false}
                   sizes="(max-width: 768px) 280px, 320px"
+                  unoptimized
                 />
                 <div className="absolute top-3 right-3 bg-theme-secondary backdrop-blur-sm px-2.5 py-1 rounded-md text-xs font-bold text-theme-primary shadow-sm pointer-events-none">
                   {event.year}
@@ -202,12 +203,13 @@ export default function EventsCarousel() {
           {selectedEvent && (
             <>
               <div className="relative w-full h-64 sm:h-80 bg-theme-bg">
-                <img
+                <Image
                   src={selectedEvent.image}
                   alt={selectedEvent.name}
-                  
+                  fill
                   className="object-cover"
-                  
+                  priority
+                  unoptimized
                 />
               </div>
               <div className="p-6 sm:p-8 bg-theme-secondary">

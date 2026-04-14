@@ -168,11 +168,12 @@ export default function VariantManager({
                 {/* Image & Color Info */}
                 {variant.imageUrl ? (
                   <div className="relative h-16 w-16 overflow-hidden rounded border shadow-sm">
-                    <img
+                    <Image
                       src={variant.imageUrl}
                       alt={variant.color}
-                      
+                      fill
                       className="object-cover"
+                      unoptimized
                     />
                   </div>
                 ) : (
