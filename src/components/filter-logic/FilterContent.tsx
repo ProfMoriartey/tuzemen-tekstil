@@ -17,6 +17,10 @@ interface FilterContentProps {
   sortedColors: string[];
   localColors: string[];
   handleColorToggle: (val: string, checked: boolean) => void;
+  // <-- ADDED TYPE PROPS
+  sortedTypes: string[];
+  localTypes: string[];
+  handleTypeToggle: (val: string, checked: boolean) => void;
 }
 
 export default function FilterContent({
@@ -32,6 +36,10 @@ export default function FilterContent({
   sortedColors,
   localColors,
   handleColorToggle,
+  // <-- EXTRACTED TYPE PROPS
+  sortedTypes,
+  localTypes,
+  handleTypeToggle,
 }: FilterContentProps) {
   const t = useTranslations("StorefrontFilter");
 
@@ -42,6 +50,19 @@ export default function FilterContent({
         onChange={setLocalLeadband}
         variant={variant}
       />
+
+ {/* <-- NEW FABRIC TYPE SECTION --> */}
+ <div className="border-t border-theme-border" />
+      <FilterChecklist
+        title={t("sections.types")}
+        items={sortedTypes}
+        selectedItems={localTypes}
+        onToggle={handleTypeToggle}
+        idPrefix={`${variant}-type`}
+        variant={variant}
+        emptyMessage={t("sections.noTypes")}
+      />
+
       <div className="border-t border-theme-border" />
       <FilterChecklist
         title={t("sections.widths")}
@@ -63,6 +84,7 @@ export default function FilterContent({
         variant={variant}
         emptyMessage={t("sections.noCategories")}
       />
+
       <div className="border-t border-theme-border" />
       <FilterChecklist
         title={t("sections.colors")}

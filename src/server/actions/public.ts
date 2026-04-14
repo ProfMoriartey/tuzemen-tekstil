@@ -26,6 +26,15 @@ export async function getAvailableWidths() {
   return uniqueWidths.sort((a, b) => a - b)
 }
 
+// <-- NEW FUNCTION ADDED
+export async function getAvailableTypes() {
+  const allDesigns = await db.select({ fabricType: designs.fabricType }).from(designs)
+  const uniqueTypes = Array.from(
+    new Set(allDesigns.map(d => d.fabricType).filter(Boolean) as string[])
+  )
+  return uniqueTypes.sort()
+}
+
 export async function getStorefrontDesigns(
   query: string, 
   colors: string[], 
@@ -35,8 +44,8 @@ export async function getStorefrontDesigns(
   sortBy = "name",
   sortOrder: "asc" | "desc" = "asc",
   page = 1,
-  limit = 24
-
+  limit = 24,
+  types: string[] = [] // <-- ADDED TYPES PARAMETER
 ) {
   const searchPattern = `%${query}%`
   const orderDirection = sortOrder === "desc" ? desc(designs.name) : asc(designs.name)
@@ -59,6 +68,7 @@ export async function getStorefrontDesigns(
     ) : undefined,
     categories.length > 0 ? inArray(designs.category, categories) : undefined,
     widths.length > 0 ? inArray(designs.width, widths) : undefined,
+    types.length > 0 ? inArray(designs.fabricType, types) : undefined, // <-- ADDED TYPES FILTER
     leadbandParam !== undefined ? eq(designs.hasLeadband, leadbandParam) : undefined
   )
 
@@ -75,8 +85,8 @@ export async function getStorefrontDesigns(
     where: filterLogic,
     with: {
       variants: {
-    orderBy: [asc(variants.sortOrder)],
-  },
+        orderBy: [asc(variants.sortOrder)],
+      },
     },
     orderBy: [orderDirection],
     limit: limit,
@@ -95,8 +105,8 @@ export async function getFabricById(id: number) {
     where: eq(designs.id, id),
     with: {
       variants: {
-    orderBy: [asc(variants.sortOrder)],
-  },
+        orderBy: [asc(variants.sortOrder)],
+      },
     }
   })
   

@@ -255,7 +255,9 @@
       "colors": "Colors",
       "noWidths": "No widths found.",
       "noCategories": "No categories found.",
-      "noColors": "No colors found."
+      "noColors": "No colors found.",
+      "types": "Fabric Type",
+      "noTypes": "No fabric types available"
     },
     "actions": {
       "apply": "Apply Filters",

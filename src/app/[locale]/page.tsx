@@ -29,7 +29,7 @@ export default async function LandingPage() {
                 {t("sheers.description")}
               </p>
               <Link
-                href="/products"
+                href="/products?types=SHEER&page=1"
                 className="text-theme-accent hover:text-theme-secondary inline-flex items-center font-bold tracking-wide uppercase transition-colors"
               >
                 {t("sheers.link")}
@@ -74,7 +74,7 @@ export default async function LandingPage() {
                 {t("drapery.description")}
               </p>
               <Link
-                href="/products"
+                href="/products?types=DRAPERY%2CDIMI+OUT&page=1"
                 className="text-theme-accent hover:text-theme-secondary inline-flex items-center font-bold tracking-wide uppercase transition-colors"
               >
                 {t("drapery.link")}

@@ -3,6 +3,7 @@ import {
   getAvailableColors,
   getAvailableCategories,
   getAvailableWidths,
+  getAvailableTypes, // <-- NEW IMPORT
 } from "~/server/actions/public";
 import StorefrontFilter from "~/components/StorefrontFilter";
 import FabricCard, { type Design } from "~/components/FabricCard";
@@ -16,6 +17,7 @@ export default async function StorefrontPage({
     q?: string;
     colors?: string;
     categories?: string;
+    types?: string; // <-- ADDED TYPES
     sort?: string;
     order?: string;
     widths?: string;
@@ -34,6 +36,10 @@ export default async function StorefrontPage({
   const categoriesArray = params.categories
     ? params.categories.split(",").filter(Boolean)
     : [];
+  // <-- PARSED TYPES ARRAY
+  const typesArray = params.types 
+    ? params.types.split(",").filter(Boolean) 
+    : [];
   const widthsArray = params.widths
     ? params.widths
         .split(",")
@@ -48,12 +54,11 @@ export default async function StorefrontPage({
   const sort = params.sort ?? "name";
   const order = (params.order as "asc" | "desc") ?? "asc";
 
-  // Parse pagination parameters with defaults
   const page = parseInt(params.page ?? "1", 10);
   const limit = parseInt(params.limit ?? "24", 10);
 
-  // Destructure the updated response format
-  const [designData, availableColors, availableCategories, availableWidths] =
+  // <-- ADDED getAvailableTypes() to the Promise.all
+  const [designData, availableColors, availableCategories, availableWidths, availableTypes] =
     await Promise.all([
       getStorefrontDesigns(
         query,
@@ -65,10 +70,12 @@ export default async function StorefrontPage({
         order,
         page,
         limit,
+        typesArray // <-- PASSED TO DATABASE QUERY
       ),
       getAvailableColors(),
       getAvailableCategories(),
       getAvailableWidths(),
+      getAvailableTypes(), // <-- NEW QUERY
     ]);
 
   const { designs, totalCount } = designData;
@@ -76,14 +83,13 @@ export default async function StorefrontPage({
 
   return (
     <div className="container mx-auto p-4 md:p-8">
-     
-
       <div className="flex flex-col gap-8 md:flex-row">
         <aside className="w-full shrink-0 md:w-64">
           <StorefrontFilter
             availableColors={availableColors}
             availableCategories={availableCategories}
             availableWidths={availableWidths}
+            availableTypes={availableTypes} // <-- PASSED TO FILTER UI
           />
         </aside>
 
@@ -100,7 +106,6 @@ export default async function StorefrontPage({
             )}
           </div>
 
-          {/* Pagination Controls */}
           {totalPages > 0 && (
             <div className="border-theme-primary/30 mt-8 border-t pt-6">
               <PaginationControls
