@@ -2,6 +2,7 @@
 
 import { useState, useRef, useEffect } from "react";
 import Image from "next/image";
+import { useTranslations } from "next-intl";
 import {
   Dialog,
   DialogContent,
@@ -19,42 +20,43 @@ type CompanyEvent = {
   description: string;
 };
 
-const companyEvents: CompanyEvent[] = [
+// Base configuration without hard-coded text
+type EventConfig = {
+  id: string;
+  translationKey: "heimtextil" | "hometex" | "maisonObjet" | "proposte";
+  year: string;
+  image: string;
+};
+
+const eventConfigs: EventConfig[] = [
   {
     id: "1",
-    name: "Heimtextil",
-    date: "January 14-17",
+    translationKey: "heimtextil",
     year: "2025",
     image: "https://cdn.tuzemengroup.com/uploads/heimtextil_2023_ec682e652e_a821285b5d.jpg?w=3840&q=75",
-    description: "Showcased our latest sustainable fabric collections to international buyers and established new distribution partnerships across Europe.",
   },
   {
     id: "2",
-    name: "Hometex",
-    date: "May 20-23",
+    translationKey: "hometex",
     year: "2025",
     image: "https://cdn.tuzemengroup.com/uploads/Adobe_Stock_272373006_fbaf422748.jpeg?w=3840&q=75",
-    description: "Collaborated with top interior designers to feature our premium drapery in award-winning modern living space installations.",
   },
   {
     id: "3",
-    name: "Maison Objet",
-    date: "January 19-21",
+    translationKey: "maisonObjet",
     year: "2023",
     image: "https://cdn.tuzemengroup.com/uploads/1454779_1d29b91fc1_5493647061_0aa073bc93.webp?w=3840&q=75",
-    description: "Participated in panel discussions regarding the future of smart textiles and automated window treatments.",
   },
   {
     id: "4",
-    name: "Proposte",
-    date: "April 18-20",
+    translationKey: "proposte",
     year: "2023",
     image: "https://cdn.tuzemengroup.com/uploads/Adobe_Stock_65604110_1_25b3a70c7e.jpg?w=3840&q=75",
-    description: "Debuted our new line of UV-resistant and thermally insulated fabrics designed for extreme climates.",
   },
 ];
 
 export default function EventsCarousel() {
+  const t = useTranslations("EventsCarousel");
   const [selectedEvent, setSelectedEvent] = useState<CompanyEvent | null>(null);
   const [isHovered, setIsHovered] = useState(false);
 
@@ -63,6 +65,16 @@ export default function EventsCarousel() {
   const isDraggingRef = useRef(false);
   const startXRef = useRef(0);
   const pointerDownPosRef = useRef({ x: 0, y: 0 });
+
+  // Map the localized strings to the base configuration
+  const companyEvents: CompanyEvent[] = eventConfigs.map((config) => ({
+    id: config.id,
+    year: config.year,
+    image: config.image,
+    name: t(`events.${config.translationKey}.name`),
+    date: t(`events.${config.translationKey}.date`),
+    description: t(`events.${config.translationKey}.description`),
+  }));
 
   const infiniteEvents = [
     ...companyEvents,
@@ -96,7 +108,6 @@ export default function EventsCarousel() {
     isDraggingRef.current = true;
     startXRef.current = e.clientX;
     pointerDownPosRef.current = { x: e.clientX, y: e.clientY };
-    // REMOVED setPointerCapture here so child clicks can fire
   };
 
   const handlePointerMove = (e: React.PointerEvent) => {
@@ -119,14 +130,12 @@ export default function EventsCarousel() {
 
   const handlePointerUp = () => {
     isDraggingRef.current = false;
-    // REMOVED releasePointerCapture here
   };
 
   const handleTextClick = (e: React.MouseEvent, event: CompanyEvent) => {
     const dx = Math.abs(e.clientX - pointerDownPosRef.current.x);
     const dy = Math.abs(e.clientY - pointerDownPosRef.current.y);
 
-    // If the user moved the mouse more than 5px, it was a drag, not a click
     if (dx > 5 || dy > 5) {
       e.preventDefault();
       return;
@@ -139,10 +148,10 @@ export default function EventsCarousel() {
     <div className="w-full py-12 overflow-hidden bg-theme-bg">
       <div className="container mx-auto px-4 mb-8">
         <h2 className="text-3xl font-bold tracking-wide uppercase text-theme-text">
-          Our Global Presence
+          {t("title")}
         </h2>
         <p className="text-theme-text/70 mt-2">
-          Discover the exhibitions and events we have participated in.
+          {t("subtitle")}
         </p>
       </div>
 
@@ -184,7 +193,7 @@ export default function EventsCarousel() {
                 onClick={(e) => handleTextClick(e, event)}
                 className="mt-4 cursor-pointer p-2 -mx-2 rounded-lg transition-colors hover:bg-slate-200/50"
                 role="button"
-                aria-label={`View details for ${event.name}`}
+                aria-label={t("viewDetailsAria", { name: event.name })}
               >
                 <h3 className="font-bold text-lg text-theme-primary line-clamp-1 group-hover/card:text-theme-accent transition-colors">
                   {event.name}

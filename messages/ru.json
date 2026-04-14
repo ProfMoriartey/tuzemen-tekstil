@@ -312,5 +312,37 @@
   },
   "FilterChecklist": {
     "defaultEmpty": "No items."
+  },
+  "EventsCarousel": {
+    "title": "Our Global Presence",
+    "subtitle": "Discover the exhibitions and events we have participated in.",
+    "viewDetailsAria": "View details for {name}",
+    "events": {
+      "heimtextil": {
+        "name": "Heimtextil",
+        "date": "January 14-17",
+        "description": "Showcased our latest sustainable fabric collections to international buyers and established new distribution partnerships across Europe."
+      },
+      "hometex": {
+        "name": "Hometex",
+        "date": "May 20-23",
+        "description": "Collaborated with top interior designers to feature our premium drapery in award-winning modern living space installations."
+      },
+      "maisonObjet": {
+        "name": "Maison Objet",
+        "date": "January 19-21",
+        "description": "Participated in panel discussions regarding the future of smart textiles and automated window treatments."
+      },
+      "proposte": {
+        "name": "Proposte",
+        "date": "April 18-20",
+        "description": "Debuted our new line of UV-resistant and thermally insulated fabrics designed for extreme climates."
+      }
+    }
+  },
+  "StatsSection": {
+    "countriesExported": "Countries Exported To",
+    "satisfiedCustomers": "Satisfied Customers",
+    "metersSold": "Meters Sold"
   }
 }
