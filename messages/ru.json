@@ -1,314 +1,316 @@
 {
   "LandingPage": {
     "sheers": {
-      "title": "Искусство прозрачных тканей",
-      "description": "Наши легкие прозрачные ткани пропускают естественный свет и сохраняют вашу приватность. Они тщательно сотканы для прочности и мягкой, элегантной драпировки, создавая идеальную основу для оформления окон.",
-      "link": "Купить прозрачные ткани",
-      "imageAlt": "Прозрачные ткани"
+      "title": "Mastering the Art of Sheers",
+      "description": "Our lightweight sheers are designed to invite natural light while preserving your privacy. Carefully woven for maximum durability and a soft, elegant drape, they form the perfect foundation for any window treatment.",
+      "link": "Shop Sheers",
+      "imageAlt": "Sheer fabrics"
     },
     "drapery": {
-      "title": "Насыщенные текстуры и плотные портьеры",
-      "description": "Создайте основу интерьера с нашими премиальными плотными портьерами. Они обеспечивают контроль света, теплоизоляцию и звукопоглощение, добавляя глубину цвета и выразительность вашему пространству.",
-      "link": "Купить портьеры",
-      "imageAlt": "Портьерные ткани"
+      "title": "Rich Textures & Heavy Drapery",
+      "description": "Anchor your space with our premium heavy drapery. Engineered for superior light control, insulation, and acoustic dampening, these fabrics bring bold presence and deep, resonant colors to your interior.",
+      "link": "Shop Drapery",
+      "imageAlt": "Drapery fabrics"
     },
     "values": {
       "variants": {
-        "title": "Разнообразие вариантов",
-        "description": "Широкий выбор цветов для любых дизайнерских задач."
+        "title": "Vibrant Variants",
+        "description": "Extensive color options to match any design requirement."
       },
       "dimensions": {
-        "title": "Точные размеры",
-        "description": "Точные параметры ширины и плотности для каждой ткани."
+        "title": "Exact Dimensions",
+        "description": "Precise width and weight specifications listed for every fabric."
       },
       "quality": {
-        "title": "Премиальное качество",
-        "description": "Прочные материалы с возможностью добавления утяжелителей для идеальной драпировки."
+        "title": "Premium Quality",
+        "description": "Durable compositions with optional leadbands for perfect draping."
       }
     },
     "products": {
-      "title": "Новинки",
-      "description": "Наши последние поступления.",
-      "viewAll": "Смотреть все",
-      "viewAllMobile": "Все товары"
+      "title": "New Arrivals",
+      "description": "Our latest additions to the catalog.",
+      "viewAll": "View All",
+      "viewAllMobile": "View All Products"
     }
   },
+  
   "AboutPage": {
     "hero": {
-      "title": "Ткачество совершенства",
-      "subtitle": "Tuzemen Group — ведущий производитель высококачественных прозрачных тканей, плотных портьер и декоративного текстиля, основанный в текстильном центре Бурсы, Турция.",
-      "imageAlt": "Производство Tuzemen Group"
+      "title": "Weaving Excellence",
+      "subtitle": "Tuzemen Group is a premier manufacturer of high-quality sheers, heavy drapery, and accent textiles, rooted in the rich textile heritage of Bursa, Türkiye.",
+      "imageAlt": "Tuzemen Group Weaving Facility"
     },
     "heritage": {
-      "title": "Наша история",
-      "imageAlt": "Процесс ткачества Tuzemen Group",
-      "p1": "Расположенная в сердце текстильной столицы Турции, компания Tuzemen Group была основана с одной целью: создавать ткани, объединяющие традиционное мастерство и современные материалы.",
-      "p2": "На протяжении многих лет мы поставляем премиальные ткани дизайнерам, архитекторам и международным ритейлерам. От легчайших прозрачных тканей до плотных звукоизолирующих портьер — каждая партия отражает наше стремление к качеству.",
-      "p3": "Мы контролируем весь процесс производства — от выбора пряжи до финальной обработки с утяжелителями — чтобы соответствовать строгим стандартам на каждом этапе."
+      "title": "Our Heritage",
+      "imageAlt": "Tuzemen Group weaving process",
+      "p1": "Located in the heart of Türkiye's textile capital, Tuzemen Group was founded with a singular vision: to engineer fabrics that bridge the gap between traditional craftsmanship and modern material science.",
+      "p2": "For years, we have supplied designers, architects, and global retailers with premium textiles that define spaces. From the lightest, most delicate sheers to heavy, acoustic-dampening drapery, every roll of fabric that leaves our facility proves our commitment to quality.",
+      "p3": "We control the entire production pipeline—from yarn selection to the final leadband finishing—ensuring that our strict standards are met at every single touchpoint."
     },
     "video": {
-      "title": "Посмотрите наш процесс",
-      "description": "Загляните в наше производство и узнайте, как создаются премиальные ткани.",
-      "iframeTitle": "Презентация Tuzemen Group"
+      "title": "See Our Process",
+      "description": "Take a look inside our manufacturing facility and see how raw materials become premium textiles.",
+      "iframeTitle": "Tuzemen Group Introduction"
     },
     "standards": {
-      "title": "Стандарты Tuzemen",
-      "description": "Наша репутация заложена в каждой нити продукции. Вот как мы обеспечиваем качество.",
+      "title": "The Tuzemen Standard",
+      "description": "Our reputation is built into the very threads of our products. Here is how we ensure high quality across our entire catalog.",
       "facilities": {
-        "title": "Современное производство",
-        "description": "Наш производственный центр в Бурсе использует современные технологии ткачества и контроля качества."
+        "title": "Advanced Facilities",
+        "description": "Our Bursa manufacturing hub uses state-of-the-art weaving and quality assurance technology to guarantee consistency across massive production runs."
       },
       "testing": {
-        "title": "Строгие испытания",
-        "description": "Каждая ткань проходит тесты на стойкость цвета, точность веса и прочность."
+        "title": "Rigorous Testing",
+        "description": "Every fabric undergoes severe stress tests for colorfastness, weight accuracy, and tear resistance before being approved for distribution."
       },
       "finishing": {
-        "title": "Точная обработка",
-        "description": "От точной резки до аккуратной установки утяжелителей — ткани готовы к использованию."
+        "title": "Precision Finishing",
+        "description": "From exact-width cutting to the clean integration of heavy leadbands, our finishing process ensures your fabrics are ready for immediate installation."
       },
       "sustainability": {
-        "title": "Экологичность",
-        "description": "Мы сокращаем воздействие на окружающую среду за счет повторного использования воды и ответственного выбора сырья."
+        "title": "Sustainable Practice",
+        "description": "We are committed to reducing our environmental footprint through water-recycling dye processes and responsibly sourced raw materials."
       }
     },
     "cta": {
-      "title": "Готовы расширить ассортимент?",
-      "description": "Изучите наш каталог и найдите нужные характеристики, составы и цвета для вашего проекта.",
-      "button": "Смотреть продукцию"
+      "title": "Ready to elevate your inventory?",
+      "description": "Browse our complete catalog to find the exact specifications, compositions, and colors you need for your next project.",
+      "button": "Explore Our Products"
     }
   },
   "ContactPage": {
     "hero": {
-      "title": "Свяжитесь с нами",
-      "subtitle": "Запросите образцы, обсудите оптовые заказы или партнерство — наша команда готова помочь.",
-      "imageAlt": "Контакты Tuzemen Group"
+      "title": "Get in Touch",
+      "subtitle": "Whether you are requesting fabric samples, inquiring about bulk orders, or looking to partner with us, our team is ready to assist you.",
+      "imageAlt": "Contact Tuzemen Group"
     },
     "form": {
-      "title": "Отправить сообщение"
+      "title": "Send a Message"
     },
     "info": {
-      "title": "Контактная информация",
+      "title": "Contact Information",
       "address": {
-        "label": "Главный офис и фабрика",
+        "label": "Headquarters & Factory",
         "value": "SAMANLI MAHALLESİ SEL SOK B BLOK NO:67/F\n16350 YILDIRIM BURSA/TURKEY"
       },
       "phone": {
-        "label": "Телефон",
-        "hours": "Пн-Пт, 08:00 - 18:00 (TRT)"
+        "label": "Phone",
+        "hours": "Mon-Fri, 8am - 6pm (TRT)"
       },
       "email": {
-        "label": "Электронная почта"
+        "label": "Email"
       }
     },
     "hours": {
-      "title": "Часы работы",
-      "weekdays": "Понедельник - Пятница:",
+      "title": "Business Hours",
+      "weekdays": "Monday - Friday:",
       "weekdaysTime": "08:00 - 18:00",
-      "weekend": "Суббота - Воскресенье:",
-      "weekendStatus": "Закрыто"
+      "weekend": "Sunday-Saturday:",
+      "weekendStatus": "Closed"
     },
     "map": {
-      "title": "Расположение Tuzemen Group"
+      "title": "Tuzemen Group Location"
     }
   },
   "ContactForm": {
     "labels": {
-      "firstName": "Имя",
-      "lastName": "Фамилия",
-      "email": "Электронная почта",
-      "subject": "Тема",
-      "message": "Сообщение"
+      "firstName": "First Name",
+      "lastName": "Last Name",
+      "email": "Email Address",
+      "subject": "Subject",
+      "message": "Message"
     },
     "placeholders": {
-      "firstName": "Иван",
-      "lastName": "Иванов",
-      "email": "ivan@company.com",
-      "subject": "Запрос на оптовый заказ",
-      "message": "Расскажите о требованиях вашего проекта..."
+      "firstName": "John",
+      "lastName": "Doe",
+      "email": "john@company.com",
+      "subject": "Bulk Order Inquiry",
+      "message": "Tell us about your project requirements..."
     },
     "status": {
-      "sending": "Отправка...",
-      "send": "Отправить сообщение",
-      "successTitle": "Сообщение отправлено",
-      "successDescription": "Спасибо за обращение. Мы свяжемся с вами в ближайшее время.",
-      "sendAnother": "Отправить еще одно сообщение"
+      "sending": "Sending...",
+      "send": "Send Message",
+      "successTitle": "Message Sent",
+      "successDescription": "Thank you for reaching out. We will get back to you shortly.",
+      "sendAnother": "Send Another Message"
     }
   },
+  
   "CartPage": {
-    "title": "Корзина образцов",
+    "title": "Sample Request Cart",
     "empty": {
-      "title": "Корзина пуста",
-      "description": "Просмотрите коллекцию, чтобы добавить образцы тканей.",
-      "link": "Смотреть продукцию"
+      "title": "Your cart is empty",
+      "description": "Browse our collection to add fabric samples to your inquiry list.",
+      "link": "Explore Products"
     },
     "item": {
-      "tag": "Полная цветовая палитра",
-      "imageAlt": "Образец {name}",
-      "remove": "Удалить образец"
+      "tag": "Full Color Palette Hanger",
+      "imageAlt": "{name} sample hanger",
+      "remove": "Remove sample completely"
     },
     "form": {
-      "title": "Данные доставки",
+      "title": "Shipping Details",
       "fields": {
-        "name": "Полное имя *",
-        "company": "Компания",
-        "email": "Электронная почта *",
-        "phone": "Телефон",
-        "address": "Адрес доставки *",
-        "addressPlaceholder": "Улица, город, регион, индекс, страна",
-        "notes": "Дополнительная информация",
-        "notesPlaceholder": "Детали проекта или особые требования..."
+        "name": "Full Name *",
+        "company": "Company",
+        "email": "Email Address *",
+        "phone": "Phone Number",
+        "address": "Full Shipping Address *",
+        "addressPlaceholder": "Street, City, State, ZIP, Country",
+        "notes": "Additional Notes",
+        "notesPlaceholder": "Project details or specific requirements..."
       },
       "status": {
-        "pending": "Отправка запроса...",
-        "submit": "Отправить запрос"
+        "pending": "Submitting Request...",
+        "submit": "Submit Inquiry"
       }
     },
     "success": {
-      "title": "Запрос получен",
-      "description": "Спасибо за интерес. Мы подготовим образцы и свяжемся с вами.",
-      "link": "Продолжить просмотр"
+      "title": "Request Received",
+      "description": "Thank you for your interest. Our team will prepare your sample hangers and contact you shortly with shipping details.",
+      "link": "Continue Browsing"
     }
   },
-  "FabricCard": {
+"FabricCard": {
     "specs": {
-      "width": "Ширина",
-      "composition": "Состав",
-      "unit": "см"
+      "width": "Width",
+      "composition": "Comp",
+      "unit": "cm"
     }
   },
   "Footer": {
     "company": {
       "name": "Tuzemen Group",
-      "description": "Премиальные ткани для любого пространства. Мы специализируемся на прозрачных тканях, портьерах и декоративном текстиле."
+      "description": "Premium fabrics for every space. We specialize in high-quality sheers, drapery, and accent textiles crafted to exact specifications."
     },
     "links": {
-      "title": "Быстрые ссылки",
-      "home": "Главная",
-      "products": "Продукция",
-      "about": "О нас",
-      "contact": "Контакты",
-      "admin": "Панель администратора"
+      "title": "Quick Links",
+      "home": "Home",
+      "products": "Products",
+      "about": "About Us",
+      "contact": "Contact",
+      "admin": "Admin Portal"
     },
     "contact": {
-      "title": "Контакты",
+      "title": "Contact Us",
       "address": "SAMANLI MAHALLESİ SEL SOK B BLOK NO:67/F\n16350 YILDIRIM BURSA/TURKEY",
-      "mapTitle": "Расположение Tuzemen Group"
+      "mapTitle": "Tuzemen Group Location"
     },
-    "copyright": "© {year} Tuzemen Group. Все права защищены."
+    "copyright": "© {year} Tuzemen Group. All rights reserved."
   },
   "HeroCarousel": {
     "slides": [
       {
-        "title": "Премиальные ткани для любого пространства",
-        "description": "Откройте для себя нашу коллекцию прозрачных тканей и портьер."
+        "title": "Premium Fabrics for Every Space",
+        "description": "Discover our curated collection of high-quality sheers and drapery. Built to exact specifications with industry-leading materials"
       },
       {
-        "title": "Декоративные ткани",
-        "description": "Обновите интерьер с помощью нашей коллекции тканей."
+        "title": "INNOVATIVE",
+        "description": "Elevate your interior design with our exclusive range of accent fabrics, available in dozens of rich, fade-resistant colors."
       },
       {
-        "title": "Создано для идеального результата",
-        "description": "Каждая партия проходит строгий контроль качества."
+        "title": "UNIQUE",
+        "description": "It is amaong our priorities to develop and produce the needs of our valuable customers with tailored solutions."
       },
       {
-        "title": "Экологичное производство",
-        "description": "Мы работаем с экологичными поставщиками."
+        "title": "FLEXIBLE",
+        "description": "We have adopted as a principle of quick adaptation to variable demands of customers by using the existing machinery in the most efficient way."
       }
     ],
-    "cta": "Смотреть коллекцию"
+    "cta": "Explore Collection"
   },
-  "Navbar": {
+"Navbar": {
     "links": {
-      "home": "Главная",
-      "products": "Продукция",
-      "about": "О нас",
-      "contact": "Контакты"
+      "home": "Home",
+      "products": "Products",
+      "about": "About Us",
+      "contact": "Contact"
     },
     "actions": {
-      "viewCart": "Открыть корзину",
-      "toggleMenu": "Открыть меню",
-      "navTitle": "Навигация"
+      "viewCart": "View Cart",
+      "toggleMenu": "Toggle navigation menu",
+      "navTitle": "Navigation"
     }
   },
   "RequestSampleButton": {
-    "addFirst": "Запросить образец",
-    "addAnother": "Добавить еще ({count} в корзине)"
+    "addFirst": "Request Sample Hanger",
+    "addAnother": "Add Another ({count} in Cart)"
   },
   "StorefrontFilter": {
     "search": {
-      "placeholder": "Поиск по названию...",
-      "title": "Поиск и сортировка"
+      "placeholder": "Search by name...",
+      "title": "Search & Sort"
     },
     "sort": {
-      "label": "Сортировка",
-      "az": "А–Я",
-      "za": "Я–А"
+      "label": "Sort",
+      "az": "A to Z",
+      "za": "Z to A"
     },
     "dialog": {
-      "title": "Фильтр товаров"
+      "title": "Filter Products"
     },
     "sections": {
-      "widths": "Ширина",
-      "categories": "Категории",
-      "colors": "Цвета",
-      "noWidths": "Нет значений.",
-      "noCategories": "Нет категорий.",
-      "noColors": "Нет цветов."
+      "widths": "Widths",
+      "categories": "Categories",
+      "colors": "Colors",
+      "noWidths": "No widths found.",
+      "noCategories": "No categories found.",
+      "noColors": "No colors found."
     },
     "actions": {
-      "apply": "Применить",
-      "clear": "Сбросить"
+      "apply": "Apply Filters",
+      "clear": "Clear Filters"
     }
   },
-  "StorefrontPage": {
+"StorefrontPage": {
     "header": {
-      "title": "Ткани Tuzemen",
-      "subtitle": "Изучите нашу коллекцию."
+      "title": "Tuzemen Fabrics",
+      "subtitle": "Explore our premium collection."
     },
-    "emptyState": "По заданным фильтрам ничего не найдено."
+    "emptyState": "No fabrics found matching your filters."
   },
   "ProductDetailsPage": {
     "nav": {
-      "back": "Назад"
+      "back": "Back to Collection"
     },
     "info": {
-      "uncategorized": "Без категории"
+      "uncategorized": "Uncategorized"
     },
     "specs": {
-      "title": "Характеристики",
-      "composition": "Состав",
-      "width": "Ширина",
-      "weight": "Плотность",
-      "leadband": "Утяжелитель",
-      "yes": "Да",
-      "no": "Нет",
-      "na": "Н/Д"
-    }    ,
+      "title": "Technical Specifications",
+      "composition": "Composition",
+      "width": "Width",
+      "weight": "Weight",
+      "leadband": "Leadband Included",
+      "yes": "Yes",
+      "no": "No",
+      "na": "N/A"
+    },
   "contactButton": {
-    "text": "Свяжитесь с нами"
+    "text": "Get in touch"
   }
   },
   "ProductGallery": {
-    "colorsTitle": "Доступные цвета",
-    "original": "Оригинал",
+    "colorsTitle": "Available Colors",
+    "original": "Original",
     "imageAlt": {
-      "main": "Основное",
+      "main": "Main",
       "template": "{name} - {color}"
     }
   },
   "Loading": {
-    "loading": "Загрузка..."
+    "loading": "Loading..."
   },
   "FilterLeadband": {
-  "title": "Утяжелитель",
-  "placeholder": "Выберите требование",
-  "options": {
-    "all": "Любой",
-    "yes": "Да (в комплекте)",
-    "no": "Нет"
+    "title": "Leadband",
+    "placeholder": "Select requirement",
+    "options": {
+      "all": "All",
+      "yes": "Yes (Included)",
+      "no": "No"
+    }
+  },
+  "FilterChecklist": {
+    "defaultEmpty": "No items."
   }
-},
-"FilterChecklist": {
-  "defaultEmpty": "Элементы не найдены."
-}
 }
