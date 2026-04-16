@@ -47,7 +47,7 @@ export async function sendSampleRequest(formData: FormData) {
     // 2. Send Email
     await resend.emails.send({
       from: "Tuzemen Sample Requests <onboarding@resend.dev>",
-      to: "your-email@example.com", // Replace with your email
+      to: "tzm5315293985@gmail.com", // Replace with your email
       subject: `New Sample Request from ${company || name}`,
       replyTo: email,
       text: `
