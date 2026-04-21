@@ -23,7 +23,7 @@ export default function StatsSection() {
           />
 
           <AnimatedStat 
-            end={500} 
+            end={3000} 
             suffix="+" 
             title={t("satisfiedCustomers")} 
             icon={Users} 
@@ -32,7 +32,7 @@ export default function StatsSection() {
 
           {/* New Metric Tons / Meters Sold Stat */}
           <AnimatedStat
-            end={10000} 
+            end={100000} 
             suffix="+" 
             title={t("metersSold")} 
             icon={Package} 
