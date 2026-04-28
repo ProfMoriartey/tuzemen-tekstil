@@ -15,7 +15,7 @@ import WhatsAppButton from "~/components/WhatsAppButton";
 const inter = Inter({ subsets: ["latin"], variable: "--font-sans" });
 
 export const metadata: Metadata = {
-  title: "Tuzemen Group",
+  title: "Winbrella Fabrics",
   description: "Sustainable fabrics for a better tomorrow.",
   icons: [{ rel: "icon", url: "/favicon.ico" }],
 };
