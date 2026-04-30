@@ -139,7 +139,7 @@ export default async function ProductDetailsPage({
             designName={fabric.name}
             displayImageUrl={fabric.displayImageUrl}
           />
-          <a href={whatsappUrl}>
+          <a href={whatsappUrl} target="_blank">
             <button className="bg-theme-accent text-theme-bg mt-8 flex w-full cursor-pointer items-center justify-center rounded-md py-4 font-bold tracking-wide uppercase shadow-sm transition-all hover:opacity-90">
               <span className="mr-3">{t("contactButton.text")}</span>
               <svg viewBox="0 0 24 24" className="h-6 w-6 fill-current">
