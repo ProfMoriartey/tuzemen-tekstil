@@ -36,7 +36,7 @@ export default function Navbar() {
   ];
 
   return (
-    <nav className="bg-theme-bg/95 border-theme-primary/30 sticky top-0 z-50 w-full border-b backdrop-blur supports-backdrop-filter:bg-theme-bg/80">
+    <nav className="bg-theme-bg/95 border-theme-primary/30 supports-backdrop-filter:bg-theme-bg/80 sticky top-0 z-50 w-full border-b backdrop-blur">
       <div className="container mx-auto flex h-16 items-center justify-between px-4 md:px-8">
         {/* Left Side: Logo */}
         <Link
@@ -44,10 +44,11 @@ export default function Navbar() {
           className="relative h-12 w-48 transition-opacity hover:opacity-90"
         >
           <Image
-            src="/logo.svg" // Replace with your actual path (e.g., /logo.png)
-            alt="Tuzemen Group Logo"
-            fill
-            className="object-contain object-left"
+            src="/winbrella.png" // Replace with your actual path (e.g., /logo.png)
+            alt="Winbrella Fabrics Logo"
+            width={160}
+            height={160}
+            className="-mt-15 object-contain object-left"
             priority
           />
         </Link>
@@ -64,7 +65,7 @@ export default function Navbar() {
                 <Link
                   key={link.href}
                   href={link.href}
-                  className={`text-sm font-medium transition-colors hover:text-theme-text ${
+                  className={`hover:text-theme-text text-sm font-medium transition-colors ${
                     isActive ? "text-theme-text" : "text-theme-text/70"
                   }`}
                 >
@@ -118,7 +119,7 @@ export default function Navbar() {
                           key={link.href}
                           href={link.href}
                           onClick={() => setIsOpen(false)}
-                          className={`text-lg font-medium transition-colors hover:text-theme-text ${
+                          className={`hover:text-theme-text text-lg font-medium transition-colors ${
                             isActive ? "text-theme-text" : "text-theme-text/70"
                           }`}
                         >
