@@ -37,23 +37,23 @@
   "AboutPage": {
     "hero": {
       "title": "Weaving Excellence",
-      "subtitle": "Tuzemen Group is a premier manufacturer of high-quality sheers, heavy drapery, and accent textiles, rooted in the rich textile heritage of Bursa, Türkiye.",
-      "imageAlt": "Tuzemen Group Weaving Facility"
+      "subtitle": "Winbrella Fabrics is a premier manufacturer of high-quality sheers, heavy drapery, and accent textiles, rooted in the rich textile heritage of Bursa, Türkiye.",
+      "imageAlt": "Winbrella Fabrics Weaving Facility"
     },
     "heritage": {
       "title": "Our Heritage",
-      "imageAlt": "Tuzemen Group weaving process",
-      "p1": "Located in the heart of Türkiye's textile capital, Tuzemen Group was founded with a singular vision: to engineer fabrics that bridge the gap between traditional craftsmanship and modern material science.",
+      "imageAlt": "Winbrella Fabrics weaving process",
+      "p1": "Located in the heart of Türkiye's textile capital, Winbrella Fabrics was founded with a singular vision: to engineer fabrics that bridge the gap between traditional craftsmanship and modern material science.",
       "p2": "For years, we have supplied designers, architects, and global retailers with premium textiles that define spaces. From the lightest, most delicate sheers to heavy, acoustic-dampening drapery, every roll of fabric that leaves our facility proves our commitment to quality.",
       "p3": "We control the entire production pipeline—from yarn selection to the final leadband finishing—ensuring that our strict standards are met at every single touchpoint."
     },
     "video": {
       "title": "See Our Process",
       "description": "Take a look inside our manufacturing facility and see how raw materials become premium textiles.",
-      "iframeTitle": "Tuzemen Group Introduction"
+      "iframeTitle": "Winbrella Fabrics Introduction"
     },
     "standards": {
-      "title": "The Tuzemen Standard",
+      "title": "The Winbrella Standard",
       "description": "Our reputation is built into the very threads of our products. Here is how we ensure high quality across our entire catalog.",
       "facilities": {
         "title": "Advanced Facilities",
@@ -82,7 +82,7 @@
     "hero": {
       "title": "Get in Touch",
       "subtitle": "Whether you are requesting fabric samples, inquiring about bulk orders, or looking to partner with us, our team is ready to assist you.",
-      "imageAlt": "Contact Tuzemen Group"
+      "imageAlt": "Contact Winbrella Fabrics"
     },
     "form": {
       "title": "Send a Message"
@@ -109,7 +109,7 @@
       "weekendStatus": "Closed"
     },
     "map": {
-      "title": "Tuzemen Group Location"
+      "title": "Winbrella Fabrics Location"
     }
   },
   "ContactForm": {
@@ -180,7 +180,7 @@
   },
   "Footer": {
     "company": {
-      "name": "Tuzemen Group",
+      "name": "Winbrella Fabrics",
       "description": "Premium fabrics for every space. We specialize in high-quality sheers, drapery, and accent textiles crafted to exact specifications."
     },
     "links": {
@@ -194,9 +194,9 @@
     "contact": {
       "title": "Contact Us",
       "address": "SAMANLI MAHALLESİ SEL SOK B BLOK NO:67/F\n16350 YILDIRIM BURSA/TURKEY",
-      "mapTitle": "Tuzemen Group Location"
+      "mapTitle": "Winbrella Fabrics Location"
     },
-    "copyright": "© {year} Tuzemen Group. All rights reserved."
+    "copyright": "© {year} Winbrella Fabrics. All rights reserved."
   },
   "HeroCarousel": {
     "slides": [
@@ -266,7 +266,7 @@
   },
 "StorefrontPage": {
     "header": {
-      "title": "Tuzemen Fabrics",
+      "title": "Winbrella Fabrics",
       "subtitle": "Explore our premium collection."
     },
     "emptyState": "No fabrics found matching your filters."
