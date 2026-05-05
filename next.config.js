@@ -14,7 +14,9 @@ const config = {
       { hostname: "utfs.io" }, 
       { hostname: "2ryc0965uu.ufs.sh" }, 
       { hostname: "0m7zywkdga.ufs.sh" }, 
-      { hostname: "cdn.tuzemengroup.com" }
+      { hostname: "cdn.tuzemengroup.com" },
+      { hostname: "acrobatservices.adobe.com" },
+      { hostname: "pdf-viewer.adobe.com" },
     ],
   },
 };
