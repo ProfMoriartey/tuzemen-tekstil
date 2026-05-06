@@ -3,29 +3,9 @@
 import { useEffect, useState } from "react";
 import Script from "next/script";
 
-// 1. Declare the global Window interface to tell TypeScript about the external Adobe script
 declare global {
   interface Window {
-    AdobeDC?: {
-      View: new (options: { clientId: string; divId: string }) => {
-        previewFile(
-          filePromise: {
-            content: { location: { url: string } };
-            metaData: { fileName: string };
-          },
-          viewerOptions: {
-            embedMode:
-              | "SIZED_CONTAINER"
-              | "FULL_WINDOW"
-              | "IN_LINE"
-              | "LIGHTBOX";
-            showDownloadPDF: boolean;
-            showPrintPDF: boolean;
-            showFullScreen: boolean;
-          },
-        ): void;
-      };
-    };
+    AdobeDC?: any;
   }
 }
 
@@ -35,36 +15,52 @@ interface PDFViewerProps {
 }
 
 export default function PDFViewer({ pdfUrl, fileName }: PDFViewerProps) {
-  const [isScriptLoaded, setIsScriptLoaded] = useState(false);
+  const [error, setError] = useState<string | null>(null);
   const clientId = process.env.NEXT_PUBLIC_ADOBE_CLIENT_ID;
 
   useEffect(() => {
-    // 2. We no longer need @ts-expect-error because TypeScript now knows what window.AdobeDC is!
-    if (
-      isScriptLoaded &&
-      clientId &&
-      typeof window !== "undefined" &&
-      window.AdobeDC
-    ) {
-      const adobeDCView = new window.AdobeDC.View({
-        clientId: clientId,
-        divId: "adobe-pdf-viewer",
-      });
+    if (!clientId) return;
 
-      adobeDCView.previewFile(
-        {
-          content: { location: { url: pdfUrl } },
-          metaData: { fileName: fileName },
-        },
-        {
-          embedMode: "SIZED_CONTAINER",
-          showDownloadPDF: false,
-          showPrintPDF: false,
-          showFullScreen: true,
-        },
-      );
+    // The function that actually draws the PDF
+    const renderPDF = () => {
+      try {
+        console.log("Adobe SDK is ready, attempting to render...");
+
+        const adobeDCView = new window.AdobeDC.View({
+          clientId: clientId,
+          divId: "adobe-pdf-viewer",
+        });
+
+        adobeDCView.previewFile(
+          {
+            content: { location: { url: pdfUrl } },
+            metaData: { fileName: fileName },
+          },
+          {
+            embedMode: "SIZED_CONTAINER",
+            showDownloadPDF: false,
+            showPrintPDF: false,
+            showFullScreen: true,
+          },
+        );
+      } catch (err: any) {
+        console.error("Failed to render PDF:", err);
+        setError(err.message || "Failed to load the PDF viewer.");
+      }
+    };
+
+    // Check if Adobe is already loaded (sometimes happens on fast hot-reloads)
+    if (window.AdobeDC) {
+      renderPDF();
+    } else {
+      // If not, wait for Adobe's official ready event
+      document.addEventListener("adobe_dc_view_sdk.ready", renderPDF);
     }
-  }, [isScriptLoaded, pdfUrl, fileName, clientId]);
+
+    return () => {
+      document.removeEventListener("adobe_dc_view_sdk.ready", renderPDF);
+    };
+  }, [pdfUrl, fileName, clientId]);
 
   if (!clientId) {
     return (
@@ -75,12 +71,23 @@ export default function PDFViewer({ pdfUrl, fileName }: PDFViewerProps) {
   }
 
   return (
-    <div className="border-border relative h-[75vh] min-h-[600px] w-full overflow-hidden rounded-xl border bg-slate-50 shadow-sm">
+    <div className="border-border relative h-[75vh] min-h-[600px] w-full overflow-hidden rounded-xl border bg-slate-50 text-slate-900 shadow-sm">
+      {/* If an error occurs, it will show up here instead of a blank screen */}
+      {error && (
+        <div className="absolute inset-0 z-10 flex items-center justify-center p-6 text-center">
+          <div className="rounded-lg bg-red-50 p-4 text-red-600">
+            <strong>Error:</strong> {error}
+          </div>
+        </div>
+      )}
+
+      {/* Force Next.js to load the script before the page becomes fully interactive */}
       <Script
         src="https://acrobatservices.adobe.com/view-sdk/viewer.js"
-        onReady={() => setIsScriptLoaded(true)}
+        strategy="beforeInteractive"
       />
 
+      {/* The container Adobe needs to inject into */}
       <div id="adobe-pdf-viewer" className="absolute inset-0 h-full w-full" />
     </div>
   );
