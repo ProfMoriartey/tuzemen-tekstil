@@ -3,9 +3,29 @@
 import { useEffect, useState } from "react";
 import Script from "next/script";
 
+// 1. Explicitly defining the shape of AdobeDC to eliminate the 'any' errors
 declare global {
   interface Window {
-    AdobeDC?: any;
+    AdobeDC?: {
+      View: new (options: { clientId: string; divId: string }) => {
+        previewFile(
+          filePromise: {
+            content: { location: { url: string } };
+            metaData: { fileName: string };
+          },
+          viewerOptions: {
+            embedMode:
+              | "SIZED_CONTAINER"
+              | "FULL_WINDOW"
+              | "IN_LINE"
+              | "LIGHTBOX";
+            showDownloadPDF: boolean;
+            showPrintPDF: boolean;
+            showFullScreen: boolean;
+          },
+        ): void;
+      };
+    };
   }
 }
 
@@ -21,10 +41,12 @@ export default function PDFViewer({ pdfUrl, fileName }: PDFViewerProps) {
   useEffect(() => {
     if (!clientId) return;
 
-    // The function that actually draws the PDF
     const renderPDF = () => {
       try {
         console.log("Adobe SDK is ready, attempting to render...");
+
+        // TypeScript now knows exactly what window.AdobeDC is!
+        if (!window.AdobeDC) return;
 
         const adobeDCView = new window.AdobeDC.View({
           clientId: clientId,
@@ -43,17 +65,21 @@ export default function PDFViewer({ pdfUrl, fileName }: PDFViewerProps) {
             showFullScreen: true,
           },
         );
-      } catch (err: any) {
+      } catch (err: unknown) {
+        // 2. Switched from 'any' to 'unknown', and safely checking the error
         console.error("Failed to render PDF:", err);
-        setError(err.message || "Failed to load the PDF viewer.");
+        if (err instanceof Error) {
+          // 3. Using ?? instead of || to satisfy the linter
+          setError(err.message ?? "Failed to load the PDF viewer.");
+        } else {
+          setError("An unknown error occurred while loading the PDF.");
+        }
       }
     };
 
-    // Check if Adobe is already loaded (sometimes happens on fast hot-reloads)
     if (window.AdobeDC) {
       renderPDF();
     } else {
-      // If not, wait for Adobe's official ready event
       document.addEventListener("adobe_dc_view_sdk.ready", renderPDF);
     }
 
@@ -72,7 +98,6 @@ export default function PDFViewer({ pdfUrl, fileName }: PDFViewerProps) {
 
   return (
     <div className="border-border relative h-[75vh] min-h-[600px] w-full overflow-hidden rounded-xl border bg-slate-50 text-slate-900 shadow-sm">
-      {/* If an error occurs, it will show up here instead of a blank screen */}
       {error && (
         <div className="absolute inset-0 z-10 flex items-center justify-center p-6 text-center">
           <div className="rounded-lg bg-red-50 p-4 text-red-600">
@@ -81,13 +106,9 @@ export default function PDFViewer({ pdfUrl, fileName }: PDFViewerProps) {
         </div>
       )}
 
-      {/* Force Next.js to load the script before the page becomes fully interactive */}
-      <Script
-        src="https://acrobatservices.adobe.com/view-sdk/viewer.js"
-        strategy="beforeInteractive"
-      />
+      {/* 4. Removed the 'beforeInteractive' strategy to fix the Next.js warning */}
+      <Script src="https://acrobatservices.adobe.com/view-sdk/viewer.js" />
 
-      {/* The container Adobe needs to inject into */}
       <div id="adobe-pdf-viewer" className="absolute inset-0 h-full w-full" />
     </div>
   );
