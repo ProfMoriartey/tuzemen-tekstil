@@ -64,6 +64,7 @@ export default function ImageGallery({ design, variants }: ImageGalleryProps) {
                     alt={variant.color}
                     fill
                     className="object-cover"
+                    unoptimized
                   />
                 </button>
               </CarouselItem>
