@@ -12,7 +12,7 @@ export default async function CatalogPage() {
 
   // Replace this with your actual uploaded PDF URL from Uploadthing
   const uploadThingPdfUrl =
-    "https://0m7zywkdga.ufs.sh/f/NvuvlEaQRsPh5AU9kpdtYW2LoJ3VlTahqnxBc498vXE6Cdzb";
+    "https://0m7zywkdga.ufs.sh/f/NvuvlEaQRsPhXV4zlRP9p7rFD1Z8TW5zCuI34KitASsYx9Nl";
 
   return (
     <div className="bg-theme-bg min-h-screen py-8 md:py-12">
