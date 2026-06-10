@@ -48,7 +48,7 @@ export default function Navbar() {
             alt="Winbrella Fabrics Logo"
             width={160}
             height={160}
-            className="-mt-15 object-contain object-left"
+            className="-mt-4 object-contain object-left"
             priority
           />
         </Link>
