@@ -23,22 +23,22 @@ export default function HeroCarousel() {
     {
       id: 1,
       image:
-       "https://cdn.tuzemengroup.com/uploads/winbrella_sosyal_yeni_1_126_87d70ea499.JPG?w=3840&q=75",
+        "https://0m7zywkdga.ufs.sh/f/NvuvlEaQRsPhGg99Xru8oqzKDSFBOh40UMTnk8f6cRALXwPb",
     },
     {
       id: 2,
       image:
-      "https://cdn.tuzemengroup.com/uploads/DSC_3212_5796bdce25.jpg?w=3840&q=75",
+        "https://0m7zywkdga.ufs.sh/f/NvuvlEaQRsPheUqCFnjfHnTOP2gQVUABrdsbDqM46wkyCRhi",
     },
     {
       id: 3,
       image:
-        "https://cdn.tuzemengroup.com/uploads/DBBC_9725_Kopya_26268c3a4c.JPG?w=3840&q=75",
+        "https://0m7zywkdga.ufs.sh/f/NvuvlEaQRsPhu7HaOTVYqsQfpLjkoJXCi8V1Ky5mNaMeBdP0",
     },
     {
       id: 4,
       image:
-        "https://cdn.tuzemengroup.com/uploads/DSC_3037_9456a8533d.jpg?w=3840&q=75",
+        "https://0m7zywkdga.ufs.sh/f/NvuvlEaQRsPhKpxLreCMos1webTScCVuWf0Ahnjzt9dJXHI3",
     },
   ];
 
@@ -68,7 +68,7 @@ export default function HeroCarousel() {
 
                 <div className="relative z-10 container mx-auto w-full px-4 md:px-8">
                   <div className="max-w-2xl">
-                    <h1 className="mb-6 text-4xl leading-tight font-bold tracking-tight text-theme-bg uppercase md:text-5xl xl:text-6xl">
+                    <h1 className="text-theme-bg mb-6 text-4xl leading-tight font-bold tracking-tight uppercase md:text-5xl xl:text-6xl">
                       {t(`slides.${index}.title`)}
                     </h1>
                     <p className="text-theme-bg/90 mb-10 text-lg leading-relaxed md:text-xl">
